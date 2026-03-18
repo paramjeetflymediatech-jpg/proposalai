@@ -1,81 +1,131 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Logo from "../ui/Logo";
+
+// ── Each transparent page maps to its exact hero background colour ────────────
+// This prevents content from bleeding through the fixed navbar when scrolling
+const HERO_BG_MAP = {
+  "/platform": "#E8E0D0",
+  "/solution":  "#E8E0D0",
+  "/about":     "#E8E0D0",
+};
 
 const SOLUTION_MENU = {
   useCases: [
-    { label: "RFP Responses", desc: "Win more bids faster.", href: "/solution/rfp-responses" },
-    { label: "RFP Evaluations", desc: "Score bids consistently.", href: "/solution/rfp-evaluations" },
-    { label: "Security Questionnaires", desc: "Answer SQs in minutes.", href: "/solution/security" },
+    { label: "RFP Responses",           desc: "Win more bids faster.",    href: "/solution/rfp-responses" },
+    { label: "RFP Evaluations",          desc: "Score bids consistently.", href: "/solution/rfp-evaluations" },
+    { label: "Security Questionnaires",  desc: "Answer SQs in minutes.",   href: "/solution/security" },
   ],
   industries: ["Technology", "Re-Insurance Brokers", "Consulting Firms"],
   features: [
-    "AI Content Library", "Smart Templates", "Collaboration Hub",
-    "Analytics Dashboard", "Compliance Tracking", "Integration Suite",
-    "Auto-Formatting", "Version Control", "E-Signature", "Export Tools",
+    "AI Content Library", "Smart Templates",     "Collaboration Hub",
+    "Analytics Dashboard","Compliance Tracking", "Integration Suite",
+    "Auto-Formatting",    "Version Control",     "E-Signature", "Export Tools",
   ],
 };
 
 const COMPANY_MENU = [
   { label: "About Us", href: "/about" },
-  { label: "Careers", href: "/careers" },
-  { label: "Press", href: "/press" },
-  { label: "Contact", href: "/contact" },
+  { label: "Careers",  href: "/careers" },
+  { label: "Press",    href: "/press" },
+  { label: "Contact",  href: "/contact" },
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [openMenu, setOpenMenu] = useState(null);
+  const pathname            = usePathname();
+  const [scrolled,   setScrolled]   = useState(false);
+  const [openMenu,   setOpenMenu]   = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Find the hero bg for the current page (null = default white)
+  const heroBg = Object.entries(HERO_BG_MAP).find(
+    ([path]) => pathname === path || pathname.startsWith(path + "/")
+  )?.[1] ?? null;
+
+  const startsTransparent = !!heroBg;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    setOpenMenu(null);
+    setMobileOpen(false);
+  }, [pathname]);
+
+  const isTransparent = startsTransparent && !scrolled;
+
+  // ── Dynamic styles ────────────────────────────────────────────────────────
+  // At top of hero page  → match the hero bg colour exactly (no bleed-through)
+  // After scrolling      → crisp white with shadow
+  const headerBg = isTransparent
+    ? heroBg                                      // e.g. "#E8E0D0" — exact hero colour
+    : "rgba(255,255,255,0.97)";
+
+  const headerShadow = scrolled
+    ? "0 1px 0 0 rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.05)"
+    : "none";
+
+  const linkClass = isTransparent
+    ? "text-gray-800 hover:text-primary hover:bg-black/5"
+    : "text-gray-600 hover:text-primary hover:bg-gray-50";
 
   const toggleMenu = (name) => setOpenMenu(openMenu === name ? null : name);
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100" : "bg-white"
-        }`}
+        style={{
+          backgroundColor: headerBg,
+          boxShadow: headerShadow,
+          backdropFilter: scrolled ? "blur(12px)" : "none",
+          transition: "background-color 0.3s ease, box-shadow 0.3s ease",
+        }}
+        className="fixed top-0 left-0 right-0 z-50"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
+        <div className="w-full px-6 lg:px-10">
+          <div className="flex items-center justify-between h-[72px] lg:h-[80px]">
+
+            {/* Logo — ref shows bigger logo */}
             <Link href="/" className="flex-shrink-0">
-              <Logo />
+              <Logo height={44} />
             </Link>
 
-            {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-1">
-              <Link href="/" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-primary transition-colors rounded-lg hover:bg-gray-50">
-                Home
-              </Link>
-              <Link href="/platform" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-primary transition-colors rounded-lg hover:bg-gray-50">
-                Platform
-              </Link>
+            {/* Desktop nav — ref: ~16px, no rounded bg */}
+            <nav className="hidden md:flex items-center gap-0">
+              {[
+                { label: "Home",     href: "/" },
+                { label: "Platform", href: "/platform" },
+              ].map((l) => (
+                <Link key={l.label} href={l.href}
+                  className={`px-5 py-2 text-base font-medium transition-colors ${linkClass}`}>
+                  {l.label}
+                </Link>
+              ))}
 
               {/* Solution dropdown */}
               <div className="relative">
                 <button
                   onClick={() => toggleMenu("solution")}
-                  className={`flex items-center gap-1.5 px-4 py-2 text-sm font-medium transition-colors rounded-lg ${
-                    openMenu === "solution" ? "text-primary bg-blue-50" : "text-gray-700 hover:text-primary hover:bg-gray-50"
+                  className={`flex items-center gap-1 px-5 py-2 text-base font-medium transition-colors ${
+                    openMenu === "solution" ? "text-primary" : linkClass
                   }`}
                 >
                   Solution
-                  <svg className={`w-3.5 h-3.5 transition-transform ${openMenu === "solution" ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className={`w-4 h-4 transition-transform duration-200 ${openMenu === "solution" ? "rotate-180" : ""}`}
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
               </div>
 
-              <Link href="/resource" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-primary transition-colors rounded-lg hover:bg-gray-50">
+              <Link href="/resource"
+                className={`px-5 py-2 text-base font-medium transition-colors ${linkClass}`}>
                 Resource
               </Link>
 
@@ -83,31 +133,41 @@ export default function Navbar() {
               <div className="relative">
                 <button
                   onClick={() => toggleMenu("company")}
-                  className={`flex items-center gap-1.5 px-4 py-2 text-sm font-medium transition-colors rounded-lg ${
-                    openMenu === "company" ? "text-primary bg-blue-50" : "text-gray-700 hover:text-primary hover:bg-gray-50"
+                  className={`flex items-center gap-1 px-5 py-2 text-base font-medium transition-colors ${
+                    openMenu === "company" ? "text-primary" : linkClass
                   }`}
                 >
                   Company
-                  <svg className={`w-3.5 h-3.5 transition-transform ${openMenu === "company" ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className={`w-4 h-4 transition-transform duration-200 ${openMenu === "company" ? "rotate-180" : ""}`}
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
               </div>
             </nav>
 
-            <div className="hidden md:flex items-center gap-3">
-              <Link href="/contact" className="btn-primary text-sm">
+            {/* CTA — pill with solid white circle arrow */}
+            <div className="hidden md:flex items-center">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2.5 bg-primary text-white text-base font-semibold
+                           pl-6 pr-1.5 py-1.5 rounded-full shadow-lg shadow-primary/25
+                           hover:bg-primary/90 transition-all duration-200"
+              >
                 Book a Demo
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
+                <span className="w-9 h-9 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                  <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </span>
               </Link>
             </div>
 
-            {/* Mobile menu btn */}
+            {/* Mobile hamburger */}
             <button
-              className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100"
+              className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
             >
               {mobileOpen ? (
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -122,11 +182,10 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Solution Mega Menu */}
+        {/* Solution mega-menu */}
         {openMenu === "solution" && (
-          <div className="absolute top-full left-0 right-0 bg-gray-900 shadow-2xl border-t border-gray-800 z-50 animate-fade-in">
+          <div className="absolute top-full left-0 right-0 bg-gray-900 shadow-2xl border-t border-gray-800 z-50">
             <div className="max-w-7xl mx-auto px-8 py-8 grid grid-cols-4 gap-8">
-              {/* Use Cases */}
               <div>
                 <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Use Cases</h4>
                 <ul className="space-y-3">
@@ -151,7 +210,6 @@ export default function Navbar() {
                 </Link>
               </div>
 
-              {/* Industries */}
               <div>
                 <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Industries</h4>
                 <ul className="space-y-2">
@@ -163,25 +221,28 @@ export default function Navbar() {
                 </ul>
               </div>
 
-              {/* Features list */}
               <div>
                 <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Features</h4>
                 <ul className="space-y-2">
                   {SOLUTION_MENU.features.slice(0, 5).map((f) => (
-                    <li key={f}><Link href="#" className="text-sm text-gray-300 hover:text-white transition-colors" onClick={() => setOpenMenu(null)}>{f}</Link></li>
+                    <li key={f}>
+                      <Link href="#" className="text-sm text-gray-300 hover:text-white transition-colors" onClick={() => setOpenMenu(null)}>{f}</Link>
+                    </li>
                   ))}
                 </ul>
               </div>
+
               <div className="pt-6">
                 <ul className="space-y-2">
                   {SOLUTION_MENU.features.slice(5).map((f) => (
-                    <li key={f}><Link href="#" className="text-sm text-gray-300 hover:text-white transition-colors" onClick={() => setOpenMenu(null)}>{f}</Link></li>
+                    <li key={f}>
+                      <Link href="#" className="text-sm text-gray-300 hover:text-white transition-colors" onClick={() => setOpenMenu(null)}>{f}</Link>
+                    </li>
                   ))}
                 </ul>
               </div>
             </div>
 
-            {/* Featured card */}
             <div className="border-t border-gray-800">
               <div className="max-w-7xl mx-auto px-8 py-5 flex items-center gap-6">
                 <div className="w-9 h-9 rounded-xl bg-primary/20 flex items-center justify-center">
@@ -201,11 +262,13 @@ export default function Navbar() {
           </div>
         )}
 
-        {/* Company Dropdown */}
+        {/* Company dropdown */}
         {openMenu === "company" && (
-          <div className="absolute top-full right-60 bg-white rounded-2xl shadow-xl border border-gray-100 py-2 w-48 z-50 animate-fade-in">
+          <div className="absolute top-full right-60 bg-white rounded-2xl shadow-xl border border-gray-100 py-2 w-48 z-50">
             {COMPANY_MENU.map((item) => (
-              <Link key={item.label} href={item.href} className="block px-4 py-2.5 text-sm text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors" onClick={() => setOpenMenu(null)}>
+              <Link key={item.label} href={item.href}
+                className="block px-4 py-2.5 text-sm text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
+                onClick={() => setOpenMenu(null)}>
                 {item.label}
               </Link>
             ))}
@@ -218,7 +281,7 @@ export default function Navbar() {
         <div className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm" onClick={() => setOpenMenu(null)} />
       )}
 
-      {/* Mobile Menu */}
+      {/* Mobile full-screen menu */}
       {mobileOpen && (
         <div className="fixed inset-0 z-50 bg-white flex flex-col pt-16 px-6 pb-8 overflow-y-auto">
           <button className="absolute top-4 right-4 p-2 rounded-lg text-gray-600 hover:bg-gray-100" onClick={() => setMobileOpen(false)}>
@@ -228,13 +291,16 @@ export default function Navbar() {
           </button>
           <nav className="space-y-1 mt-4">
             {[
-              { label: "Home", href: "/" },
+              { label: "Home",     href: "/" },
               { label: "Platform", href: "/platform" },
               { label: "Solution", href: "/solution" },
               { label: "Resource", href: "/resource" },
-              { label: "Company", href: "/about" },
+              { label: "About",    href: "/about" },
+              { label: "Contact",  href: "/contact" },
             ].map((item) => (
-              <Link key={item.label} href={item.href} className="flex items-center gap-3 px-4 py-3 text-lg font-medium text-gray-800 hover:text-primary hover:bg-gray-50 rounded-xl transition-colors" onClick={() => setMobileOpen(false)}>
+              <Link key={item.label} href={item.href}
+                className="flex items-center gap-3 px-4 py-3 text-lg font-medium text-gray-800 hover:text-primary hover:bg-gray-50 rounded-xl transition-colors"
+                onClick={() => setMobileOpen(false)}>
                 {item.label}
               </Link>
             ))}
