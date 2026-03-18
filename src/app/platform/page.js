@@ -93,13 +93,13 @@ export default function PlatformPage() {
         <div className="relative w-full px-6 sm:px-10 lg:px-16 py-12 md:py-0">
           <AnimateOnScroll>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-dark leading-[1.08] mb-5 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
-              Built to Win.{" "}<span className="text-primary">Designed to Scale.</span>
+              The Smarter Way{" "}<span className="text-primary">to Write Winning Proposals  </span>
             </h1>
             <p className="text-gray-600 text-sm sm:text-base max-w-xs sm:max-w-sm mb-8 leading-relaxed">
-              The ProposalAI platform combines powerful AI with intuitive collaboration tools to help your team create winning proposals at every stage of the sales cycle.
+               Transform your collective knowledge into a competitive advantage. Respond faster, ensure accuracy, and close more deals. 
             </p>
             <Link href="/contact" className="inline-flex items-center gap-2.5 bg-primary text-white text-sm sm:text-base font-semibold pl-5 sm:pl-6 pr-1.5 py-1.5 rounded-full shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all duration-200">
-              Explore Now
+              Request a Personalized Demo 
               <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                 <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -110,27 +110,7 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      {/* ── 2. Three-image showcase ───────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-white border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimateOnScroll className="text-center mb-12 md:mb-16">
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-dark">Built for Every Way You Work.</h2>
-          </AnimateOnScroll>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-10">
-            {SHOWCASE_ITEMS.map((item, i) => (
-              <AnimateOnScroll key={i} delay={i * 120}>
-                <div className="flex flex-col items-center text-center group">
-                  <div className="w-full h-48 sm:h-56 md:h-64 relative mb-6 md:mb-8">
-                    <Image src={item.src} alt={item.alt} fill className="object-contain transition-transform duration-500 group-hover:scale-105" />
-                  </div>
-                  <h3 className="font-display font-bold text-lg md:text-xl text-dark mb-2 md:mb-3">{item.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed max-w-xs">{item.desc}</p>
-                </div>
-              </AnimateOnScroll>
-            ))}
-          </div>
-        </div>
-      </section>
+    
 
       {/* ── 3. Scroll-driven video section ───────────────────────── */}
       <FeatureVideoSection />

@@ -1,103 +1,164 @@
 "use client";
-import { useEffect, useRef } from "react";
-import AnimateOnScroll from "../ui/AnimateOnScroll";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
-// ── Map each row to the exact video timestamp (seconds) ──────────────────────
-// Video breakdown (16s total):
-//  0s  → single blue dot animating        → Row 1
-//  4s  → customer events scatter plot     → Row 2
-//  8s  → nodes / relationships network    → Row 3
-//  12s → full stakeholder map with labels → Row 4
-const FEATURE_ROWS = [
+const STEPS = [
   {
-    seekTo: 0,
-    title: "Understand Your Audience at a Glance",
-    desc: "ProposalAI maps every stakeholder, segment, and signal into a single intelligent view — so you always know who you're writing for and what they care about most.",
+    step: "01",
+    image: "/step1.png",
+    title: "A Strategic RFP is Released",
+    desc: "A high-value opportunity lands on your desk. Upload the documents to ProposalAI to kickstart the process immediately.",
   },
   {
-    seekTo: 4,
-    title: "Identify Customer Events in Real Time",
-    desc: "Track every touchpoint and trigger across your audience. Our AI surfaces the moments that matter — so your proposal lands at exactly the right time.",
+    step: "02",
+    image: "/step2.png",
+    title: "AI Agents Organize & Extract",
+    desc: "AI deconstructs the RFP to reveal core priorities and hidden requirements. We deliver an instant strategic brief, giving your team a clear roadmap to victory and a confident go/no-go decision.",
   },
   {
-    seekTo: 8,
-    title: "Map Nodes and Relationships Across Every Deal",
-    desc: "Visualize the full stakeholder network across any bid. Know who influences decisions, who signs off, and where your relationships are strongest.",
+    step: "03",
+    image: "/step3.png",
+    title: "Context-Aware Drafting",
+    desc: "Agents generate a first draft where every answer is grounded against your secure Knowledge Base, ensuring content is accurate and brand-aligned.",
   },
   {
-    seekTo: 10,
-    title: "Build a Complete Stakeholder Profile",
-    desc: "From location and device to interests and household income — ProposalAI compiles every signal into a single profile so you write to the right person every time.",
+    step: "04",
+    image: "/step4.png",
+    title: "Collaborative Refinement & Final Export",
+    desc: "Your writing team and AI assistants develop, iterate, and polish the response entirely within the platform. Once validated, export your precision-crafted proposal in the required format — ready for final submission with total confidence.",
   },
 ];
 
 export default function FeatureVideoSection() {
-  const videoRef  = useRef(null);
-  const rowRefs   = useRef([]);
+  const [activeStep, setActiveStep] = useState(0);
+  const rowRefs = useRef([]);
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    // Start paused — we control playback ourselves
-    video.pause();
-
     const observers = rowRefs.current.map((el, i) => {
       if (!el) return null;
-
       const obs = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            // Seek to this row's timestamp then play
-            video.currentTime = FEATURE_ROWS[i].seekTo;
-            video.play().catch(() => {});
-          }
-        },
-        { threshold: 0.4 }
+        ([entry]) => { if (entry.isIntersecting) setActiveStep(i); },
+        { threshold: 0.55 }
       );
-
       obs.observe(el);
       return obs;
     });
-
     return () => observers.forEach((obs) => obs?.disconnect());
   }, []);
 
   return (
     <section className="bg-[#EDEAE4]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
 
-          {/* ── LEFT: scrolling text rows ──────────────────────────────── */}
-          <div className="space-y-28">
-            {FEATURE_ROWS.map((row, i) => (
+        {/* ── Section heading ──────────────────────────────── */}
+        <div className="text-center mb-16 md:mb-20">
+          <span className="inline-block text-primary text-xs font-bold uppercase tracking-widest mb-3 bg-primary/10 px-3 py-1 rounded-full">
+            How It Works
+          </span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-dark max-w-2xl mx-auto leading-tight mt-3">
+            From RFP to Winning Proposal —{" "}
+            <span className="text-primary">Automatically</span>
+          </h2>
+        </div>
+
+        {/* ── Two column sticky layout ─────────────────────── */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+          {/* LEFT — scrolling steps */}
+          <div>
+            {STEPS.map((s, i) => (
               <div
                 key={i}
                 ref={(el) => (rowRefs.current[i] = el)}
-                className="min-h-[50vh] flex flex-col justify-center"
+                className="min-h-[60vh] flex flex-col justify-center py-8"
               >
-                <AnimateOnScroll>
-                  <h2 className="font-display text-3xl md:text-4xl font-bold text-dark leading-tight mb-5">
-                    {row.title}
-                  </h2>
-                  <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-                    {row.desc}
-                  </p>
-                </AnimateOnScroll>
+                {/* Progress line */}
+                <div className="flex items-start gap-5">
+                  {/* Line + dot */}
+                  <div className="flex flex-col items-center flex-shrink-0 pt-1">
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-500 ${
+                      activeStep === i
+                        ? "bg-primary text-white scale-110 shadow-lg shadow-primary/30"
+                        : "bg-white text-gray-400 border border-gray-200"
+                    }`}>
+                      {s.step}
+                    </div>
+                    {i < STEPS.length - 1 && (
+                      <div className={`w-0.5 mt-2 transition-all duration-700 ${
+                        activeStep > i ? "bg-primary h-32" : "bg-gray-200 h-32"
+                      }`} />
+                    )}
+                  </div>
+
+                  {/* Text */}
+                  <div className={`pb-16 transition-all duration-500 ${
+                    activeStep === i ? "opacity-100 translate-y-0" : "opacity-40 translate-y-1"
+                  }`}>
+                    <span className="text-primary text-xs font-semibold uppercase tracking-widest mb-2 block">
+                      Step {s.step}
+                    </span>
+                    <h3 className={`font-display font-bold leading-tight mb-3 transition-all duration-300 ${
+                      activeStep === i ? "text-2xl md:text-3xl text-dark" : "text-xl text-gray-500"
+                    }`}>
+                      {s.title}
+                    </h3>
+                    <p className={`leading-relaxed transition-all duration-300 ${
+                      activeStep === i ? "text-gray-700 text-base max-h-40" : "text-gray-400 text-sm max-h-16 overflow-hidden"
+                    }`}>
+                      {s.desc}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
 
-          {/* ── RIGHT: single sticky video ─────────────────────────────── */}
+          {/* RIGHT — sticky image */}
           <div className="sticky top-24 self-start">
-            <video
-              ref={videoRef}
-              src="/videos/platform-video.mp4"
-              muted
-              playsInline
-              preload="auto"
-              className="w-full rounded-xl"
-            />
+            {/* Image card */}
+            <div className="relative w-full rounded-2xl overflow-hidden bg-white shadow-2xl">
+              {STEPS.map((s, i) => (
+                <div
+                  key={i}
+                  className={`transition-all duration-700 ease-in-out ${
+                    activeStep === i
+                      ? "opacity-100 scale-100"
+                      : "opacity-0 scale-[0.98] absolute inset-0"
+                  }`}
+                  style={{ position: activeStep === i ? "relative" : "absolute" }}
+                >
+                  <Image
+                    src={s.image}
+                    alt={s.title}
+                    width={600}
+                    height={600}
+                    className="w-full h-auto"
+                    priority={i === 0}
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Dot indicators */}
+            <div className="flex items-center justify-center gap-2 mt-5">
+              {STEPS.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => {
+                    setActiveStep(i);
+                    rowRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "center" });
+                  }}
+                  className={`rounded-full transition-all duration-400 ${
+                    activeStep === i ? "bg-primary w-7 h-2" : "bg-primary/25 w-2 h-2 hover:bg-primary/50"
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* Step label */}
+            <p className="text-center text-xs text-gray-400 mt-2 font-medium tracking-wide">
+              Step {STEPS[activeStep].step} of {STEPS.length}
+            </p>
           </div>
 
         </div>
