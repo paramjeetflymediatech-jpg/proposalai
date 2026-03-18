@@ -4,13 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "../ui/Logo";
 
-// ── Each transparent page maps to its exact hero background colour ────────────
-// This prevents content from bleeding through the fixed navbar when scrolling
-const HERO_BG_MAP = {
-  "/platform": "#E8E0D0",
-  "/solution":  "#E8E0D0",
-  "/about":     "#E8E0D0",
-};
+// Consistency: Navbar is now always white with a blur/shadow for a clean, professional look
+
 
 const SOLUTION_MENU = {
   useCases: [
@@ -34,17 +29,11 @@ const COMPANY_MENU = [
 ];
 
 export default function Navbar() {
-  const pathname            = usePathname();
-  const [scrolled,   setScrolled]   = useState(false);
-  const [openMenu,   setOpenMenu]   = useState(null);
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+  const [openMenu, setOpenMenu] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  // Find the hero bg for the current page (null = default white)
-  const heroBg = Object.entries(HERO_BG_MAP).find(
-    ([path]) => pathname === path || pathname.startsWith(path + "/")
-  )?.[1] ?? null;
-
-  const startsTransparent = !!heroBg;
+  const [mobileDropdown, setMobileDropdown] = useState(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -58,22 +47,10 @@ export default function Navbar() {
     setMobileOpen(false);
   }, [pathname]);
 
-  const isTransparent = startsTransparent && !scrolled;
+  const headerBg = scrolled ? "rgba(255, 255, 255, 0.95)" : "rgba(255, 255, 255, 1)";
+  const headerShadow = scrolled ? "0 4px 20px -5px rgba(0,0,0,0.1)" : "none";
+  const linkClass = "text-gray-700 hover:text-primary transition-all duration-200";
 
-  // ── Dynamic styles ────────────────────────────────────────────────────────
-  // At top of hero page  → match the hero bg colour exactly (no bleed-through)
-  // After scrolling      → crisp white with shadow
-  const headerBg = isTransparent
-    ? heroBg                                      // e.g. "#E8E0D0" — exact hero colour
-    : "rgba(255,255,255,0.97)";
-
-  const headerShadow = scrolled
-    ? "0 1px 0 0 rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.05)"
-    : "none";
-
-  const linkClass = isTransparent
-    ? "text-gray-800 hover:text-primary hover:bg-black/5"
-    : "text-gray-600 hover:text-primary hover:bg-gray-50";
 
   const toggleMenu = (name) => setOpenMenu(openMenu === name ? null : name);
 
@@ -93,7 +70,7 @@ export default function Navbar() {
 
             {/* Logo — ref shows bigger logo */}
             <Link href="/" className="flex-shrink-0">
-              <Logo height={44} />
+              <Logo height={30} />
             </Link>
 
             {/* Desktop nav — ref: ~16px, no rounded bg */}
@@ -283,32 +260,79 @@ export default function Navbar() {
 
       {/* Mobile full-screen menu */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-50 bg-white flex flex-col pt-16 px-6 pb-8 overflow-y-auto">
-          <button className="absolute top-4 right-4 p-2 rounded-lg text-gray-600 hover:bg-gray-100" onClick={() => setMobileOpen(false)}>
+        <div className="fixed inset-0 z-50 bg-white flex flex-col pt-20 px-6 pb-8 overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-300">
+          <button className="absolute top-6 right-6 p-2 rounded-full bg-gray-50 text-gray-900 border border-gray-100" onClick={() => setMobileOpen(false)}>
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <nav className="space-y-1 mt-4">
-            {[
-              { label: "Home",     href: "/" },
-              { label: "Platform", href: "/platform" },
-              { label: "Solution", href: "/solution" },
-              { label: "Resource", href: "/resource" },
-              { label: "About",    href: "/about" },
-              { label: "Contact",  href: "/contact" },
-            ].map((item) => (
-              <Link key={item.label} href={item.href}
-                className="flex items-center gap-3 px-4 py-3 text-lg font-medium text-gray-800 hover:text-primary hover:bg-gray-50 rounded-xl transition-colors"
-                onClick={() => setMobileOpen(false)}>
-                {item.label}
-              </Link>
-            ))}
+          
+          <nav className="flex flex-col gap-2">
+            <Link href="/" className="px-4 py-4 text-xl font-bold text-gray-900 border-b border-gray-50 flex items-center justify-between" onClick={() => setMobileOpen(false)}>
+              Home
+              <svg className="w-5 h-5 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </Link>
+            
+            <Link href="/platform" className="px-4 py-4 text-xl font-bold text-gray-900 border-b border-gray-50 flex items-center justify-between" onClick={() => setMobileOpen(false)}>
+              Platform
+              <svg className="w-5 h-5 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </Link>
+
+            {/* Mobile accordion for Solutions */}
+            <div className="border-b border-gray-50">
+              <button 
+                onClick={() => setMobileDropdown(mobileDropdown === "solution" ? null : "solution")}
+                className="w-full px-4 py-4 text-xl font-bold text-gray-900 flex items-center justify-between"
+              >
+                Solution
+                <svg className={`w-5 h-5 transition-transform ${mobileDropdown === "solution" ? "rotate-90 text-primary" : "opacity-30"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              {mobileDropdown === "solution" && (
+                <div className="bg-gray-50/50 rounded-2xl p-4 mb-4 grid grid-cols-1 gap-4">
+                  {SOLUTION_MENU.useCases.map(item => (
+                    <Link key={item.label} href={item.href} className="flex flex-col gap-1 p-2" onClick={() => setMobileOpen(false)}>
+                      <span className="text-base font-bold text-gray-900">{item.label}</span>
+                      <span className="text-xs text-gray-500">{item.desc}</span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <Link href="/resource" className="px-4 py-4 text-xl font-bold text-gray-900 border-b border-gray-50 flex items-center justify-between" onClick={() => setMobileOpen(false)}>
+              Resource
+              <svg className="w-5 h-5 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </Link>
+
+            {/* Mobile accordion for Company */}
+            <div className="border-b border-gray-50">
+              <button 
+                onClick={() => setMobileDropdown(mobileDropdown === "company" ? null : "company")}
+                className="w-full px-4 py-4 text-xl font-bold text-gray-900 flex items-center justify-between"
+              >
+                Company
+                <svg className={`w-5 h-5 transition-transform ${mobileDropdown === "company" ? "rotate-90 text-primary" : "opacity-30"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              {mobileDropdown === "company" && (
+                <div className="bg-gray-50/50 rounded-2xl p-4 mb-4 grid grid-cols-1 gap-4">
+                  {COMPANY_MENU.map(item => (
+                    <Link key={item.label} href={item.href} className="text-base font-bold text-gray-900 p-2" onClick={() => setMobileOpen(false)}>
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           </nav>
-          <div className="mt-auto pt-8">
-            <Link href="/contact" className="btn-primary w-full justify-center" onClick={() => setMobileOpen(false)}>
+          
+          <div className="mt-8">
+            <Link href="/contact" className="btn-primary w-full justify-center py-5 text-lg" onClick={() => setMobileOpen(false)}>
               Book a Demo
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </Link>
