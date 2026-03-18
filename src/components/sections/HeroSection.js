@@ -113,7 +113,7 @@ export default function HeroSection() {
         <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-dark leading-[1.1] tracking-tight mb-6 animate-fade-up">
           Human Led, AI enabled
           <br />
-          proposals that{" "}
+          proposals that for{" "}
           <span className="text-primary">
             {displayed}
             <span className="animate-pulse">|</span>

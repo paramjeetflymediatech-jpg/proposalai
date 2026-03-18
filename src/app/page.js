@@ -3,8 +3,8 @@ import StatsSection from "../components/sections/StatsSection";
 import FeatureSections from "../components/sections/FeatureSections";
 import ServicesSection from "../components/sections/ServicesSection";
 import ClientsSection from "../components/sections/ClientsSection";
-import CaseStudiesSection from "../components/sections/CaseStudiesSection";
-import CTASection from "../components/sections/CTASection";
+import CaseStudiesSection from "@/components/sections/CaseStudiesSection";
+import CTASection from "@/components/sections/CTASection";
 
 export default function HomePage() {
   return (

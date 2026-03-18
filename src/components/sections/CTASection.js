@@ -5,11 +5,7 @@ export default function CTASection({ title, subtitle, btnLabel = "Book a Demo", 
   return (
     <section className="py-20 bg-primary relative overflow-hidden">
       {/* Wave top */}
-      <div className="absolute top-0 left-0 right-0">
-        <svg viewBox="0 0 1440 50" fill="none">
-          <path d="M0 50L1440 50L1440 25C1200 5 800 45 720 25C640 5 240 45 0 25V50Z" fill="white" />
-        </svg>
-      </div>
+      
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <div className="bg-white rounded-3xl p-10 md:p-16 shadow-2xl">
@@ -45,13 +41,6 @@ export default function CTASection({ title, subtitle, btnLabel = "Book a Demo", 
             )}
           </div>
         </div>
-      </div>
-
-      {/* Wave bottom */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 50" fill="none">
-          <path d="M0 0L1440 0L1440 25C1200 45 800 5 720 25C640 45 240 5 0 25V0Z" fill="#030712" />
-        </svg>
       </div>
     </section>
   );

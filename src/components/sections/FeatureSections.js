@@ -4,31 +4,35 @@ import { useEffect, useRef, useState } from "react";
 
 const FEATURES = [
   {
-    preText: '"Human Led, AI Enabled',
-    highlight: "Proposals\nThat Win",
-    highlightColor: "#00B4D8",
-    body: "ProposalAI combines human expertise with intelligent automation. Our platform reads RFP requirements, searches your knowledge base, and generates compelling first drafts — ready for your team to refine and submit faster than ever before.",
+    preText: "Human Led, AI powered",
+    highlight: "\"Lorem ipsum dolor sit amet, consectetur\"",
+    highlightColor: "#00B4D8", // Blue
+    highlightCount: 3,
+    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     video: "/videos/video1.mp4",
   },
   {
-    preText: '"Collaborate Smarter,',
-    highlight: "Not Harder",
-    highlightColor: "#00B4D8",
-    body: "Real-time collaboration tools built for proposal teams. Assign sections, track contributions, leave inline comments, and merge inputs — all without email chains or version conflicts. Your whole team, always in sync.",
+    preText: "Collaborate Smarter",
+    highlight: "Lorem ipsum dolor it amet, consectetur",
+    highlightColor: "#10b981", // Green
+    highlightCount: 1,
+    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     video: "/videos/video2.mp4",
   },
   {
-    preText: "Win with Data,",
-    highlight: "Not Guesswork",
-    highlightColor: "#a855f7",
-    body: "Deep analytics reveal what evaluators focus on, which sections drive wins, and where proposals lose momentum. Continuously improve your win rate based on real outcome data.",
+    preText: "Win with Data",
+    highlight: "Lorem ipsum dolor it amet, consectetur",
+    highlightColor: "#f43f5e", // Red
+    highlightCount: 1,
+    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     video: "/videos/video3.mp4",
   },
   {
-    preText: "Security Questionnaires,",
-    highlight: "Done in Minutes",
-    highlightColor: "#f43f5e",
-    body: "Build a dynamic answer library from your past security questionnaires. ProposalAI auto-matches questions to approved answers — so your team never answers the same compliance question twice.",
+    preText: "Security First",
+    highlight: "Lorem ipsum dolorit amet, consectetur",
+    highlightColor: "#a855f7", // Purple
+    highlightCount: 1,
+    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     video: "/videos/video4.mp4",
   },
 ];
@@ -51,110 +55,6 @@ function useScrollProgress(ref) {
   return progress;
 }
 
-// Section 1: 4 circles — big top-right, 3 smaller below in cascade
-function Section1() {
-  const ref = useRef(null);
-  const prog = useScrollProgress(ref);
-  const activeScale = 0.6 + prog * 0.4;
-
-  return (
-    <section ref={ref} style={sectionStyle}>
-      <div style={innerStyle}>
-        <TextBlock feat={FEATURES[0]} />
-        <div style={{ position: "relative", height: 780, width: "100%" }}>
-          {/* Big - top right */}
-          <Circle video={FEATURES[0].video} size={340} top={0} right={0}
-            scale={activeScale} opacity={1} shadow zIndex={20} origin="top right" />
-          {/* Medium - below left */}
-          <Circle video={FEATURES[1].video} size={250} top={290} right={170}
-            scale={0.9} opacity={0.68} zIndex={15} origin="top center" />
-          {/* Small - below right */}
-          <Circle video={FEATURES[2].video} size={200} top={510} right={20}
-            scale={0.85} opacity={0.5} zIndex={10} origin="top center" />
-          {/* Tiny - bottom */}
-          <Circle video={FEATURES[3].video} size={155} top={690} right={130}
-            scale={0.8} opacity={0.32} zIndex={5} origin="top center" />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Section 2: 3 circles — video2 big, video3+video4 below
-function Section2() {
-  const ref = useRef(null);
-  const prog = useScrollProgress(ref);
-  const activeScale = 0.6 + prog * 0.4;
-
-  return (
-    <section ref={ref} style={sectionStyle}>
-      <div style={innerStyle}>
-        <TextBlock feat={FEATURES[1]} />
-        <div style={{ position: "relative", height: 660, width: "100%" }}>
-          {/* Big - top right */}
-          <Circle video={FEATURES[1].video} size={340} top={0} right={0}
-            scale={activeScale} opacity={1} shadow zIndex={20} origin="top right" />
-          {/* Medium - below left */}
-          <Circle video={FEATURES[2].video} size={250} top={290} right={140}
-            scale={0.9} opacity={0.68} zIndex={15} origin="top center" />
-          {/* Small - below right */}
-          <Circle video={FEATURES[3].video} size={190} top={510} right={10}
-            scale={0.85} opacity={0.45} zIndex={10} origin="top center" />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Section 3: 2 circles — video3 big, video4 below
-function Section3() {
-  const ref = useRef(null);
-  const prog = useScrollProgress(ref);
-  const activeScale = 0.6 + prog * 0.4;
-
-  return (
-    <section ref={ref} style={sectionStyle}>
-      <div style={innerStyle}>
-        <TextBlock feat={FEATURES[2]} />
-        <div style={{ position: "relative", height: 560, width: "100%" }}>
-          {/* Big - top right */}
-          <Circle video={FEATURES[2].video} size={340} top={0} right={0}
-            scale={activeScale} opacity={1} shadow zIndex={20} origin="top right" />
-          {/* Medium - below right */}
-          <Circle video={FEATURES[3].video} size={230} top={300} right={20}
-            scale={0.88} opacity={0.6} zIndex={15} origin="top center" />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Section 4: 1 circle only
-function Section4() {
-  const ref = useRef(null);
-  const prog = useScrollProgress(ref);
-  const activeScale = 0.6 + prog * 0.4;
-
-  return (
-    <section ref={ref} style={sectionStyle}>
-      <div style={innerStyle}>
-        <TextBlock feat={FEATURES[3]} />
-        <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", width: "100%" }}>
-          <div style={{
-            width: 380, height: 380, borderRadius: "50%", overflow: "hidden",
-            border: "5px solid white", boxShadow: "0 30px 80px rgba(0,0,0,0.22)",
-            transform: `scale(${activeScale})`, transformOrigin: "center right",
-            transition: "transform 0.12s ease-out", willChange: "transform",
-          }}>
-            <video src={FEATURES[3].video} autoPlay muted loop playsInline
-              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 // Reusable circle component
 function Circle({ video, size, top, right, scale, opacity, shadow, zIndex, origin }) {
   return (
@@ -162,7 +62,7 @@ function Circle({ video, size, top, right, scale, opacity, shadow, zIndex, origi
       position: "absolute", top, right,
       width: size, height: size,
       borderRadius: "50%", overflow: "hidden",
-      border: "4px solid white",
+      border: "5px solid white",
       boxShadow: shadow ? "0 28px 70px rgba(0,0,0,0.20)" : "0 10px 30px rgba(0,0,0,0.12)",
       transform: `scale(${scale})`,
       transformOrigin: origin || "center center",
@@ -181,23 +81,100 @@ function TextBlock({ feat }) {
     <div style={{ paddingTop: 20 }}>
       <h2 style={{
         fontFamily: "var(--font-syne, system-ui)",
-        fontSize: "clamp(2.6rem, 5vw, 3.8rem)",
+        fontSize: "clamp(2.5rem, 4.5vw, 3.5rem)",
         fontWeight: 800, color: "#0A0A0A",
-        lineHeight: 1.05, marginBottom: 28,
-        letterSpacing: "-0.03em",
+        lineHeight: 1.1, marginBottom: 24,
+        letterSpacing: "-0.02em",
       }}>
-        {feat.preText}
-        <br />
-        {feat.highlight.split("\n").map((line, li) => (
-          <span key={li} style={{ color: feat.highlightColor, display: "block" }}>
-            {line}
+        <span className="text-primary text-xl block font-bold mb-4">{feat.preText}</span>
+        {feat.highlight.split(" ").map((word, wi, arr) => (
+          <span key={wi} style={{ color: wi >= arr.length - feat.highlightCount ? feat.highlightColor : "inherit" }}>
+            {word}{" "}
           </span>
         ))}
       </h2>
-      <p style={{ color: "#4B5563", fontSize: 16, lineHeight: 1.85, maxWidth: 440 }}>
+      <p style={{ color: "#4B5563", fontSize: 18, lineHeight: 1.8, maxWidth: 480 }}>
         {feat.body}
       </p>
     </div>
+  );
+}
+
+// Section components with cascading circles
+function Section1() {
+  const ref = useRef(null);
+  const prog = useScrollProgress(ref);
+  const activeScale = 0.6 + prog * 0.4;
+  return (
+    <section ref={ref} style={sectionStyle}>
+      <div style={innerStyle}>
+        <TextBlock feat={FEATURES[0]} />
+        <div style={{ position: "relative", height: 780, width: "100%" }}>
+          <Circle video={FEATURES[0].video} size={360} top={0} right={0} scale={activeScale} opacity={1} shadow zIndex={20} origin="top right" />
+          <Circle video={FEATURES[1].video} size={260} top={310} right={180} scale={0.9} opacity={0.7} zIndex={15} />
+          <Circle video={FEATURES[2].video} size={210} top={540} right={30} scale={0.85} opacity={0.5} zIndex={10} />
+          <Circle video={FEATURES[3].video} size={160} top={720} right={140} scale={0.8} opacity={0.3} zIndex={5} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Section2() {
+  const ref = useRef(null);
+  const prog = useScrollProgress(ref);
+  const activeScale = 0.6 + prog * 0.4;
+  return (
+    <section ref={ref} style={sectionStyle}>
+      <div style={innerStyle}>
+        <TextBlock feat={FEATURES[1]} />
+        <div style={{ position: "relative", height: 660, width: "100%" }}>
+          <Circle video={FEATURES[1].video} size={360} top={0} right={0} scale={activeScale} opacity={1} shadow zIndex={20} origin="top right" />
+          <Circle video={FEATURES[2].video} size={260} top={310} right={150} scale={0.9} opacity={0.7} zIndex={15} />
+          <Circle video={FEATURES[3].video} size={200} top={540} right={20} scale={0.85} opacity={0.5} zIndex={10} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Section3() {
+  const ref = useRef(null);
+  const prog = useScrollProgress(ref);
+  const activeScale = 0.6 + prog * 0.4;
+  return (
+    <section ref={ref} style={sectionStyle}>
+      <div style={innerStyle}>
+        <TextBlock feat={FEATURES[2]} />
+        <div style={{ position: "relative", height: 580, width: "100%" }}>
+          <Circle video={FEATURES[2].video} size={360} top={0} right={0} scale={activeScale} opacity={1} shadow zIndex={20} origin="top right" />
+          <Circle video={FEATURES[3].video} size={240} top={320} right={30} scale={0.9} opacity={0.7} zIndex={15} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Section4() {
+  const ref = useRef(null);
+  const prog = useScrollProgress(ref);
+  const activeScale = 0.6 + prog * 0.4;
+  return (
+    <section ref={ref} style={sectionStyle}>
+      <div style={innerStyle}>
+        <TextBlock feat={FEATURES[3]} />
+        <div style={{ position: "relative", height: 420, width: "100%", display: "flex", justifyContent: "flex-end" }}>
+          <div style={{
+            width: 400, height: 400, borderRadius: "50%", overflow: "hidden", 
+            border: "6px solid white", boxShadow: "0 30px 80px rgba(0,0,0,0.22)",
+            transform: `scale(${activeScale})`, transformOrigin: "center right",
+            transition: "transform 0.1s ease-out"
+          }}>
+            <video src={FEATURES[3].video} autoPlay muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -206,33 +183,34 @@ const sectionStyle = {
   minHeight: "100vh",
   display: "flex",
   alignItems: "center",
-  padding: "80px 60px",
+  padding: "80px 4%",
 };
 
 const innerStyle = {
-  maxWidth: 1280,
+  maxWidth: 1400,
   margin: "0 auto",
   width: "100%",
   display: "grid",
-  gridTemplateColumns: "1fr 1fr",
-  gap: 60,
-  alignItems: "flex-start",
+  gridTemplateColumns: "minmax(400px, 1fr) 1fr",
+  gap: 80,
 };
 
 export default function FeatureSections() {
   return (
-    <div style={{ backgroundColor: "#E8FDF5" }}>
+    <div className="bg-[#E8FDF5]">
       <Section1 />
       <Section2 />
       <Section3 />
       <Section4 />
 
       <style jsx global>{`
-        @media (max-width: 900px) {
-          section { padding: 60px 24px !important; min-height: auto !important; }
+        @media (max-width: 1024px) {
+          section { padding: 60px 20px !important; min-height: auto !important; }
           section > div { grid-template-columns: 1fr !important; gap: 40px !important; }
+          section div:last-child { height: auto !important; display: block !important; }
         }
       `}</style>
     </div>
   );
 }
+
