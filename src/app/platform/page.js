@@ -3,7 +3,8 @@ import Image from "next/image";
 import AnimateOnScroll from "../../components/ui/AnimateOnScroll";
 import CTASection from "../../components/sections/CTASection";
 import ClientsSection from "../../components/sections/ClientsSection";
-import FeatureVideoSection from "../../components/sections/FeatureVideoSection";
+import FeatureVideoSection from "@/components/sections/Featurevideosection";
+import FaqAccordion from "@/components/ui/FaqAccordion";
 
 export const metadata = {
   title: "Platform – ProposalAI",
@@ -13,23 +14,23 @@ export const metadata = {
 const PLATFORM_CARDS = [
   {
     gif: "/platform-card-1.gif",
-    title: "AI Content Engine",
-    desc: "Generates first-draft proposals instantly using your company knowledge base, past wins, and real-time RFP requirements.",
+    title: "Private Knowledge Base",
+    desc: "Centralize your proposals, policies, and technical docs into a dynamic library. We use secure, commercial AI processing to ensure your data remains exclusive to your tenant and is never used to train foundation models.",
   },
   {
     gif: "/platform-card-2.gif",
-    title: "Team Collaboration",
-    desc: "Assign sections to team members, track real-time edits, leave comments, and merge contributions — all in one workspace.",
+    title: "Chat with Anything",
+    desc: 'Empower your Subject Matter Experts to "talk" to your documents, perform real-time research using a simple chat interface. Instantly retrieve market trends, competitor insights, technical specs or past answers without digging through folders or waiting for email replies.',
   },
   {
     gif: "/platform-card-3.gif",
-    title: "Knowledge Library",
-    desc: "Centralized repository for all your approved content, past proposals, and winning templates — always searchable.",
+    title: "Intelligent Data Ingestion",
+    desc: "Whether it's a 250+ row Excel questionnaire or a PDF technical manual, our platform ingests and indexes diverse file formats. Automatically extract key requirements and summarize complex documents to kickstart your drafting process.",
   },
   {
     gif: "/platform-card-4.gif",
-    title: "Win Analytics",
-    desc: "Deep insights into what makes your proposals win. Track scores, identify patterns, and continuously improve performance.",
+    title: "Project Management",
+    desc: "Instantly convert RFP deadlines into a structured project timeline. Our AI analyzes submission dates to automatically generate a step-by-step workback plan with assigned tasks and milestones to keep your team on track.",
   },
 ];
 
@@ -53,18 +54,6 @@ const SHOWCASE_ITEMS = [
     alt: "Precision analytics and insights",
     title: "Precision Insights",
     desc: "Built with forensic attention to detail. Every data point, every pattern, every win — captured and surfaced for you.",
-  },
-];
-
-// Feature items for the image+list section
-const FEATURE_LIST = [
-  {
-    title: "Real-Time Collaboration",
-    desc: "Work together seamlessly with your team. Assign sections, track edits, and merge contributions in one shared workspace.",
-  },
-  {
-    title: "Smart Automation",
-    desc: "Let AI handle repetitive drafting tasks while your team focuses on strategy, relationships, and winning the deal.",
   },
 ];
 
@@ -96,7 +85,7 @@ export default function PlatformPage() {
               The Smarter Way{" "}<span className="text-primary">to Write Winning Proposals  </span>
             </h1>
             <p className="text-gray-600 text-sm sm:text-base max-w-xs sm:max-w-sm mb-8 leading-relaxed">
-               Transform your collective knowledge into a competitive advantage. Respond faster, ensure accuracy, and close more deals. 
+               Transform your collective knowledge into a competitive advantage. Respond faster, ensure accuracy, and close more deals. 
             </p>
             <Link href="/contact" className="inline-flex items-center gap-2.5 bg-primary text-white text-sm sm:text-base font-semibold pl-5 sm:pl-6 pr-1.5 py-1.5 rounded-full shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all duration-200">
               Request a Personalized Demo 
@@ -110,19 +99,17 @@ export default function PlatformPage() {
         </div>
       </section>
 
-    
-
       {/* ── 3. Scroll-driven video section ───────────────────────── */}
       <FeatureVideoSection />
 
-      {/* ── 4. GIF Cards + Brands on primary bg ──────────────────── */}
+      {/* ── 4. GIF Cards on primary bg ──────────────────── */}
       <section className="bg-primary py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll className="text-center mb-12 md:mb-16">
             <p className="text-white/70 text-sm font-semibold uppercase tracking-widest mb-3">The Platform</p>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5">Built for Every Team Size</h2>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5">The Intelligent Engine Behind Every Win</h2>
             <p className="text-white/70 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-              From solo consultants to enterprise proposal centers — ProposalAI scales with your needs and adapts to every workflow your team already uses.
+             Centralize your knowledge, automate your workflow, and empower your experts with a platform built for the complexity of modern bids
             </p>
           </AnimateOnScroll>
 
@@ -141,46 +128,54 @@ export default function PlatformPage() {
             ))}
           </div>
 
-          {/* Brand logos */}
-          <AnimateOnScroll className="text-center mb-10 md:mb-12">
-            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white">Trusted by Industry Leaders</h2>
-          </AnimateOnScroll>
-          <div className="grid grid-cols-3 sm:grid-cols-5 gap-6 md:gap-8 items-center justify-items-center">
-            {BRANDS.map((src, i) => (
-              <AnimateOnScroll key={i} delay={i * 60}>
-                <div className="w-24 h-14 md:w-32 md:h-16 relative" style={{ mixBlendMode: "screen" }}>
-                  <Image src={src} alt={`Brand ${i + 1}`} fill className="object-contain opacity-90 hover:opacity-100 transition-opacity" />
-                </div>
+        </div>
+      </section>
+
+      {/* ── 5. FAQ ───────────────────────────────────────────────────── */}
+      <section className="py-16 md:py-24" style={{ background: "#F5F0E8" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-12 lg:gap-20 items-start">
+            {/* Left — sticky */}
+            <div className="lg:sticky lg:top-28">
+              <AnimateOnScroll>
+                <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-dark leading-tight mb-8">
+                  Frequently Asked Questions
+                </h2>
+                <Link href="/contact" className="inline-flex items-center bg-primary text-white text-sm font-semibold px-6 py-3 rounded-full shadow-md shadow-primary/25 hover:bg-primary/90 transition-all duration-200">
+                  Request a Personalized Demo
+                </Link>
               </AnimateOnScroll>
-            ))}
+            </div>
+            {/* Right — accordion (client component) */}
+            <AnimateOnScroll delay={100}>
+              <FaqAccordion />
+            </AnimateOnScroll>
           </div>
         </div>
       </section>
 
-
-      {/* ── 6. Feature image section (heading + list left, photo right) */}
+      {/* ── 6. Capabilities — heading+subheading left, image right ─── */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-          {/* Top row — heading left, button right */}
-          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-5 mb-10 md:mb-14">
+            {/* Left — heading + subheading + button */}
             <AnimateOnScroll>
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-dark leading-tight max-w-xl">
-                More Capabilities That
-                <span className="text-primary"> Set You Apart</span>
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-dark leading-tight mb-5">
+                Stop Searching,
+                <span className="text-primary">  Start Winning</span>
               </h2>
-              <p className="text-gray-500 text-base md:text-lg mt-4 max-w-xl leading-relaxed">
-                ProposalAI is packed with features designed specifically for proposal teams. Every detail matters when you're competing for business.
+              <p className="text-gray-500 text-base md:text-lg leading-relaxed mb-8">
+                 See how ProposalAI transforms your existing documents into your most powerful competitive advantage.
+
               </p>
-            </AnimateOnScroll>
-            <AnimateOnScroll delay={100} className="flex-shrink-0">
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2.5 bg-primary text-white text-sm sm:text-base font-semibold
                            pl-5 pr-1.5 py-1.5 rounded-full shadow-lg shadow-primary/25
-                           hover:bg-primary/90 transition-all duration-200 whitespace-nowrap"
+                           hover:bg-primary/90 transition-all duration-200"
               >
-                See It in Action
+                Book a Personalized Demo
                 <span className="w-8 h-8 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                   <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -188,33 +183,8 @@ export default function PlatformPage() {
                 </span>
               </Link>
             </AnimateOnScroll>
-          </div>
 
-          {/* Bottom row — feature list left, photo right */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-
-            {/* Feature list */}
-            <div className="space-y-8 md:space-y-10">
-              {FEATURE_LIST.map((feat, i) => (
-                <AnimateOnScroll key={i} delay={i * 100}>
-                  <div className="flex gap-4 md:gap-5">
-                    {/* Circle icon */}
-                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
-                      <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                          d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg md:text-xl text-dark mb-2">{feat.title}</h3>
-                      <p className="text-gray-500 text-sm md:text-base leading-relaxed">{feat.desc}</p>
-                    </div>
-                  </div>
-                </AnimateOnScroll>
-              ))}
-            </div>
-
-            {/* Photo right */}
+            {/* Right — image */}
             <AnimateOnScroll delay={150}>
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
                 <Image
@@ -229,8 +199,6 @@ export default function PlatformPage() {
           </div>
         </div>
       </section>
-
-   
     </>
   );
 }
