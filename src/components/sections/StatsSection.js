@@ -1,42 +1,70 @@
+"use client";
 import Counter from "../ui/Counter";
 
+// Counter data from client doc — exact copy
 const STATS = [
-  { value: 500, prefix: "+", suffix: "", label: "Companies Trust Us", desc: "From startups to Fortune 500 enterprises worldwide." },
-  { value: 98, prefix: "", suffix: "%", label: "Win Rate Improvement", desc: "Average improvement in proposal win rates for our clients." },
-  { value: 10, prefix: "", suffix: "x", label: "Faster Proposals", desc: "Reduce proposal creation time from days to hours." },
-  { value: 50, prefix: "+", suffix: "M", label: "Proposals Generated", desc: "Successful proposals created using our AI platform." },
-  { value: 40, prefix: "+", suffix: "%", label: "Revenue Growth", desc: "Average revenue increase reported by our customers." },
+  {
+    value: 25,
+    suffix: "%",
+    label: "More Bids",
+    desc: "Win more projects by reducing cycle times and responding to opportunities faster.",
+  },
+  {
+    value: 80,
+    suffix: "%",
+    label: "Faster Drafting Time",
+    desc: "Generate high quality, brand aligned and compliant responses in minutes rather than days.",
+  },
+  {
+    value: 50,
+    suffix: "%",
+    label: "Time Reclaimed",
+    desc: "Spend half the time searching and double the time strategizing.",
+  },
+  {
+    value: 0,
+    suffix: "",
+    label: "Wasted Cycles",
+    desc: "Instantly disqualify bad fits. Focus 100% of your expert capacity on the deals you could win.",
+  },
+  {
+    value: 100,
+    suffix: "%",
+    label: "RFP Compliance",
+    desc: "Automatically map every response to the required structure to ensure total alignment and accuracy.",
+  },
 ];
 
 export default function StatsSection() {
   return (
-    <section className="bg-primary py-16 relative overflow-hidden">
-      {/* Subtle wave top */}
-      <div className="absolute top-0 left-0 right-0">
-        <svg viewBox="0 0 1440 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 40L1440 40L1440 20C1200 0 800 40 720 20C640 0 240 40 0 20V40Z" fill="white" />
-        </svg>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+    /* Blue background section — rounded top corners matching reference */
+    <section
+      className="bg-primary py-14"
+      style={{ borderRadius: "40px 40px 0 0", marginTop: "-2px" }}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
           {STATS.map((stat, i) => (
-            <div key={i} className="text-center text-white">
-              <div className="text-4xl md:text-5xl font-display font-extrabold mb-2">
-                <Counter end={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
-              </div>
-              <h3 className="font-bold text-base mb-1">{stat.label}</h3>
-              <p className="text-xs text-white/70 leading-relaxed hidden md:block">{stat.desc}</p>
+            <div key={i} className="flex flex-col items-center">
+
+              {/* Large counter — "+0" style matching reference */}
+              <p className="font-display text-4xl md:text-5xl font-bold text-white mb-2 leading-none">
+                +<Counter end={stat.value} prefix="" suffix={stat.suffix} duration={2000} />
+              </p>
+
+              {/* Label */}
+              <p className="text-white font-semibold text-sm mb-3">
+                {stat.label}
+              </p>
+
+              {/* Description */}
+              <p className="text-white/70 text-xs leading-relaxed max-w-[180px]">
+                {stat.desc}
+              </p>
+
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Wave bottom */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 0L1440 0L1440 40C1200 60 800 20 720 40C640 60 240 20 0 40V0Z" fill="#E8FDF5" />
-        </svg>
       </div>
     </section>
   );
