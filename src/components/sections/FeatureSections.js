@@ -4,36 +4,31 @@ import { useEffect, useRef, useState } from "react";
 
 const FEATURES = [
   {
-    preText: "Human Led, AI powered",
-    highlight: "\"Lorem ipsum dolor sit amet, consectetur\"",
-    highlightColor: "#00B4D8", // Blue
+    preText: "Deep Research",
+    preTextColor: "#00B4D8",
+    highlight: "Intelligence That Sets You Apart",
+    highlightColor: "#00B4D8",
     highlightCount: 3,
-    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    body: "Generic pitches get ignored. ProposalAI automates the digging, finding the critical market trends and client details that make your response stand out. Write proposals backed by real research, not just templates.",
     video: "/videos/video1.mp4",
   },
   {
-    preText: "Collaborate Smarter",
-    highlight: "Lorem ipsum dolor it amet, consectetur",
-    highlightColor: "#10b981", // Green
-    highlightCount: 1,
-    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    preText: "Knowledge Library",
+    preTextColor: "#10b981",
+    highlight: "Your Corporate DNA",
+    highlightColor: "#10b981",
+    highlightCount: 2,
+    body: "Stop digging through shared drives. We turn your documents into a smart knowledge base that \"reads\" and organizes your content. Ask a question, and our platform instantly pulls the right insights from your past wins to fuel your new proposal.",
     video: "/videos/video2.mp4",
   },
   {
-    preText: "Win with Data",
-    highlight: "Lorem ipsum dolor it amet, consectetur",
-    highlightColor: "#f43f5e", // Red
-    highlightCount: 1,
-    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    preText: "AI Response Generation",
+    preTextColor: "#00B4D8",
+    highlight: "The \"Human-in-the-Loop\"",
+    highlightColor: "#00B4D8",
+    highlightCount: 4,
+    body: "Generate a strong first draft in minutes, not days, so your experts can focus on high-value strategy. Every AI recommendation includes confidence scoring and direct source links.",
     video: "/videos/video3.mp4",
-  },
-  {
-    preText: "Security First",
-    highlight: "Lorem ipsum dolorit amet, consectetur",
-    highlightColor: "#a855f7", // Purple
-    highlightCount: 1,
-    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    video: "/videos/video4.mp4",
   },
 ];
 
@@ -46,7 +41,7 @@ function useScrollProgress(ref) {
       const vh = window.innerHeight;
       const cy = rect.top + rect.height / 2;
       const dist = Math.abs(cy - vh / 2);
-      setProgress(Math.max(0, Math.min(1, 1 - dist / (vh * 0.8))));
+      setProgress(Math.max(0, Math.min(1, 1 - dist / (vh * 0.75))));
     };
     window.addEventListener("scroll", update, { passive: true });
     update();
@@ -55,122 +50,186 @@ function useScrollProgress(ref) {
   return progress;
 }
 
-// Reusable circle component
-function Circle({ video, size, top, right, scale, opacity, shadow, zIndex, origin }) {
-  return (
-    <div style={{
-      position: "absolute", top, right,
-      width: size, height: size,
-      borderRadius: "50%", overflow: "hidden",
-      border: "5px solid white",
-      boxShadow: shadow ? "0 28px 70px rgba(0,0,0,0.20)" : "0 10px 30px rgba(0,0,0,0.12)",
-      transform: `scale(${scale})`,
-      transformOrigin: origin || "center center",
-      transition: "transform 0.12s ease-out",
-      opacity, zIndex,
-      willChange: "transform",
-    }}>
-      <video src={video} autoPlay muted loop playsInline
-        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-    </div>
-  );
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 1024);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  return isMobile;
 }
 
 function TextBlock({ feat }) {
   return (
-    <div style={{ paddingTop: 20 }}>
+    <div>
       <h2 style={{
         fontFamily: "var(--font-syne, system-ui)",
-        fontSize: "clamp(2.5rem, 4.5vw, 3.5rem)",
-        fontWeight: 800, color: "#0A0A0A",
-        lineHeight: 1.1, marginBottom: 24,
+        fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
+        fontWeight: 800,
+        color: "#0A0A0A",
+        lineHeight: 1.1,
+        marginBottom: 20,
         letterSpacing: "-0.02em",
       }}>
-        <span className="text-primary text-xl block font-bold mb-4">{feat.preText}</span>
+        <span style={{
+          color: feat.preTextColor,
+          fontSize: "clamp(0.9rem, 1.5vw, 1.1rem)",
+          display: "block",
+          fontWeight: 700,
+          marginBottom: 12,
+        }}>
+          {feat.preText}
+        </span>
         {feat.highlight.split(" ").map((word, wi, arr) => (
-          <span key={wi} style={{ color: wi >= arr.length - feat.highlightCount ? feat.highlightColor : "inherit" }}>
+          <span key={wi} style={{
+            color: wi >= arr.length - feat.highlightCount ? feat.highlightColor : "inherit"
+          }}>
             {word}{" "}
           </span>
         ))}
       </h2>
-      <p style={{ color: "#4B5563", fontSize: 18, lineHeight: 1.8, maxWidth: 480 }}>
+      <p style={{ color: "#4B5563", fontSize: "clamp(15px, 1.8vw, 18px)", lineHeight: 1.8, maxWidth: 480 }}>
         {feat.body}
       </p>
     </div>
   );
 }
 
-// Section components with cascading circles
-function Section1() {
+// Mobile: single circle below text
+function MobileSection({ feat }) {
+  return (
+    <div style={{ backgroundColor: "#E8FDF5", padding: "60px 20px" }}>
+      <TextBlock feat={feat} />
+      <div style={{ marginTop: 32, display: "flex", justifyContent: "center" }}>
+        <div style={{
+          width: 260, height: 260, borderRadius: "50%", overflow: "hidden",
+          border: "5px solid white", boxShadow: "0 16px 40px rgba(0,0,0,0.15)",
+        }}>
+          <video src={feat.video} autoPlay muted loop playsInline
+            style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── SECTION 1 ─── large + medium-left + small-center + ghost-corner
+function Section1Desktop() {
   const ref = useRef(null);
   const prog = useScrollProgress(ref);
-  const activeScale = 0.6 + prog * 0.4;
+  const aOp = prog;
+  const aScale = 0.7 + prog * 0.3;
+  const sOp = Math.min(prog * 1.5, 0.82);
+
   return (
     <section ref={ref} style={sectionStyle}>
       <div style={innerStyle}>
         <TextBlock feat={FEATURES[0]} />
-        <div style={{ position: "relative", height: 780, width: "100%" }}>
-          <Circle video={FEATURES[0].video} size={360} top={0} right={0} scale={activeScale} opacity={1} shadow zIndex={20} origin="top right" />
-          <Circle video={FEATURES[1].video} size={260} top={310} right={180} scale={0.9} opacity={0.7} zIndex={15} />
-          <Circle video={FEATURES[2].video} size={210} top={540} right={30} scale={0.85} opacity={0.5} zIndex={10} />
-          <Circle video={FEATURES[3].video} size={160} top={720} right={140} scale={0.8} opacity={0.3} zIndex={5} />
+        <div style={{ position: "relative", height: 760, width: "100%" }}>
+
+          {/* ACTIVE */}
+          <div style={{
+            position: "absolute", top: 0, right: 0,
+            width: 420, height: 420, borderRadius: "50%", overflow: "hidden",
+            border: "5px solid white", boxShadow: "0 28px 70px rgba(0,0,0,0.18)",
+            transform: `scale(${aScale})`, transformOrigin: "top right",
+            opacity: aOp, transition: "transform 0.1s ease-out, opacity 0.1s ease-out", zIndex: 20,
+          }}>
+            <video src={FEATURES[0].video} autoPlay muted loop playsInline
+              style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          </div>
+
+          {/* MEDIUM bottom-left */}
+          <div style={{
+            position: "absolute", top: 420, left: 20,
+            width: 260, height: 260, borderRadius: "50%", overflow: "hidden",
+            border: "5px solid white", boxShadow: "0 10px 30px rgba(0,0,0,0.12)",
+            opacity: sOp * 0.85, zIndex: 15,
+          }}>
+            <video src={FEATURES[1].video} autoPlay muted loop playsInline
+              style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          </div>
+
+          {/* SMALL bottom-center */}
+          <div style={{
+            position: "absolute", top: 550, left: 210,
+            width: 195, height: 195, borderRadius: "50%", overflow: "hidden",
+            border: "5px solid white", boxShadow: "0 8px 22px rgba(0,0,0,0.10)",
+            opacity: sOp * 0.58, zIndex: 10,
+          }}>
+            <video src={FEATURES[2].video} autoPlay muted loop playsInline
+              style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-function Section2() {
+// ─── SECTION 2 ─── large + medium-left
+function Section2Desktop() {
   const ref = useRef(null);
   const prog = useScrollProgress(ref);
-  const activeScale = 0.6 + prog * 0.4;
+  const aOp = prog;
+  const aScale = 0.7 + prog * 0.3;
+  const sOp = Math.min(prog * 1.5, 0.82);
+
   return (
     <section ref={ref} style={sectionStyle}>
       <div style={innerStyle}>
         <TextBlock feat={FEATURES[1]} />
-        <div style={{ position: "relative", height: 660, width: "100%" }}>
-          <Circle video={FEATURES[1].video} size={360} top={0} right={0} scale={activeScale} opacity={1} shadow zIndex={20} origin="top right" />
-          <Circle video={FEATURES[2].video} size={260} top={310} right={150} scale={0.9} opacity={0.7} zIndex={15} />
-          <Circle video={FEATURES[3].video} size={200} top={540} right={20} scale={0.85} opacity={0.5} zIndex={10} />
+        <div style={{ position: "relative", height: 680, width: "100%" }}>
+
+          {/* ACTIVE */}
+          <div style={{
+            position: "absolute", top: 0, right: 0,
+            width: 420, height: 420, borderRadius: "50%", overflow: "hidden",
+            border: "5px solid white", boxShadow: "0 28px 70px rgba(0,0,0,0.18)",
+            transform: `scale(${aScale})`, transformOrigin: "top right",
+            opacity: aOp, transition: "transform 0.1s ease-out, opacity 0.1s ease-out", zIndex: 20,
+          }}>
+            <video src={FEATURES[1].video} autoPlay muted loop playsInline
+              style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          </div>
+
+          {/* MEDIUM bottom-left */}
+          <div style={{
+            position: "absolute", top: 420, left: 20,
+            width: 255, height: 255, borderRadius: "50%", overflow: "hidden",
+            border: "5px solid white", boxShadow: "0 10px 30px rgba(0,0,0,0.12)",
+            opacity: sOp * 0.85, zIndex: 15,
+          }}>
+            <video src={FEATURES[2].video} autoPlay muted loop playsInline
+              style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-function Section3() {
+// ─── SECTION 3 ─── large SOLO (last section, no next video)
+function Section3Desktop() {
   const ref = useRef(null);
   const prog = useScrollProgress(ref);
-  const activeScale = 0.6 + prog * 0.4;
+  const aOp = prog;
+  const aScale = 0.7 + prog * 0.3;
+
   return (
     <section ref={ref} style={sectionStyle}>
       <div style={innerStyle}>
         <TextBlock feat={FEATURES[2]} />
-        <div style={{ position: "relative", height: 580, width: "100%" }}>
-          <Circle video={FEATURES[2].video} size={360} top={0} right={0} scale={activeScale} opacity={1} shadow zIndex={20} origin="top right" />
-          <Circle video={FEATURES[3].video} size={240} top={320} right={30} scale={0.9} opacity={0.7} zIndex={15} />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Section4() {
-  const ref = useRef(null);
-  const prog = useScrollProgress(ref);
-  const activeScale = 0.6 + prog * 0.4;
-  return (
-    <section ref={ref} style={sectionStyle}>
-      <div style={innerStyle}>
-        <TextBlock feat={FEATURES[3]} />
-        <div style={{ position: "relative", height: 420, width: "100%", display: "flex", justifyContent: "flex-end" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", minHeight: 440 }}>
           <div style={{
-            width: 400, height: 400, borderRadius: "50%", overflow: "hidden", 
-            border: "6px solid white", boxShadow: "0 30px 80px rgba(0,0,0,0.22)",
-            transform: `scale(${activeScale})`, transformOrigin: "center right",
-            transition: "transform 0.1s ease-out"
+            width: 420, height: 420, borderRadius: "50%", overflow: "hidden",
+            border: "5px solid white", boxShadow: "0 28px 80px rgba(0,0,0,0.18)",
+            transform: `scale(${aScale})`, transformOrigin: "center right",
+            opacity: aOp, transition: "transform 0.1s ease-out, opacity 0.1s ease-out",
           }}>
-            <video src={FEATURES[3].video} autoPlay muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <video src={FEATURES[2].video} autoPlay muted loop playsInline
+              style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           </div>
         </div>
       </div>
@@ -184,6 +243,7 @@ const sectionStyle = {
   display: "flex",
   alignItems: "center",
   padding: "80px 4%",
+  overflow: "hidden",
 };
 
 const innerStyle = {
@@ -192,25 +252,42 @@ const innerStyle = {
   width: "100%",
   display: "grid",
   gridTemplateColumns: "minmax(400px, 1fr) 1fr",
-  gap: 80,
+  gap: 60,
+  alignItems: "start",
 };
 
 export default function FeatureSections() {
-  return (
-    <div className="bg-[#E8FDF5]">
-      <Section1 />
-      <Section2 />
-      <Section3 />
-      <Section4 />
+  const isMobile = useIsMobile();
 
-      <style jsx global>{`
-        @media (max-width: 1024px) {
-          section { padding: 60px 20px !important; min-height: auto !important; }
-          section > div { grid-template-columns: 1fr !important; gap: 40px !important; }
-          section div:last-child { height: auto !important; display: block !important; }
-        }
-      `}</style>
+  return (
+    <div style={{ backgroundColor: "#E8FDF5" }}>
+
+      {/* Intro Heading */}
+      <div style={{ textAlign: "center", padding: isMobile ? "60px 20px 10px" : "100px 4% 20px" }}>
+        <h2 style={{
+          fontFamily: "var(--font-syne, system-ui)",
+          fontSize: isMobile ? "clamp(2rem, 8vw, 3rem)" : "clamp(3rem, 6vw, 5rem)",
+          fontWeight: 800, color: "#0A0A0A",
+          lineHeight: 1.08, letterSpacing: "-0.03em",
+          maxWidth: 900, margin: "0 auto",
+        }}>
+          Respond Smarter,{" "}
+          <span style={{ color: "#00B4D8" }}>Not Just Faster.</span>
+        </h2>
+      </div>
+
+      {/* Sections */}
+      {isMobile ? (
+        FEATURES.map((feat, i) => <MobileSection key={i} feat={feat} />)
+      ) : (
+        <>
+          <Section1Desktop />
+          <Section2Desktop />
+          <Section3Desktop />
+        </>
+      )}
+
+
     </div>
   );
 }
-
