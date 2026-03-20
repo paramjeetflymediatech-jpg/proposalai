@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import AnimateOnScroll from "../../../components/ui/AnimateOnScroll";
 
 export const metadata = {
@@ -109,12 +110,13 @@ export default function ConsultingCaseStudyPage() {
           </div>
 
           {/* RIGHT */}
-          <div className="w-1/2 flex items-center justify-center overflow-hidden">
-            <img
+          <div className="w-1/2 flex items-center justify-center overflow-hidden relative">
+            <Image
               src="/case-study-3.png"
               alt="Consulting illustration"
-              className="w-full h-full object-contain object-center"
-              style={{ maxHeight: "calc(100vh - 80px)", padding: "24px 0" }}
+              fill
+              className="object-contain"
+              priority
             />
           </div>
         </div>
@@ -133,8 +135,8 @@ export default function ConsultingCaseStudyPage() {
             </span>
           </div>
 
-          <div className="w-full h-52 mb-8">
-            <img src="/case-study-3.png" alt="Consulting illustration" className="w-full h-full object-contain" />
+          <div className="w-full h-52 mb-8 relative">
+            <Image src="/case-study-3.png" alt="Consulting illustration" fill className="object-contain" />
           </div>
 
           <h1 className="font-display text-3xl font-bold text-dark mb-4 leading-tight">

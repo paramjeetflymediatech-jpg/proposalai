@@ -41,22 +41,22 @@ export default function BlogBeyondKeywordsPage() {
           <div className="prose prose-lg max-w-none text-gray-700">
 
             <p className="text-xl text-gray-600 leading-relaxed mb-8 font-medium">
-              In the high-stakes world of business proposals, first impressions are everything. You need to capture the evaluator's attention, address their specific needs comprehensively, and clearly articulate your unique value proposition.
+              In the high-stakes world of business proposals, first impressions are everything. You need to capture the evaluator&apos;s attention, address their specific needs comprehensively, and clearly articulate your unique value proposition.
             </p>
 
-            <p>For years, organizations have relied on templates and keyword searching to expedite this process. But in today's sophisticated market, is that truly enough? While speed is essential, generic or poorly targeted proposals rarely make the winning cut.</p>
+            <p>For years, organizations have relied on templates and keyword searching to expedite this process. But in today&apos;s sophisticated market, is that truly enough? While speed is essential, generic or poorly targeted proposals rarely make the winning cut.</p>
 
-            <p>Enter the next evolution in proposal technology: <strong>contextually aware AI.</strong> This isn't just about automating boilerplate text or finding matching phrases. It's about an AI that deeply understands your content, your client's requirements, and the nuanced interplay between them to help you craft truly compelling, customized, and ultimately, more successful proposals.</p>
+            <p>Enter the next evolution in proposal technology: <strong>contextually aware AI.</strong> This isn&apos;t just about automating boilerplate text or finding matching phrases. It&apos;s about an AI that deeply understands your content, your client&apos;s requirements, and the nuanced interplay between them to help you craft truly compelling, customized, and ultimately, more successful proposals.</p>
 
-            <h2 className="font-display text-2xl font-bold text-dark mt-12 mb-4">What Does "Contextually Aware AI" Actually Mean for Your Proposals?</h2>
+            <h2 className="font-display text-2xl font-bold text-dark mt-12 mb-4">What Does &quot;Contextually Aware AI&quot; Actually Mean for Your Proposals?</h2>
 
             <p>Traditional automation might help you fill in blanks or pull standard content based on simple triggers. Contextually aware AI, like the engine powering ProposalAI, goes significantly further. It operates on a deeper level of understanding:</p>
 
             <div className="space-y-5 my-8">
               {[
-                { title: "It Understands Your Unique Knowledge", body: "Instead of drawing from a generic pool of internet data, this AI learns from your company's successful past proposals, technical documentation, case studies, and approved marketing language. It builds an intelligent knowledge base that reflects your specific expertise, solutions, and voice." },
-                { title: "It Grasps the Nuances of Each RFP", body: "Contextually aware AI doesn't just match keywords within an RFP. It intelligently extracts and interprets complex requirements, understanding the underlying needs and objectives of the potential client." },
-                { title: "It Creates Coherent, Relevant Narratives", body: "The true power lies in its ability to synthesize information from your knowledge base in direct response to the specific context of a new RFP. This means generating draft content that is not only accurate but also flows logically and persuasively, tailored to the evaluator's precise needs." },
+                { title: "It Understands Your Unique Knowledge", body: "Instead of drawing from a generic pool of internet data, this AI learns from your company&apos;s successful past proposals, technical documentation, case studies, and approved marketing language. It builds an intelligent knowledge base that reflects your specific expertise, solutions, and voice." },
+                { title: "It Grasps the Nuances of Each RFP", body: "Contextually aware AI doesn&apos;t just match keywords within an RFP. It intelligently extracts and interprets complex requirements, understanding the underlying needs and objectives of the potential client." },
+                { title: "It Creates Coherent, Relevant Narratives", body: "The true power lies in its ability to synthesize information from your knowledge base in direct response to the specific context of a new RFP. This means generating draft content that is not only accurate but also flows logically and persuasively, tailored to the evaluator&apos;s precise needs." },
               ].map((item, i) => (
                 <div key={i} className="bg-gray-50 rounded-xl p-6 border-l-4 border-primary">
                   <h3 className="font-bold text-dark mb-2">{item.title}</h3>
@@ -67,13 +67,13 @@ export default function BlogBeyondKeywordsPage() {
 
             <h2 className="font-display text-2xl font-bold text-dark mt-12 mb-4">The ProposalAI Difference: How We Achieve True Contextual Awareness</h2>
 
-            <p>At ProposalAI, we believe the "magic" of effective AI in proposal writing comes from its ability to learn from and leverage your most valuable asset: your own institutional knowledge. Here's how our approach delivers genuinely context-aware responses:</p>
+            <p>At ProposalAI, we believe the &quot;magic&quot; of effective AI in proposal writing comes from its ability to learn from and leverage your most valuable asset: your own institutional knowledge. Here&apos;s how our approach delivers genuinely context-aware responses:</p>
 
             <ul className="space-y-3 my-6">
               {[
                 "<strong>Building Your Intelligent Knowledge Base:</strong> You upload your best content — successful proposals, detailed product specs, insightful case studies, security documentation. ProposalAI processes this information, creating a rich, interconnected knowledge base exclusive to your organization.",
-                "<strong>AI That Learns Your Business Language:</strong> Our AI becomes fluent in your company's unique terminology, value propositions, and successful narrative structures. It understands what has resonated with clients in the past.",
-                "<strong>Dynamic Content Generation:</strong> When a new RFP comes in, ProposalAI intelligently cross-references the specific requirements against your knowledge base. It then assists in drafting highly relevant sections, suggesting the most impactful content, and ensuring every part of your proposal is directly addressing the client's context.",
+                "<strong>AI That Learns Your Business Language:</strong> Our AI becomes fluent in your company&apos;s unique terminology, value propositions, and successful narrative structures. It understands what has resonated with clients in the past.",
+                "<strong>Dynamic Content Generation:</strong> When a new RFP comes in, ProposalAI intelligently cross-references the specific requirements against your knowledge base. It then assists in drafting highly relevant sections, suggesting the most impactful content, and ensuring every part of your proposal is directly addressing the client&apos;s context.",
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-gray-700">
                   <span className="w-2 h-2 rounded-full bg-primary mt-2.5 flex-shrink-0" />
@@ -88,8 +88,8 @@ export default function BlogBeyondKeywordsPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
               {[
-                { stat: "More Persuasive", desc: "Proposals feel like direct, thoughtful responses — not generic templates." },
-                { stat: "Higher Engagement", desc: "Evaluators see you've understood their nuanced needs." },
+                { stat: "More Persuasive", desc: "Proposals feel like direct, thoughtful responses &mdash; not generic templates." },
+                { stat: "Higher Engagement", desc: "Evaluators see you&apos;ve understood their nuanced needs." },
                 { stat: "Less Rework", desc: "AI-generated first drafts are more intelligent, saving SME hours." },
                 { stat: "Higher Win Rates", desc: "Relevant, personalized proposals are far more likely to win." },
               ].map((item, i) => (
@@ -102,9 +102,9 @@ export default function BlogBeyondKeywordsPage() {
 
             <h2 className="font-display text-2xl font-bold text-dark mt-12 mb-4">The Future of Proposal Writing is Contextual</h2>
 
-            <p>As RFPs become more complex and competition intensifies, the ability to produce deeply personalized and contextually relevant proposals at scale is no longer a luxury — it's a necessity. Relying on outdated methods means falling behind.</p>
+            <p>As RFPs become more complex and competition intensifies, the ability to produce deeply personalized and contextually relevant proposals at scale is no longer a luxury &mdash; it&apos;s a necessity. Relying on outdated methods means falling behind.</p>
 
-            <p>Choosing an AI partner like ProposalAI, which prioritizes the intelligent extraction and application of your own unique knowledge, means you're not just automating; you're elevating your entire proposal strategy.</p>
+            <p>Choosing an AI partner like ProposalAI, which prioritizes the intelligent extraction and application of your own unique knowledge, means you&apos;re not just automating; you&apos;re elevating your entire proposal strategy.</p>
           </div>
 
           {/* CTA block */}

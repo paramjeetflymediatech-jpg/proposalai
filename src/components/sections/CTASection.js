@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import AnimateOnScroll from "../ui/AnimateOnScroll";
 
 export default function CTASection({ title, subtitle, btnLabel = "Book a Demo", btnHref = "/contact", secondBtn, image }) {
@@ -34,8 +35,13 @@ export default function CTASection({ title, subtitle, btnLabel = "Book a Demo", 
 
             {image && (
               <AnimateOnScroll delay={200}>
-                <div className="rounded-2xl overflow-hidden shadow-xl">
-                  <img src={image} alt="Platform preview" className="w-full h-72 object-cover" />
+                <div className="rounded-2xl overflow-hidden shadow-xl relative h-72">
+                  <Image
+                    src={image}
+                    alt="Platform preview"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </AnimateOnScroll>
             )}

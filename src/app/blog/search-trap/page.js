@@ -41,12 +41,12 @@ export default function BlogSearchTrapPage() {
           <div className="prose prose-lg max-w-none text-gray-700">
 
             <p className="text-xl text-gray-600 leading-relaxed mb-8 font-medium">
-              Are your proposal experts stuck acting as librarians? Find out why searchable databases aren't enough anymore and how to shift from finding answers to creating them.
+              Are your proposal experts stuck acting as librarians? Find out why searchable databases aren&apos;t enough anymore and how to shift from finding answers to creating them.
             </p>
 
             <h2 className="font-display text-2xl font-bold text-dark mt-8 mb-4">The Search Trap: Stop Searching, Start Finishing</h2>
 
-            <p>We've all been there. A strategic RFP lands on your desk. The questions look familiar. You know your team has answered this exact security question or described this specific methodology before.</p>
+            <p>We&apos;ve all been there. A strategic RFP lands on your desk. The questions look familiar. You know your team has answered this exact security question or described this specific methodology before.</p>
 
             <p>So, you open your proposal software. You type in a keyword. And then... you wait.</p>
 
@@ -54,7 +54,7 @@ export default function BlogSearchTrapPage() {
 
             {/* Callout box */}
             <div className="bg-dark text-white rounded-2xl p-8 my-10 text-center">
-              <p className="text-lg font-bold mb-2">This is the "Search Trap."</p>
+              <p className="text-lg font-bold mb-2">This is the &quot;Search Trap.&quot;</p>
               <p className="text-white/70">For enterprise teams trying to move fast, it is the single biggest thing slowing you down.</p>
             </div>
 
@@ -77,17 +77,17 @@ export default function BlogSearchTrapPage() {
               ))}
             </ul>
 
-            <p>That isn't automation. It's just digital filing. It turns your highly paid proposal leads into librarians doing maintenance, when they should be strategists focused on production.</p>
+            <p>That isn&apos;t automation. It&apos;s just digital filing. It turns your highly paid proposal leads into librarians doing maintenance, when they should be strategists focused on production.</p>
 
-            <h2 className="font-display text-2xl font-bold text-dark mt-12 mb-4">Moving From "Retrieval" to "Creation"</h2>
+            <h2 className="font-display text-2xl font-bold text-dark mt-12 mb-4">Moving From &quot;Retrieval&quot; to &quot;Creation&quot;</h2>
 
-            <p>To win in today's market, you need a tool that offers both high speed and high control. You need to stop just storing answers and start generating them.</p>
+            <p>To win in today&apos;s market, you need a tool that offers both high speed and high control. You need to stop just storing answers and start generating them.</p>
 
-            <p>This is where ProposalAI is different. We don't just help you find an answer; we help you <strong>finish the response.</strong></p>
+            <p>This is where ProposalAI is different. We don&apos;t just help you find an answer; we help you <strong>finish the response.</strong></p>
 
             <div className="space-y-5 my-8">
               {[
-                { title: "Context, Not Just Keywords", body: "Old tools look for matching words. We use Contextual Intelligence to understand what is actually being asked. By using your company's own data — your past wins, specs, and brand voice — our system synthesizes your collective intelligence. It recommends content that answers the specific question in front of you, not just the one you answered three years ago." },
+                { title: "Context, Not Just Keywords", body: "Old tools look for matching words. We use Contextual Intelligence to understand what is actually being asked. By using your company&apos;s own data &mdash; your past wins, specs, and brand voice &mdash; our system synthesizes your collective intelligence. It recommends content that answers the specific question in front of you, not just the one you answered three years ago." },
                 { title: "Intelligent Knowledge Base", body: "We ingest your documents so you can simply 'chat' with them and get accurate answers based on your own data." },
                 { title: "Auto-Drafting", body: "We extract requirements from the RFP and build a branded first draft in minutes. This approach allows teams to stop searching and start finishing." },
               ].map((item, i) => (
@@ -100,9 +100,9 @@ export default function BlogSearchTrapPage() {
 
             <h2 className="font-display text-2xl font-bold text-dark mt-12 mb-4">The Human Advantage</h2>
 
-            <p>The goal of AI isn't to replace your experts. It is to <strong>free them up.</strong></p>
+            <p>The goal of AI isn&apos;t to replace your experts. It is to <strong>free them up.</strong></p>
 
-            <p>When you are stuck in the Search Trap, your subject matter experts are wasting billable hours on "proposal plumbing" — formatting slides and hunting for case studies.</p>
+            <p>When you are stuck in the Search Trap, your subject matter experts are wasting billable hours on &quot;proposal plumbing&quot; &mdash; formatting slides and hunting for case studies.</p>
 
             <p>ProposalAI handles the repetitive, heavy lifting. It hands you a high-quality draft that is mostly done. This lets your human experts step in for the final strategic polish that actually wins the deal.</p>
 
@@ -114,7 +114,7 @@ export default function BlogSearchTrapPage() {
 
             <p>If your team spends more time searching for content than refining strategy, you are caught in an outdated workflow. Moving from manual searching to intelligent drafting is reclaiming millions in billable time for consulting firms and speeding up sales cycles for tech leaders.</p>
 
-            <p>Don't settle for a better search bar. Get a solution that helps you <strong>finish.</strong></p>
+            <p>Don&apos;t settle for a better search bar. Get a solution that helps you <strong>finish.</strong></p>
 
           </div>
 

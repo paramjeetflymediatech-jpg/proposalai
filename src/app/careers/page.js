@@ -29,7 +29,7 @@ export default function CareersPage() {
               <span className="text-primary">Winning Business</span>
             </h1>
             <p className="text-gray-500 text-xl leading-relaxed max-w-2xl mx-auto">
-              We're a team of proposal experts and AI enthusiasts on a mission to level the playing field for every company. Join us.
+              We&apos;re a team of proposal experts and AI enthusiasts on a mission to level the playing field for every company. Join us.
             </p>
           </AnimateOnScroll>
         </div>

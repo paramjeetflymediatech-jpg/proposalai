@@ -15,15 +15,15 @@ export default function HeroSection() {
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    const word = TYPED_WORDS[wordIndex];
     let t;
-    if (!deleting && displayed.length < word.length)
+    const word = TYPED_WORDS[wordIndex];
+    if (!deleting && displayed.length < word.length) {
       t = setTimeout(() => setDisplayed(word.slice(0, displayed.length + 1)), 100);
-    else if (!deleting && displayed.length === word.length)
+    } else if (!deleting && displayed.length === word.length) {
       t = setTimeout(() => setDeleting(true), 2000);
-    else if (deleting && displayed.length > 0)
+    } else if (deleting && displayed.length > 0) {
       t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 60);
-    else {
+    } else {
       setDeleting(false);
       setWordIndex((i) => (i + 1) % TYPED_WORDS.length);
     }
@@ -85,7 +85,7 @@ export default function HeroSection() {
         No CSS clip-path needed — PNG transparency handles the shape.
       */}
       <div
-        className="absolute top-0 right-0 pointer-events-none select-none"
+        className="absolute top-0 right-0 pointer-events-none select-none hidden md:block"
         style={{
           zIndex: 4,
           width: "clamp(320px, 42vw, 560px)",
@@ -94,20 +94,28 @@ export default function HeroSection() {
         }}
       >
         <div
+          className="relative w-[300px] h-[300px] md:w-[500px] md:h-[500px]"
           style={{
-            width: "100%",
-            height: "200%",      /* fits both PNG copies */
-            position: "relative",
-            animation: "slowPanUp 18s linear infinite",
+            maskImage: "radial-gradient(circle, black 40%, transparent 70%)",
+            WebkitMaskImage: "radial-gradient(circle, black 40%, transparent 70%)",
           }}
         >
-          <Image
-            src="/hero.png"   /* = imaghsa.png renamed */
-            alt="ProposalAI — Human Led AI Enabled"
-            fill
-            className="object-contain object-top"
-            priority
-          />
+          <div
+            style={{
+              width: "100%",
+              height: "200%",
+              position: "relative",
+              animation: "slowPanUp 15s linear infinite",
+            }}
+          >
+            <Image
+              src="/logo.png"
+              alt="ProposalAI Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
         </div>
       </div>
 
@@ -115,23 +123,23 @@ export default function HeroSection() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-20">
         <div className="max-w-xl">
 
-          <h1 className="font-display text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-dark leading-[1.15] mb-10">
-            Human Led, AI
-            <br />
-            enabled proposals
-            <br />
-            that for{" "}
-            <span className="text-primary">
+          <h1 className="font-display text-5xl md:text-6xl lg:text-[4rem] font-bold text-dark leading-[1.15] mb-6">
+            Human-Led, AI-Driven<br />
+            Proposals That{" "}
+            <span className="text-primary italic">
               {displayed}
               <span className="animate-pulse font-thin">|</span>
             </span>
           </h1>
+          <h2 className="text-gray-500 text-lg md:text-xl font-medium mb-10 max-w-lg leading-relaxed">
+            Transform your manual efforts into a strategic advantage. Craft personalized, winning bids in a fraction of the time.
+          </h2>
 
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 bg-primary text-white font-semibold text-base px-7 py-4 rounded-full shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all duration-200 hover:-translate-y-0.5"
+            className="inline-flex items-center gap-3 bg-primary text-white font-semibold text-base px-8 py-4 rounded-full shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all duration-200 hover:-translate-y-0.5"
           >
-            Book a Demo
+            Request a Personalized Demo
             <span className="w-7 h-7 rounded-full bg-white/25 flex items-center justify-center font-bold text-sm">
               →
             </span>

@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import AnimateOnScroll from "../../components/ui/AnimateOnScroll";
 
 /* ─── Data ─────────────────────────────────────────── */
@@ -177,10 +178,11 @@ export default function ContactPage() {
             <AnimateOnScroll delay={150}>
               <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/15">
                 {/* TODO: replace with actual image/video */}
-                <img
+                <Image
                   src="/about-us-hero.png"
                   alt="ProposalAI Platform Tour"
-                  className="w-full h-[400px] object-cover block"
+                  fill
+                  className="object-cover block"
                 />
                 <div className="absolute inset-0 bg-primary/10" />
                 {/* Play badge — video tour (future state) */}
@@ -218,11 +220,12 @@ export default function ContactPage() {
 
           {/* Image placeholder — swap with <video> tag when asset is ready */}
           <AnimateOnScroll delay={100}>
-            <div className="rounded-2xl overflow-hidden shadow-lg max-w-3xl mx-auto">
-              <img
+            <div className="rounded-2xl overflow-hidden shadow-lg max-w-3xl mx-auto relative h-[360px]">
+              <Image
                 src="/platform-feature.jpg"
                 alt="ProposalAI in action"
-                className="w-full h-[360px] object-cover block"
+                fill
+                className="object-cover block"
               />
             </div>
           </AnimateOnScroll>
@@ -272,7 +275,7 @@ export default function ContactPage() {
             {/* Left — contact info + side image */}
             <AnimateOnScroll className="lg:sticky lg:top-32">
               <span className="inline-block text-xs font-bold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full mb-6">
-                Let's Talk
+                Let&apos;s Talk
               </span>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-dark leading-tight mb-4">
                 Get in Touch With{" "}
@@ -280,7 +283,7 @@ export default function ContactPage() {
               </h2>
               <p className="text-gray-500 text-base leading-relaxed mb-10">
                 Fill in the form and our team will reach out within one business
-                day. We're here to help you win more deals.
+                day. We&apos;re here to help you win more deals.
               </p>
 
               <div className="space-y-5 mb-10">
@@ -297,12 +300,12 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              {/* Side image (scientist / tech — matches reference) */}
-              <div className="rounded-2xl overflow-hidden shadow-md">
-                <img
+              <div className="rounded-2xl overflow-hidden shadow-md relative h-56">
+                <Image
                   src="/about-us-grid-2.jpg"
                   alt="Our team"
-                  className="w-full h-56 object-cover block"
+                  fill
+                  className="object-cover block"
                 />
               </div>
             </AnimateOnScroll>
@@ -318,7 +321,7 @@ export default function ContactPage() {
                   </div>
                   <h3 className="font-display text-3xl font-bold text-dark mb-3">Message Sent!</h3>
                   <p className="text-gray-500 text-lg">
-                    We'll reach out within one business day. Check your inbox!
+                    We&apos;ll reach out within one business day. Check your inbox!
                   </p>
                 </div>
               ) : (
@@ -435,7 +438,7 @@ export default function ContactPage() {
                   {/* Question */}
                   <div>
                     <label className="block text-sm font-semibold text-dark mb-2">
-                      What's your question for us?{" "}
+                      What&apos;s your question for us?{" "}
                       <span className="text-primary">*</span>
                     </label>
                     <textarea

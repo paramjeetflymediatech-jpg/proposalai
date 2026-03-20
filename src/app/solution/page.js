@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import AnimateOnScroll from "../../components/ui/AnimateOnScroll";
 import CTASection from "../../components/sections/CTASection";
 import ClientsSection from "../../components/sections/ClientsSection";
@@ -78,7 +79,7 @@ export default function SolutionPage() {
               <span className="text-primary">Every Proposal Challenge</span>
             </h1>
             <p className="text-gray-500 text-xl max-w-2xl mx-auto mb-10">
-              Whether you're responding to RFPs, tackling security questionnaires, or writing grants — ProposalAI has a purpose-built solution.
+              Whether you&apos;re responding to RFPs, tackling security questionnaires, or writing grants — ProposalAI has a purpose-built solution.
             </p>
             <Link
               href="/contact"
@@ -137,8 +138,13 @@ export default function SolutionPage() {
                 {/* Image */}
                 <AnimateOnScroll delay={200} className={i % 2 !== 0 ? "lg:order-1" : ""}>
                   <div className={`rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br ${uc.color} p-1`}>
-                    <div className="rounded-3xl overflow-hidden bg-white">
-                      <img src={uc.image} alt={uc.title} className="w-full h-80 object-contain p-6" />
+                    <div className="rounded-3xl overflow-hidden bg-white relative h-80">
+                      <Image
+                        src={uc.image}
+                        alt={uc.title}
+                        fill
+                        className="object-contain p-6"
+                      />
                     </div>
                   </div>
                 </AnimateOnScroll>

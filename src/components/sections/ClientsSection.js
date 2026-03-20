@@ -1,3 +1,4 @@
+import Image from "next/image";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 
 const BRANDS = [
@@ -32,9 +33,14 @@ export default function ClientsSection() {
             {[...BRANDS, ...BRANDS].map((brand, i) => (
               <div
                 key={i}
-                className="flex-shrink-0 flex items-center justify-center w-40 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
+                className="flex-shrink-0 flex items-center justify-center w-40 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100 relative h-12"
               >
-                <img src={brand.img} alt={brand.name} className="h-12 w-auto object-contain" />
+                <Image
+                  src={brand.img}
+                  alt={brand.name}
+                  fill
+                  className="object-contain"
+                />
               </div>
             ))}
           </div>

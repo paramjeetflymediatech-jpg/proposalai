@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import AnimateOnScroll from "../ui/AnimateOnScroll";
 
 const POSTS = [
@@ -57,7 +58,12 @@ export default function CaseStudiesSection() {
               <Link href={post.href} className="group block rounded-3xl overflow-hidden card-hover bg-white shadow-sm">
                 {/* Image */}
                 <div className="relative h-52 overflow-hidden">
-                  <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
                 {/* Card body */}
                 <div className={`${post.bg} p-6 relative`}>

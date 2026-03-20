@@ -46,7 +46,7 @@ function useScrollProgress(ref) {
     window.addEventListener("scroll", update, { passive: true });
     update();
     return () => window.removeEventListener("scroll", update);
-  }, []);
+  }, [ref]);
   return progress;
 }
 

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import AnimateOnScroll from "../ui/AnimateOnScroll";
 
 const SLIDES = [
@@ -65,10 +66,11 @@ export default function SliderSection() {
 
           {/* Image — left half */}
           <div className="absolute inset-0 w-1/2">
-            <img
+            <Image
               src={slide.image}
               alt={slide.heading}
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
               style={{ transition: "opacity 0.4s ease" }}
             />
           </div>

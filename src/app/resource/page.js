@@ -230,8 +230,10 @@
 
 
 "use client";
+"use client";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import AnimateOnScroll from "../../components/ui/AnimateOnScroll";
 
 const CATEGORIES = [
@@ -342,8 +344,13 @@ export default function ResourcePage() {
 
           {/* Right — image: hidden on mobile, visible on md+ */}
           <div className="hidden md:flex w-1/2 flex-col" style={{ paddingTop: "180px", paddingBottom: "80px" }}>
-            <div className="flex-1 overflow-hidden" style={{ borderRadius: "40rem 0 0 40rem" }}>
-              <img src="/resources-hero-section.jpg" alt="Resource hero" className="w-full h-full object-cover object-top" />
+            <div className="flex-1 overflow-hidden relative" style={{ borderRadius: "40rem 0 0 40rem" }}>
+              <Image 
+                src="/resources-hero-section.jpg" 
+                alt="Resource hero" 
+                fill 
+                className="object-cover object-top" 
+              />
             </div>
           </div>
 
@@ -425,11 +432,12 @@ export default function ResourcePage() {
 
             {/* Right — image: hidden on mobile */}
             <div className="hidden md:flex flex-1 justify-end">
-              <div className="w-full max-w-lg overflow-hidden rounded-xl">
-                <img
+              <div className="w-full max-w-lg overflow-hidden rounded-xl relative aspect-square">
+                <Image
                   src="/resources-hero-section.jpg"
                   alt="Winning proposals team"
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
               </div>
             </div>
