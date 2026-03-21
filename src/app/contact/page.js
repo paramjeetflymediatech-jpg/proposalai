@@ -145,7 +145,7 @@ export default function ContactPage() {
           Right: image with video-tour badge (future state)
       ══════════════════════════════════════════════ */}
       <section className="pt-24 pb-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
             {/* Left */}
@@ -175,8 +175,8 @@ export default function ContactPage() {
             </AnimateOnScroll>
 
             {/* Right — placeholder image (swap for video when ready) */}
-            <AnimateOnScroll delay={150}>
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/15">
+            <AnimateOnScroll delay={150} className="w-full">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/15 aspect-[4/3] md:aspect-video lg:aspect-auto lg:h-[500px]">
                 {/* TODO: replace with actual image/video */}
                 <Image
                   src="/about-us-hero.png"
@@ -207,7 +207,7 @@ export default function ContactPage() {
           Blue bg → white rounded card → title + image
       ══════════════════════════════════════════════ */}
       <section className="bg-primary py-2">
-        <div className="bg-white rounded-3xl mx-6 md:mx-10 my-6 px-8 md:px-16 py-14 shadow-sm">
+        <div className="bg-white rounded-[2rem] mx-0 sm:mx-6 md:mx-10 my-6 px-6 sm:px-10 md:px-16 py-10 md:py-14 shadow-sm">
           <AnimateOnScroll>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-dark text-center mb-5">
               Why ProposalAI?
@@ -220,7 +220,7 @@ export default function ContactPage() {
 
           {/* Image placeholder — swap with <video> tag when asset is ready */}
           <AnimateOnScroll delay={100}>
-            <div className="rounded-2xl overflow-hidden shadow-lg max-w-3xl mx-auto relative h-[360px]">
+            <div className="rounded-2xl overflow-hidden shadow-lg max-w-3xl mx-auto relative h-64 md:h-[400px]">
               <Image
                 src="/platform-feature.jpg"
                 alt="ProposalAI in action"
@@ -235,8 +235,8 @@ export default function ContactPage() {
       {/* ══════════════════════════════════════════════
           SECTION 3 — FEATURES GRID  (3×2)
       ══════════════════════════════════════════════ */}
-      <section className="bg-gray-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-gray-50 py-20 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-8">
           <AnimateOnScroll>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-dark text-center mb-4">
               Everything You Need to Win
@@ -269,11 +269,11 @@ export default function ContactPage() {
           Left: info + side image   Right: form
       ══════════════════════════════════════════════ */}
       <section className="bg-primary py-2" id="contact-form">
-        <div className="bg-white rounded-3xl mx-6 md:mx-10 my-6 px-8 md:px-16 py-14 shadow-sm">
+        <div className="bg-white rounded-[2rem] mx-0 sm:mx-6 md:mx-10 my-6 px-6 sm:px-10 md:px-16 py-10 md:py-14 shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
             {/* Left — contact info + side image */}
-            <AnimateOnScroll className="lg:sticky lg:top-32">
+            <AnimateOnScroll className=" lg:top-32">
               <span className="inline-block text-xs font-bold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full mb-6">
                 Let&apos;s Talk
               </span>
@@ -289,7 +289,7 @@ export default function ContactPage() {
               <div className="space-y-5 mb-10">
                 {CONTACT_INFO.map((item, i) => (
                   <div key={i} className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                    <div className="w-10  rounded-xl bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
                       {item.icon}
                     </div>
                     <div>
@@ -300,14 +300,14 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              <div className="rounded-2xl overflow-hidden shadow-md relative h-56">
+              {/* <div className="rounded-2xl overflow-hidden shadow-md relative h-64 md:h-72">
                 <Image
-                  src="/about-us-grid-2.jpg"
+                  src="/about-us-grid-2.jpgd"
                   alt="Our team"
                   fill
                   className="object-cover block"
                 />
-              </div>
+              </div> */}
             </AnimateOnScroll>
 
             {/* Right — form */}
