@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import AnimateOnScroll from "../ui/AnimateOnScroll";
 
 const TILES = [
@@ -66,10 +67,11 @@ export default function FeaturedSection() {
                   className="relative overflow-hidden"
                   style={{ height: 240 }}
                 >
-                  <img
+                  <Image
                     src={tile.img}
                     alt={tile.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
                   {/* Subtle overlay */}
                   <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-300" />

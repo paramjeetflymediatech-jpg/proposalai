@@ -51,7 +51,7 @@ export default function FeatureSections() {
     });
 
     return () => observers.forEach((obs) => obs.disconnect());
-  }, []);
+  }, [sectionRefs]);
 
   // Map each video index to its current position/style based on activeIndex
   const getVideoStyles = (videoIndex) => {

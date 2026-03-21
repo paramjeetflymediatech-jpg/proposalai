@@ -76,7 +76,7 @@ export default function TermsAndConditions() {
                 4. Limitation of Liability
               </h2>
               <p>
-                ProposalAI provides its services "as is" and "as available." We do not warrant that the AI-generated content will be error-free or meet your specific business requirements. We are not liable for any indirect, incidental, or consequential damages resulting from your use of the platform.
+                ProposalAI provides its services &quot;as is&quot; and &quot;as available.&quot; We do not warrant that the AI-generated content will be error-free or meet your specific business requirements. We are not liable for any indirect, incidental, or consequential damages resulting from your use of the platform.
               </p>
             </AnimateOnScroll>
 
