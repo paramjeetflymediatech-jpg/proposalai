@@ -43,7 +43,7 @@ export default function StatsSection() {
       style={{ borderRadius: "40px 40px 0 0", marginTop: "-2px" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-y-12 sm:gap-8 gap-x-8 text-center">
           {STATS.map((stat, i) => (
             <div key={i} className="flex flex-col items-center">
 
@@ -53,12 +53,12 @@ export default function StatsSection() {
               </p>
 
               {/* Label */}
-              <p className="text-white font-semibold text-sm mb-3">
+              <p className="text-white font-semibold text-xl mb-3">
                 {stat.label}
               </p>
 
               {/* Description */}
-              <p className="text-white/70 text-xs leading-relaxed max-w-[180px]">
+              <p className="text-white/70 text-md leading-relaxed max-w-[280px]">
                 {stat.desc}
               </p>
 

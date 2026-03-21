@@ -1,153 +1,99 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const TYPED_WORDS = ["Win More", "Stand Out", "Save Time"];
-
-// Right-side triangle cycles: Purple → Pink → Green (matches reference video exactly)
-const TRIANGLE_COLORS = ["#7C3AED", "#EC4899", "#22C55E"];
-
 export default function HeroSection() {
-  /* ── Typewriter ────────────────────────────────────── */
-  const [wordIndex, setWordIndex] = useState(0);
-  const [displayed, setDisplayed] = useState("");
-  const [deleting, setDeleting] = useState(false);
+  const videoRef = useRef(null);
 
-  useEffect(() => {
-    let t;
-    const word = TYPED_WORDS[wordIndex];
-    if (!deleting && displayed.length < word.length) {
-      t = setTimeout(() => setDisplayed(word.slice(0, displayed.length + 1)), 100);
-    } else if (!deleting && displayed.length === word.length) {
-      t = setTimeout(() => setDeleting(true), 2000);
-    } else if (deleting && displayed.length > 0) {
-      t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 60);
-    } else {
-      setDeleting(false);
-      setWordIndex((i) => (i + 1) % TYPED_WORDS.length);
+  const [isVideoFinished, setIsVideoFinished] = useState(false);
+
+  const handleTimeUpdate = () => {
+    if (videoRef.current && videoRef.current.currentTime >= 4) {
+      videoRef.current.pause();
+      setIsVideoFinished(true);
     }
-    return () => clearTimeout(t);
-  }, [displayed, deleting, wordIndex]);
-
-  /* ── Triangle color cycle ──────────────────────────── */
-  const [triIdx, setTriIdx] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setTriIdx((i) => (i + 1) % TRIANGLE_COLORS.length), 2500);
-    return () => clearInterval(id);
-  }, []);
-
+  };
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-white pt-16">
-
-      {/* ── Keyframe: slow seamless upward pan ─────────── */}
-      {/*
-        imaghsa.png already contains 2 copies of the image stacked
-        (upright top-half + same image bottom-half) so:
-        translateY(0 → -50%) = seamless infinite loop
-        Duration 18s = very slow, barely noticeable — matches reference
-      */}
+    <section className="relative min-h-[90vh] lg:min-h-screen flex items-center overflow-hidden bg-white pt-24 lg:pt-16">
+      
+      {/* ── Floater Animation ────────────────────────── */}
       <style jsx>{`
-        @keyframes slowPanUp {
-          0%   { transform: translateY(0); }
-          100% { transform: translateY(-50%); }
+        @keyframes float {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+          100% { transform: translateY(0px); }
+        }
+        .animate-float {
+          animation: float 5s ease-in-out infinite;
         }
       `}</style>
 
-      {/* ── Color-cycling triangle — right edge ────────── */}
-      {/*
-        CSS triangle trick. Sits bottom-right.
-        borderWidth: "0 0 H W" = bottom H px, left W px
-        Creates a right-angle triangle with point at top-left
-      */}
-      <div
-        className="absolute right-0 bottom-0 pointer-events-none"
-        style={{
-          zIndex: 5,
-          width: 0,
-          height: 0,
-          borderStyle: "solid",
-          borderWidth: "0 0 440px 250px",
-          borderColor: `transparent transparent ${TRIANGLE_COLORS[triIdx]} transparent`,
-          transition: "border-color 0.7s ease-in-out",
-        }}
-      />
-
-      {/* ── Hero image — top-right, slow upward pan ─────── */}
-      {/*
-        The PNG (imaghsa.png / hero-image-loop.png) has:
-          - Built-in clip shape (transparent background)
-          - 2× height: top = woman upright, bottom = same image
-        Container:
-          - overflow:hidden to clip the scrolling strip
-          - height: 200vh so both copies fit
-          - Animated div inside scrolls up by 50% (= 1 image height) → seamless
-        No CSS clip-path needed — PNG transparency handles the shape.
-      */}
-      <div
-        className="absolute top-0 right-0 pointer-events-none select-none hidden md:block"
-        style={{
-          zIndex: 4,
-          width: "clamp(320px, 42vw, 560px)",
-          height: "100vh",       /* visible window */
-          overflow: "hidden",
-        }}
-      >
-        <div
-          className="relative w-[300px] h-[300px] md:w-[500px] md:h-[500px]"
-          style={{
-            maskImage: "radial-gradient(circle, black 40%, transparent 70%)",
-            WebkitMaskImage: "radial-gradient(circle, black 40%, transparent 70%)",
-          }}
-        >
-          <div
-            style={{
-              width: "100%",
-              height: "200%",
-              position: "relative",
-              animation: "slowPanUp 15s linear infinite",
-            }}
-          >
-            <Image
-              src="/logo.png"
-              alt="ProposalAI Logo"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* ── Left: H1 + CTA ─────────────────────────────── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-20">
-        <div className="max-w-xl">
-
-          <h1 className="font-display text-5xl md:text-6xl lg:text-[4rem] font-bold text-dark leading-[1.15] mb-6">
-            Human-Led, AI-Driven<br />
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-12 lg:py-20 lg:grid lg:grid-cols-2 lg:items-center gap-12 lg:gap-8 flex flex-col">
+        
+        {/* ── Title & Subtitle ──────────────────────── */}
+        <div className="w-full text-center lg:text-left lg:col-start-1 lg:row-start-1">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-bold text-dark leading-[1.1] mb-6">
+            Human-Led, AI-Driven{" "}<br className="hidden sm:block" />
             Proposals That{" "}
             <span className="text-primary italic">
-              {displayed}
-              <span className="animate-pulse font-thin">|</span>
+              Win More
             </span>
           </h1>
-          <h2 className="text-gray-500 text-lg md:text-xl font-medium mb-10 max-w-lg leading-relaxed">
+
+          <h2 className="text-gray-500 text-lg md:text-xl font-medium mb-10 mx-auto lg:mx-0 max-w-lg leading-relaxed">
             Transform your manual efforts into a strategic advantage. Craft personalized, winning bids in a fraction of the time.
           </h2>
+        </div>
 
+        {/* ── Right Side Animated Media ────────────────── */}
+        <div className="w-full flex justify-center lg:justify-end lg:col-start-2 lg:row-span-2 order-2 lg:order-none">
+          <div 
+            className="relative w-full max-w-[600px] h-[550px] aspect-video rounded-2xl overflow-hidden border-4 border-white shadow-2xl"
+            style={{ boxShadow: '0 0 60px rgba(255, 255, 255, 1)' }}
+          >
+            {isVideoFinished ? (
+              <div className="relative w-full h-full animate-float">
+                <Image
+                  src="/paoploago-1-4.png"
+                  alt="ProposalAI Logo"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-4/5 h-4 bg-dark/5 blur-xl rounded-[100%] scale-x-75 animate-pulse" />
+              </div>
+            ) : (
+              <video
+                ref={videoRef}
+                src="/videos/Untitled video.mp4"
+                autoPlay
+                muted
+                playsInline
+                onTimeUpdate={handleTimeUpdate}
+                className="w-full h-full object-cover"
+              />
+            )}
+          </div>
+        </div>
+
+        {/* ── Button Container ───────────────────────── */}
+        <div className="w-full flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 lg:col-start-1 lg:row-start-2 order-3 lg:order-none">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 bg-primary text-white font-semibold text-base px-8 py-4 rounded-full shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all duration-200 hover:-translate-y-0.5"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-primary text-white font-semibold text-base px-8 py-4 rounded-full shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all duration-200 hover:-translate-y-0.5"
           >
             Request a Personalized Demo
             <span className="w-7 h-7 rounded-full bg-white/25 flex items-center justify-center font-bold text-sm">
               →
             </span>
           </Link>
-
         </div>
+
       </div>
 
+      {/* Background Decorative Element (Optional) */}
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[40%] h-[80%] bg-primary/5 rounded-full blur-[120px] -z-10 pointer-events-none" />
     </section>
   );
 }

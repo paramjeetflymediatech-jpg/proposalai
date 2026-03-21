@@ -4,13 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "../ui/Logo";
 
-const THEMED_ROUTES = {
-  "/platform": {
-    heroBg: "#E8E0D0",
-    linkColor: "#1a1a1a",
-    logoDark: true,
-  },
-};
+// No themed routes for now - keeping it pure white
+
 
 const SOLUTION_MENU = {
   useCases: [
@@ -40,8 +35,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen]       = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState(null);
 
-  const routeTheme      = THEMED_ROUTES[pathname] ?? null;
-  const isThemedInitial = routeTheme !== null && !scrolled;
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -57,18 +51,15 @@ export default function Navbar() {
   }, [pathname]);
 
   let headerBg, headerShadow;
-  if (isThemedInitial) {
-    headerBg     = routeTheme.heroBg;
-    headerShadow = "none";
-  } else if (scrolled) {
-    headerBg     = "rgba(255,255,255,0.95)";
+  if (scrolled) {
+    headerBg     = "#ffffff";
     headerShadow = "0 4px 20px -5px rgba(0,0,0,0.10)";
   } else {
-    headerBg     = "rgba(255,255,255,1)";
+    headerBg     = "#ffffff";
     headerShadow = "none";
   }
 
-  const linkColor = isThemedInitial ? routeTheme.linkColor : "#374151";
+  const linkColor = "#374151";
   const toggleMenu = (name) => setOpenMenu(openMenu === name ? null : name);
 
   return (
@@ -160,7 +151,7 @@ export default function Navbar() {
                            pl-6 pr-1.5 py-1.5 rounded-full shadow-lg shadow-primary/25
                            hover:bg-primary/90 transition-all duration-200 whitespace-nowrap"
               >
-                Book a Demo
+                Request a Personalized Demo
                 <span className="w-9 h-9 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                   <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -373,7 +364,7 @@ export default function Navbar() {
               className="inline-flex items-center justify-center gap-2.5 w-full bg-primary text-white text-lg font-semibold pl-6 pr-2 py-3 rounded-full shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all duration-200"
               onClick={() => setMobileOpen(false)}
             >
-              Book a Demo
+              Request a Personalized Demo
               <span className="w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                 <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
