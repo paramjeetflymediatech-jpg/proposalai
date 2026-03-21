@@ -10,7 +10,7 @@ const PROBLEMS = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
       </svg>
     ),
-    bg: "bg-emerald-400",
+    bg: "bg-[#5DFFCE]",
   },
   {
     title: "The Information Scavenger Hunt",
@@ -20,7 +20,7 @@ const PROBLEMS = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
       </svg>
     ),
-    bg: "bg-pink-400",
+    bg: "bg-[#DFA5D4]",
   },
   {
     title: "The Brand Disconnect",
@@ -30,14 +30,14 @@ const PROBLEMS = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
       </svg>
     ),
-    bg: "bg-primary",
+    bg: "bg-[#1A9CDA]",
   },
 ];
 
 export default function ProblemGrid() {
   return (
     <section className="py-24 bg-white rounded-t-[32px]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-8">
 
         {/* Header row */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-6">
@@ -64,7 +64,7 @@ export default function ProblemGrid() {
         </AnimateOnScroll>
 
         {/* 3 Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
           {PROBLEMS.map((problem, i) => (
             <AnimateOnScroll key={i} delay={i * 120}>
               <div className={`${problem.bg} rounded-3xl p-8 h-full flex flex-col`}>
@@ -72,8 +72,8 @@ export default function ProblemGrid() {
                 <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center mb-6 flex-shrink-0">
                   {problem.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{problem.title}</h3>
-                <p className="text-white/80 text-sm leading-relaxed flex-1">{problem.desc}</p>
+                <h3 className="text-xl font-bold text-black mb-3">{problem.title}</h3>
+                <p className="text-black/80 text-md leading-relaxed flex-1">{problem.desc}</p>
               </div>
             </AnimateOnScroll>
           ))}

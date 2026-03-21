@@ -62,40 +62,51 @@ export default function PlatformPage() {
     <>
       {/* ── 1. Hero ─────────────────────────────────────────────────── */}
       <section
-        className="relative flex items-center overflow-hidden"
+        className="relative flex flex-col lg:flex-row items-center overflow-hidden"
         style={{
           background: "#E8E0D0",
-          minHeight: "calc(100vh - 80px)",
-          paddingTop: "80px",
+          minHeight: "auto",
+          paddingTop: "100px",
+          paddingBottom: "60px",
           isolation: "isolate",
         }}
       >
-        <div
-          className="hidden md:block absolute right-0 bottom-0 w-[65%] lg:w-[55%] h-[75%] lg:h-[85%]"
+        {/* Content Side */}
+        <div className="relative w-full lg:w-1/2 px-6 sm:px-10 lg:pl-16 lg:pr-0 z-10 flex flex-col justify-center text-left lg:text-left items-start">
+          <AnimateOnScroll>
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-dark leading-[1.08] mb-6 max-w-sm sm:max-w-md lg:max-w-lg">
+              The Smarter Way{" "}<span className="text-primary">to Write Winning Proposals</span>
+            </h1>
+            <p className="text-gray-600 text-base sm:text-lg max-w-md mb-10 leading-relaxed">
+              Transform your collective knowledge into a competitive advantage. Respond faster, ensure accuracy, and close more deals. 
+            </p>
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <Link href="/contact" className="w-full sm:w-auto inline-flex items-center justify-between sm:justify-start gap-2.5 bg-primary text-white text-base font-semibold pl-6 pr-1.5 py-1.5 rounded-full shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all duration-200 group">
+                Request a Personalized Demo 
+                <span className="w-9 h-9 rounded-full bg-white flex items-center justify-center flex-shrink-0 group-hover:translate-x-1 transition-transform">
+                  <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </span>
+              </Link>
+            </div>
+          </AnimateOnScroll>
+        </div>
+
+        {/* Image Side */}
+        <div 
+          className="relative w-full lg:w-1/2 mt-12 lg:mt-0 h-[300px] sm:h-[450px] lg:h-[600px] flex items-end justify-end pointer-events-none"
           style={{ mixBlendMode: "multiply" }}
         >
-          <Image src="/platfrom-home.png" alt="Platform hero" fill className="object-contain object-right-bottom" priority />
-        </div>
-        <div className="md:hidden absolute right-0 bottom-0 w-full h-[45%]" style={{ mixBlendMode: "multiply" }}>
-          <Image src="/platfrom-home.png" alt="" fill className="object-contain object-right-bottom opacity-40" priority />
-        </div>
-        <div className="relative w-full px-6 sm:px-10 lg:px-16 py-12 md:py-0">
-          <AnimateOnScroll>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-dark leading-[1.08] mb-5 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
-              The Smarter Way{" "}<span className="text-primary">to Write Winning Proposals  </span>
-            </h1>
-            <p className="text-gray-600 text-sm sm:text-base max-w-xs sm:max-w-sm mb-8 leading-relaxed">
-               Transform your collective knowledge into a competitive advantage. Respond faster, ensure accuracy, and close more deals. 
-            </p>
-            <Link href="/contact" className="inline-flex items-center gap-2.5 bg-primary text-white text-sm sm:text-base font-semibold pl-5 sm:pl-6 pr-1.5 py-1.5 rounded-full shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all duration-200">
-              Request a Personalized Demo 
-              <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white flex items-center justify-center flex-shrink-0">
-                <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </span>
-            </Link>
-          </AnimateOnScroll>
+          <div className="relative w-full h-full max-w-2xl">
+            <Image 
+              src="/platfrom-home.png" 
+              alt="Platform hero" 
+              fill 
+              className="object-contain object-bottom lg:object-right-bottom" 
+              priority 
+            />
+          </div>
         </div>
       </section>
 
@@ -104,7 +115,7 @@ export default function PlatformPage() {
 
       {/* ── 4. GIF Cards on primary bg ──────────────────── */}
       <section className="bg-primary py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-8">
           <AnimateOnScroll className="text-center mb-12 md:mb-16">
             <p className="text-white/70 text-sm font-semibold uppercase tracking-widest mb-3">The Platform</p>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5">The Intelligent Engine Behind Every Win</h2>
@@ -133,7 +144,7 @@ export default function PlatformPage() {
 
       {/* ── 5. FAQ ───────────────────────────────────────────────────── */}
       <section className="py-16 md:py-24" style={{ background: "#F5F0E8" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-12 lg:gap-20 items-start">
             {/* Left — sticky */}
             <div className="lg:sticky lg:top-28">
@@ -156,7 +167,7 @@ export default function PlatformPage() {
 
       {/* ── 6. Capabilities — heading+subheading left, image right ─── */}
       <section className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
             {/* Left — heading + subheading + button */}
