@@ -122,7 +122,7 @@ export default function FeatureSections() {
       {/* Intro Header */}
       <div className="pt-24 pb-12 text-center px-4">
         <AnimateOnScroll>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-[#0A0A0A] leading-tight max-w-4xl mx-auto">
+          <h2 className="font-display text-4xl sm:text-4xl md:text-5xl font-bold text-[#0A0A0A] leading-tight max-w-4xl mx-auto">
             Respond Smarter,{" "}
             <span className="text-[#00B4D8]">Not Just Faster.</span>
           </h2>
