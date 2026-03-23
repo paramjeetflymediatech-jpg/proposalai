@@ -9,21 +9,21 @@ const TILES = [
     desc: "Explore our latest success stories, expert guides, and industry trends to help you bid smarter and win more.",
     href: "/case-study/saas-provider",
     bg: "#ff8181",
-    img: "/card-1.png",
+    img: "/case-study.png",
   },
   {
     title: "Link to Blog Article 2",
     desc: "Explore our latest success stories, expert guides, and industry trends to help you bid smarter and win more.",
     href: "/blog/search-trap",
     bg: "#BF86CB",
-    img: "/card-2.png",
+    img: "/case-study.png",
   },
   {
     title: "Link to Blog Article 3",
     desc: "Explore our latest success stories, expert guides, and industry trends to help you bid smarter and win more.",
     href: "/proposal-management-report",
     bg: "#2196F3",
-    img: "/card-3.png",
+    img: "/case-study.png",
   },
 ];
 
@@ -71,7 +71,7 @@ export default function FeaturedSection() {
                     src={tile.img}
                     alt={tile.title}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                    className="object-cover"
                   />
                   {/* Subtle overlay */}
                   <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-300" />
