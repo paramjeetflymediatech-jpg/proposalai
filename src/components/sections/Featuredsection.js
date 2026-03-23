@@ -36,7 +36,7 @@ export default function FeaturedSection() {
         <AnimateOnScroll>
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-12">
             <div>
-              <h2 className="font-display text-4xl md:text-5xl font-light text-dark mb-4">
+              <h2 className="font-display text-4xl md:text-5xl font-medium text-dark mb-4">
                 Real Results &amp; Fresh Perspectives
               </h2>
               <p className="text-gray-500 text-lg max-w-xl">

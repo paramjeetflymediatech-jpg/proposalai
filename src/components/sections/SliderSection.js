@@ -51,7 +51,7 @@ export default function SliderSection() {
         <AnimateOnScroll>
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-12">
             <div>
-              <h2 className="font-display text-4xl md:text-5xl font-light text-dark mb-4">
+              <h2 className="font-display text-4xl md:text-5xl font-medium text-dark mb-4">
                 Why Teams Switch to ProposalAI
               </h2>
               <p className="text-gray-500 text-lg max-w-xl">
@@ -99,7 +99,7 @@ export default function SliderSection() {
             </div> */}
 
             <h3
-              className="text-white font-display font-light mb-4 sm:mb-6"
+              className="text-white font-display font-medium mb-4 sm:mb-6"
               style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.25rem)", lineHeight: 1.15 }}
             >
               {slide.heading}

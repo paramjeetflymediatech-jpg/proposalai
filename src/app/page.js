@@ -27,7 +27,7 @@ export default function HomePage() {
           <div className="flex flex-col lg:flex-row justify-between items-start mb-12 lg:mb-16 gap-8">
             <div className="max-w-2xl">
               <AnimateOnScroll>
-                <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-5.5xl font-light text-dark leading-[1.1] mb-6">
+                <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-5.5xl font-medium text-dark leading-[1.1] mb-6">
                   The Smarter Way to <br className="hidden md:block" />
                   <span className="text-primary">Write Winning Proposals</span>
                 </h2>

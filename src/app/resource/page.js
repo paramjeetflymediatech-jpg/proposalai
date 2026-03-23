@@ -133,9 +133,9 @@ export default function ResourcePage() {
               <p className="text-gray-500 text-base md:text-lg max-w-lg mb-8 leading-relaxed">
                 Join the teams cutting response times by 80%. Book a demo to see ProposalAI in action.
               </p>
-              <button className="inline-flex items-center bg-dark text-white text-sm font-light uppercase tracking-widest px-8 py-4 rounded-full hover:bg-gray-800 transition-all duration-200">
+              <Link href="/contact" className="inline-flex items-center bg-dark text-white text-sm font-light uppercase tracking-widest px-8 py-4 rounded-full hover:bg-gray-800 transition-all duration-200">
                 Book a Demo
-              </button>
+              </Link>
             </div>
 
             {/* Right — image: hidden on mobile */}
