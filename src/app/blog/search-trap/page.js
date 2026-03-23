@@ -18,10 +18,10 @@ export default function BlogSearchTrapPage() {
               Back to Resources
             </Link>
             <div className="flex items-center gap-3 mb-5">
-              <span className="bg-violet-100 text-violet-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">Blog</span>
+              <span className="bg-violet-100 text-violet-700 text-xs font-medium uppercase tracking-widest px-3 py-1.5 rounded-full">Blog</span>
               <span className="bg-gray-100 text-gray-600 text-xs font-semibold px-3 py-1.5 rounded-full">Productivity</span>
             </div>
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-dark mb-6 leading-[1.08]">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-medium text-dark mb-6 leading-[1.08]">
               The Search Trap: Why Old Proposal Libraries Are Failing Your Team
             </h1>
             <div className="flex items-center gap-4 text-sm text-gray-400 mb-10">
@@ -44,7 +44,7 @@ export default function BlogSearchTrapPage() {
               Are your proposal experts stuck acting as librarians? Find out why searchable databases aren&apos;t enough anymore and how to shift from finding answers to creating them.
             </p>
 
-            <h2 className="font-display text-2xl font-bold text-dark mt-8 mb-4">The Search Trap: Stop Searching, Start Finishing</h2>
+            <h2 className="font-display text-2xl font-medium text-dark mt-8 mb-4">The Search Trap: Stop Searching, Start Finishing</h2>
 
             <p>We&apos;ve all been there. A strategic RFP lands on your desk. The questions look familiar. You know your team has answered this exact security question or described this specific methodology before.</p>
 
@@ -54,11 +54,11 @@ export default function BlogSearchTrapPage() {
 
             {/* Callout box */}
             <div className="bg-dark text-white rounded-2xl p-8 my-10 text-center">
-              <p className="text-lg font-bold mb-2">This is the &quot;Search Trap.&quot;</p>
+              <p className="text-lg font-medium mb-2">This is the &quot;Search Trap.&quot;</p>
               <p className="text-white/70">For enterprise teams trying to move fast, it is the single biggest thing slowing you down.</p>
             </div>
 
-            <h2 className="font-display text-2xl font-bold text-dark mt-12 mb-4">The Broken Promise of Old Libraries</h2>
+            <h2 className="font-display text-2xl font-medium text-dark mt-12 mb-4">The Broken Promise of Old Libraries</h2>
 
             <p>For the last decade, the proposal software market has sold a single promise: <strong>Centralized Content.</strong> The logic seemed simple. If we put all our answers in one searchable database, we will be faster.</p>
 
@@ -79,7 +79,7 @@ export default function BlogSearchTrapPage() {
 
             <p>That isn&apos;t automation. It&apos;s just digital filing. It turns your highly paid proposal leads into librarians doing maintenance, when they should be strategists focused on production.</p>
 
-            <h2 className="font-display text-2xl font-bold text-dark mt-12 mb-4">Moving From &quot;Retrieval&quot; to &quot;Creation&quot;</h2>
+            <h2 className="font-display text-2xl font-medium text-dark mt-12 mb-4">Moving From &quot;Retrieval&quot; to &quot;Creation&quot;</h2>
 
             <p>To win in today&apos;s market, you need a tool that offers both high speed and high control. You need to stop just storing answers and start generating them.</p>
 
@@ -92,13 +92,13 @@ export default function BlogSearchTrapPage() {
                 { title: "Auto-Drafting", body: "We extract requirements from the RFP and build a branded first draft in minutes. This approach allows teams to stop searching and start finishing." },
               ].map((item, i) => (
                 <div key={i} className="bg-gray-50 rounded-xl p-6 border-l-4 border-primary">
-                  <h3 className="font-bold text-dark mb-2">{item.title}</h3>
+                  <h3 className="font-medium text-dark mb-2">{item.title}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
                 </div>
               ))}
             </div>
 
-            <h2 className="font-display text-2xl font-bold text-dark mt-12 mb-4">The Human Advantage</h2>
+            <h2 className="font-display text-2xl font-medium text-dark mt-12 mb-4">The Human Advantage</h2>
 
             <p>The goal of AI isn&apos;t to replace your experts. It is to <strong>free them up.</strong></p>
 
@@ -107,10 +107,10 @@ export default function BlogSearchTrapPage() {
             <p>ProposalAI handles the repetitive, heavy lifting. It hands you a high-quality draft that is mostly done. This lets your human experts step in for the final strategic polish that actually wins the deal.</p>
 
             <div className="bg-primary/10 border border-primary/20 rounded-2xl p-6 my-8 text-center">
-              <p className="font-display text-xl font-bold text-dark">AI writes the draft. You own the win.</p>
+              <p className="font-display text-xl font-medium text-dark">AI writes the draft. You own the win.</p>
             </div>
 
-            <h2 className="font-display text-2xl font-bold text-dark mt-12 mb-4">Stop Searching. Start Winning.</h2>
+            <h2 className="font-display text-2xl font-medium text-dark mt-12 mb-4">Stop Searching. Start Winning.</h2>
 
             <p>If your team spends more time searching for content than refining strategy, you are caught in an outdated workflow. Moving from manual searching to intelligent drafting is reclaiming millions in billable time for consulting firms and speeding up sales cycles for tech leaders.</p>
 
@@ -120,7 +120,7 @@ export default function BlogSearchTrapPage() {
 
           {/* CTA block */}
           <div className="mt-14 bg-dark rounded-2xl p-8 md:p-10 text-center">
-            <h3 className="font-display text-2xl font-bold text-white mb-3">Ready to break out of the Search Trap?</h3>
+            <h3 className="font-display text-2xl font-medium text-white mb-3">Ready to break out of the Search Trap?</h3>
             <p className="text-white/60 mb-6">See how ProposalAI can turn your documents into a winning advantage.</p>
             <Link href="/contact"
               className="inline-flex items-center gap-2.5 bg-primary text-white text-sm font-semibold pl-6 pr-1.5 py-1.5 rounded-full shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all duration-200">

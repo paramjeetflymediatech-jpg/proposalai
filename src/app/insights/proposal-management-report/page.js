@@ -47,11 +47,11 @@ export default function InsightsReportPage() {
             </Link>
 
             <div className="flex items-center gap-3 mb-5">
-              <span className="bg-emerald-100 text-emerald-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">Insights</span>
+              <span className="bg-emerald-100 text-emerald-700 text-xs font-medium uppercase tracking-widest px-3 py-1.5 rounded-full">Insights</span>
               <span className="bg-gray-100 text-gray-600 text-xs font-semibold px-3 py-1.5 rounded-full">Trends · Annual Report</span>
             </div>
 
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-dark mb-6 leading-[1.08]">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-medium text-dark mb-6 leading-[1.08]">
               2026 State of Proposal Management Report
             </h1>
 
@@ -71,14 +71,14 @@ export default function InsightsReportPage() {
       </section>
 
       {/* ── Key findings banner ── */}
-      <section className="bg-emerald-600 py-12 px-4 sm:px-6 lg:px-8">
+      <section className="bg-[#1A9BD9] py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <AnimateOnScroll>
-            <p className="text-emerald-100 text-xs font-bold uppercase tracking-widest text-center mb-8">Key Findings at a Glance</p>
+            <p className="text-emerald-100 text-xs font-medium uppercase tracking-widest text-center mb-8">Key Findings at a Glance</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {KEY_FINDINGS.map((f, i) => (
                 <div key={i} className="text-center">
-                  <p className="font-display text-4xl font-bold text-white mb-1">{f.stat}</p>
+                  <p className="font-display text-4xl font-medium text-white mb-1">{f.stat}</p>
                   <p className="text-emerald-100 text-sm leading-snug">{f.label}</p>
                 </div>
               ))}
@@ -93,7 +93,7 @@ export default function InsightsReportPage() {
           <div className="space-y-12">
             {SECTIONS.map((section, i) => (
               <div key={i}>
-                <h2 className="font-display text-2xl font-bold text-dark mb-4">{section.heading}</h2>
+                <h2 className="font-display text-2xl font-medium text-dark mb-4">{section.heading}</h2>
                 {section.body.split("\n\n").map((para, j) => (
                   <p key={j} className="text-gray-700 leading-relaxed mb-4">{para}</p>
                 ))}
@@ -103,7 +103,7 @@ export default function InsightsReportPage() {
 
           {/* CTA */}
           <div className="mt-14 bg-dark rounded-2xl p-8 md:p-10 text-center">
-            <h3 className="font-display text-2xl font-bold text-white mb-3">Ready to join the winning side of this shift?</h3>
+            <h3 className="font-display text-2xl font-medium text-white mb-3">Ready to join the winning side of this shift?</h3>
             <p className="text-white/60 mb-6">See how ProposalAI helps teams move from searching to winning.</p>
             <Link
               href="/contact"

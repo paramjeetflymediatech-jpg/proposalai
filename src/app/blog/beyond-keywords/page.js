@@ -18,10 +18,10 @@ export default function BlogBeyondKeywordsPage() {
               Back to Resources
             </Link>
             <div className="flex items-center gap-3 mb-5">
-              <span className="bg-violet-100 text-violet-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">Blog</span>
+              <span className="bg-violet-100 text-violet-700 text-xs font-medium uppercase tracking-widest px-3 py-1.5 rounded-full">Blog</span>
               <span className="bg-gray-100 text-gray-600 text-xs font-semibold px-3 py-1.5 rounded-full">AI & Strategy</span>
             </div>
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-dark mb-6 leading-[1.08]">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-medium text-dark mb-6 leading-[1.08]">
               Beyond Keywords: The Power of Contextually Aware AI in Crafting Winning Proposals
             </h1>
             <div className="flex items-center gap-4 text-sm text-gray-400 mb-10">
@@ -48,7 +48,7 @@ export default function BlogBeyondKeywordsPage() {
 
             <p>Enter the next evolution in proposal technology: <strong>contextually aware AI.</strong> This isn&apos;t just about automating boilerplate text or finding matching phrases. It&apos;s about an AI that deeply understands your content, your client&apos;s requirements, and the nuanced interplay between them to help you craft truly compelling, customized, and ultimately, more successful proposals.</p>
 
-            <h2 className="font-display text-2xl font-bold text-dark mt-12 mb-4">What Does &quot;Contextually Aware AI&quot; Actually Mean for Your Proposals?</h2>
+            <h2 className="font-display text-2xl font-medium text-dark mt-12 mb-4">What Does &quot;Contextually Aware AI&quot; Actually Mean for Your Proposals?</h2>
 
             <p>Traditional automation might help you fill in blanks or pull standard content based on simple triggers. Contextually aware AI, like the engine powering ProposalAI, goes significantly further. It operates on a deeper level of understanding:</p>
 
@@ -59,13 +59,13 @@ export default function BlogBeyondKeywordsPage() {
                 { title: "It Creates Coherent, Relevant Narratives", body: "The true power lies in its ability to synthesize information from your knowledge base in direct response to the specific context of a new RFP. This means generating draft content that is not only accurate but also flows logically and persuasively, tailored to the evaluator&apos;s precise needs." },
               ].map((item, i) => (
                 <div key={i} className="bg-gray-50 rounded-xl p-6 border-l-4 border-primary">
-                  <h3 className="font-bold text-dark mb-2">{item.title}</h3>
+                  <h3 className="font-medium text-dark mb-2">{item.title}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
                 </div>
               ))}
             </div>
 
-            <h2 className="font-display text-2xl font-bold text-dark mt-12 mb-4">The ProposalAI Difference: How We Achieve True Contextual Awareness</h2>
+            <h2 className="font-display text-2xl font-medium text-dark mt-12 mb-4">The ProposalAI Difference: How We Achieve True Contextual Awareness</h2>
 
             <p>At ProposalAI, we believe the &quot;magic&quot; of effective AI in proposal writing comes from its ability to learn from and leverage your most valuable asset: your own institutional knowledge. Here&apos;s how our approach delivers genuinely context-aware responses:</p>
 
@@ -82,7 +82,7 @@ export default function BlogBeyondKeywordsPage() {
               ))}
             </ul>
 
-            <h2 className="font-display text-2xl font-bold text-dark mt-12 mb-4">The Real-World Impact of Contextually Aware Proposals</h2>
+            <h2 className="font-display text-2xl font-medium text-dark mt-12 mb-4">The Real-World Impact of Contextually Aware Proposals</h2>
 
             <p>Adopting a contextually aware AI solution offers tangible benefits that go far beyond simple automation:</p>
 
@@ -94,13 +94,13 @@ export default function BlogBeyondKeywordsPage() {
                 { stat: "Higher Win Rates", desc: "Relevant, personalized proposals are far more likely to win." },
               ].map((item, i) => (
                 <div key={i} className="bg-primary/5 border border-primary/15 rounded-xl p-5">
-                  <p className="font-bold text-primary text-sm mb-1">{item.stat}</p>
+                  <p className="font-medium text-primary text-sm mb-1">{item.stat}</p>
                   <p className="text-gray-600 text-sm">{item.desc}</p>
                 </div>
               ))}
             </div>
 
-            <h2 className="font-display text-2xl font-bold text-dark mt-12 mb-4">The Future of Proposal Writing is Contextual</h2>
+            <h2 className="font-display text-2xl font-medium text-dark mt-12 mb-4">The Future of Proposal Writing is Contextual</h2>
 
             <p>As RFPs become more complex and competition intensifies, the ability to produce deeply personalized and contextually relevant proposals at scale is no longer a luxury &mdash; it&apos;s a necessity. Relying on outdated methods means falling behind.</p>
 
@@ -109,7 +109,7 @@ export default function BlogBeyondKeywordsPage() {
 
           {/* CTA block */}
           <div className="mt-14 bg-dark rounded-2xl p-8 md:p-10 text-center">
-            <h3 className="font-display text-2xl font-bold text-white mb-3">Ready to craft proposals that truly resonate and win?</h3>
+            <h3 className="font-display text-2xl font-medium text-white mb-3">Ready to craft proposals that truly resonate and win?</h3>
             <p className="text-white/60 mb-6">Discover the power of contextually aware AI with ProposalAI.</p>
             <Link href="/contact"
               className="inline-flex items-center gap-2.5 bg-primary text-white text-sm font-semibold pl-6 pr-1.5 py-1.5 rounded-full shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all duration-200">

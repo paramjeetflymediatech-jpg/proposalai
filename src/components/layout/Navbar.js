@@ -51,9 +51,14 @@ export default function Navbar() {
   }, [pathname]);
 
   let headerBg, headerShadow;
+  const isPlatformPage = pathname === "/platform";
+
   if (scrolled) {
     headerBg     = "#ffffff";
     headerShadow = "0 4px 20px -5px rgba(0,0,0,0.10)";
+  } else if (isPlatformPage) {
+    headerBg     = "#E8E0D0";
+    headerShadow = "none";
   } else {
     headerBg     = "#ffffff";
     headerShadow = "none";

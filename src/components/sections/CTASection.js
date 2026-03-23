@@ -12,7 +12,7 @@ export default function CTASection({ title, subtitle, btnLabel = "Book a Demo", 
         <div className="bg-white rounded-3xl p-10 md:p-16 shadow-2xl">
           <div className={`grid grid-cols-1 ${image ? "lg:grid-cols-2" : "max-w-4xl mx-auto"} gap-12 items-center`}>
             <AnimateOnScroll>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-dark mb-5 leading-tight">
+              <h2 className="font-display text-4xl md:text-5xl font-light text-dark mb-5 leading-tight">
                 {title || "Ready to Win More Proposals?"}
               </h2>
               <p className="text-gray-500 text-lg mb-8 leading-relaxed">

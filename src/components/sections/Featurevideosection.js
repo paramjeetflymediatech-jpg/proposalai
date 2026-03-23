@@ -61,10 +61,10 @@
 
 //         {/* ── Heading ──────────────────────────────────────── */}
 //         <div className="text-center mb-16 md:mb-20">
-//           <span className="inline-block text-primary text-xs font-bold uppercase tracking-widest mb-3 bg-primary/10 px-3 py-1 rounded-full">
+//           <span className="inline-block text-primary text-xs font-light uppercase tracking-widest mb-3 bg-primary/10 px-3 py-1 rounded-full">
 //             How It Works
 //           </span>
-//           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-dark max-w-2xl mx-auto leading-tight mt-3">
+//           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-dark max-w-2xl mx-auto leading-tight mt-3">
 //             From RFP to Winning Proposal —{" "}
 //             <span className="text-primary">Automatically</span>
 //           </h2>
@@ -84,7 +84,7 @@
 //                 <div className="flex items-start gap-5">
 //                   {/* Number + connector line */}
 //                   <div className="flex flex-col items-center flex-shrink-0 pt-1">
-//                     <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm
+//                     <div className={`w-10 h-10 rounded-full flex items-center justify-center font-light text-sm
 //                                     transition-all duration-500 ${
 //                       activeStep === i
 //                         ? "bg-primary text-white scale-110 shadow-lg shadow-primary/30"
@@ -106,7 +106,7 @@
 //                     <span className="text-primary text-xs font-semibold uppercase tracking-widest mb-2 block">
 //                       Step {s.step}
 //                     </span>
-//                     <h3 className={`font-display font-bold leading-tight mb-3 transition-all duration-300 ${
+//                     <h3 className={`font-display font-light leading-tight mb-3 transition-all duration-300 ${
 //                       activeStep === i ? "text-2xl md:text-3xl text-dark" : "text-xl text-gray-500"
 //                     }`}>
 //                       {s.title}
@@ -261,10 +261,10 @@ export default function FeatureVideoSection() {
 
         {/* Heading */}
         <div className="text-center mb-16 md:mb-20">
-          <span className="inline-block text-primary text-xs font-bold uppercase tracking-widest mb-3 bg-primary/10 px-3 py-1 rounded-full">
+          <span className="inline-block text-primary text-xs font-light uppercase tracking-widest mb-3 bg-primary/10 px-3 py-1 rounded-full">
             How It Works
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-dark max-w-2xl mx-auto leading-tight mt-3">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-dark max-w-2xl mx-auto leading-tight mt-3">
             From RFP to Winning Proposal —{" "}
             <span className="text-primary">Automatically</span>
           </h2>
@@ -283,7 +283,7 @@ export default function FeatureVideoSection() {
                 <div className="flex items-start gap-5">
                   {/* Number + connector */}
                   <div className="flex flex-col items-center flex-shrink-0 pt-1">
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center font-light text-sm
                                     transition-all duration-500 ${
                       activeStep === i
                         ? "bg-primary text-white scale-110 shadow-lg shadow-primary/30"
@@ -305,7 +305,7 @@ export default function FeatureVideoSection() {
                     <span className="text-primary text-xs font-semibold uppercase tracking-widest mb-2 block">
                       Step {s.step}
                     </span>
-                    <h3 className={`font-display font-bold leading-tight mb-3 transition-all duration-300 ${
+                    <h3 className={`font-display font-light leading-tight mb-3 transition-all duration-300 ${
                       activeStep === i ? "text-2xl md:text-3xl text-dark" : "text-xl text-gray-500"
                     }`}>
                       {s.title}

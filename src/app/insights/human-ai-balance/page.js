@@ -51,11 +51,11 @@ export default function InsightsHumanAIPage() {
             </Link>
 
             <div className="flex items-center gap-3 mb-5">
-              <span className="bg-emerald-100 text-emerald-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">Insights</span>
+              <span className="bg-emerald-100 text-emerald-700 text-xs font-medium uppercase tracking-widest px-3 py-1.5 rounded-full">Insights</span>
               <span className="bg-gray-100 text-gray-600 text-xs font-semibold px-3 py-1.5 rounded-full">Strategy · Guide</span>
             </div>
 
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-dark mb-6 leading-[1.08]">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-medium text-dark mb-6 leading-[1.08]">
               The Human-AI Balance: When to Let AI Lead vs. Take Over
             </h1>
 
@@ -80,7 +80,7 @@ export default function InsightsHumanAIPage() {
           <div className="space-y-12">
             {SECTIONS.map((section, i) => (
               <div key={i}>
-                <h2 className="font-display text-2xl font-bold text-dark mb-4">{section.heading}</h2>
+                <h2 className="font-display text-2xl font-medium text-dark mb-4">{section.heading}</h2>
                 {section.body.split("\n\n").map((para, j) => (
                   <p key={j} className="text-gray-700 leading-relaxed mb-4">{para}</p>
                 ))}
@@ -92,10 +92,10 @@ export default function InsightsHumanAIPage() {
         {/* Balance table */}
         <AnimateOnScroll>
           <div className="mt-14">
-            <h2 className="font-display text-2xl font-bold text-dark mb-6">The Balance Sheet: AI vs. Human by Task</h2>
+            <h2 className="font-display text-2xl font-medium text-dark mb-6">The Balance Sheet: AI vs. Human by Task</h2>
             <div className="rounded-2xl overflow-hidden border border-gray-200">
               {/* Header */}
-              <div className="grid grid-cols-3 bg-dark text-white text-xs font-bold uppercase tracking-wider px-5 py-3">
+              <div className="grid grid-cols-3 bg-dark text-white text-xs font-medium uppercase tracking-wider px-5 py-3">
                 <span>Task</span>
                 <span>Best Handled By</span>
                 <span>Why</span>
@@ -107,7 +107,7 @@ export default function InsightsHumanAIPage() {
                   className={`grid grid-cols-3 px-5 py-4 text-sm border-t border-gray-100 ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
                 >
                   <span className="text-dark font-medium pr-4">{row.task}</span>
-                  <span className={`font-bold pr-4 ${
+                  <span className={`font-medium pr-4 ${
                     row.who === "AI" ? "text-primary" :
                     row.who === "Human" ? "text-emerald-600" :
                     "text-violet-600"
@@ -125,7 +125,7 @@ export default function InsightsHumanAIPage() {
         {/* CTA */}
         <AnimateOnScroll>
           <div className="mt-14 bg-dark rounded-2xl p-8 md:p-10 text-center">
-            <h3 className="font-display text-2xl font-bold text-white mb-3">Want to find the right balance for your team?</h3>
+            <h3 className="font-display text-2xl font-medium text-white mb-3">Want to find the right balance for your team?</h3>
             <p className="text-white/60 mb-6">ProposalAI is built around the principle that AI and humans win together.</p>
             <Link
               href="/contact"

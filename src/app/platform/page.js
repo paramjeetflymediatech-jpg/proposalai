@@ -74,7 +74,7 @@ export default function PlatformPage() {
         {/* Content Side */}
         <div className="relative w-full lg:w-1/2 px-6 sm:px-10 lg:pl-16 lg:pr-0 z-10 flex flex-col justify-center text-left lg:text-left items-start">
           <AnimateOnScroll>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-dark leading-[1.08] mb-6 max-w-sm sm:max-w-md lg:max-w-lg">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-light text-dark leading-[1.08] mb-6 max-w-sm sm:max-w-md lg:max-w-lg">
               The Smarter Way{" "}<span className="text-primary">to Write Winning Proposals</span>
             </h1>
             <p className="text-gray-600 text-base sm:text-lg max-w-md mb-10 leading-relaxed">
@@ -118,7 +118,7 @@ export default function PlatformPage() {
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-8">
           <AnimateOnScroll className="text-center mb-12 md:mb-16">
             <p className="text-white/70 text-sm font-semibold uppercase tracking-widest mb-3">The Platform</p>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5">The Intelligent Engine Behind Every Win</h2>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-white mb-5">The Intelligent Engine Behind Every Win</h2>
             <p className="text-white/70 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
              Centralize your knowledge, automate your workflow, and empower your experts with a platform built for the complexity of modern bids
             </p>
@@ -132,7 +132,7 @@ export default function PlatformPage() {
                   <div className="w-24 h-24 md:w-28 md:h-28 relative mb-5 md:mb-6">
                     <Image src={card.gif} alt={card.title} fill unoptimized className="object-contain" />
                   </div>
-                  <h3 className="font-bold text-lg md:text-xl text-dark mb-2 md:mb-3">{card.title}</h3>
+                  <h3 className="font-light text-lg md:text-xl text-dark mb-2 md:mb-3">{card.title}</h3>
                   <p className="text-gray-500 text-sm md:text-base leading-relaxed max-w-sm">{card.desc}</p>
                 </div>
               </AnimateOnScroll>
@@ -149,7 +149,7 @@ export default function PlatformPage() {
             {/* Left — sticky */}
             <div className="lg:sticky lg:top-28">
               <AnimateOnScroll>
-                <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-dark leading-tight mb-8">
+                <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-light text-dark leading-tight mb-8">
                   Frequently Asked Questions
                 </h2>
                 <Link href="/contact" className="inline-flex items-center bg-primary text-white text-sm font-semibold px-6 py-3 rounded-full shadow-md shadow-primary/25 hover:bg-primary/90 transition-all duration-200">
@@ -172,7 +172,7 @@ export default function PlatformPage() {
 
             {/* Left — heading + subheading + button */}
             <AnimateOnScroll>
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-dark leading-tight mb-5">
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-dark leading-tight mb-5">
                 Stop Searching,
                 <span className="text-primary">  Start Winning</span>
               </h2>

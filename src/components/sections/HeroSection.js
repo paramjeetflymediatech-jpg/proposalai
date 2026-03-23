@@ -33,7 +33,7 @@ export default function HeroSection() {
         
         {/* ── Title & Subtitle ──────────────────────── */}
         <div className="w-full text-center lg:text-left lg:col-start-1 lg:row-start-1">
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-bold text-dark leading-[1.1] mb-6">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-medium text-dark leading-[1.1] mb-6">
             Human-Led, AI-Driven{" "}<br className="hidden sm:block" />
             Proposals That{" "}
             <span className="text-primary italic">
@@ -84,7 +84,7 @@ export default function HeroSection() {
             className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-primary text-white font-semibold text-base px-8 py-4 rounded-full shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all duration-200 hover:-translate-y-0.5"
           >
             Request a Personalized Demo
-            <span className="w-7 h-7 rounded-full bg-white/25 flex items-center justify-center font-bold text-sm">
+            <span className="w-7 h-7 rounded-full bg-white/25 flex items-center justify-center font-light text-sm">
               →
             </span>
           </Link>

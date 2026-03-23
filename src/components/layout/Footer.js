@@ -16,7 +16,7 @@ const LEGAL = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-400">
+    <footer className="bg-[#000000] text-gray-400">
 
       {/* ── Main area ─────────────────────────────────────────────── */}
       <div className="w-full px-8 sm:px-12 lg:px-16 py-12 lg:py-16">

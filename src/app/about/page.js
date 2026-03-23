@@ -48,7 +48,7 @@ export default function AboutPage() {
       <section className="pt-32 pb-20 bg-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll>
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-dark leading-tight">
+            <h1 className="font-display text-2xl md:text-5xl  font-medium text-dark leading-tight">
               Turning Proposal Chaos into Competitive Advantage
             </h1>
           </AnimateOnScroll>
@@ -88,7 +88,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <AnimateOnScroll className="text-center mb-16">
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-dark leading-tight max-w-4xl mx-auto">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-medium text-dark leading-tight max-w-4xl mx-auto">
               It Started With a Shared Frustration
             </h2>
           </AnimateOnScroll>
@@ -117,7 +117,7 @@ export default function AboutPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll className="text-center mb-14">
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-dark mb-5">
+            <h2 className="font-display text-4xl md:text-5xl font-medium text-dark mb-5">
               Built to Maximize Your Expertise
             </h2>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
@@ -135,7 +135,7 @@ export default function AboutPage() {
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                       </svg>
                     </div>
-                    <h3 className="text-white font-bold text-xl">{feat.title}</h3>
+                    <h3 className="text-white font-medium text-xl">{feat.title}</h3>
                   </div>
                   <p className="text-white/80 text-base leading-relaxed">{feat.desc}</p>
                 </div>
@@ -149,7 +149,7 @@ export default function AboutPage() {
       <section className="py-24 bg-white text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-dark mb-8 leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl font-medium text-dark mb-8 leading-tight">
               Freeing Experts to Be Experts
             </h2>
             <p className="text-gray-600 text-lg md:text-xl leading-relaxed mb-10">
@@ -157,7 +157,7 @@ export default function AboutPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center bg-dark text-white text-sm font-bold uppercase tracking-widest px-8 py-4 rounded-full hover:bg-gray-800 transition-all duration-200"
+              className="inline-flex items-center bg-dark text-white text-sm font-medium uppercase tracking-widest px-8 py-4 rounded-full hover:bg-gray-800 transition-all duration-200"
             >
               EXPLORE NOW
             </Link>

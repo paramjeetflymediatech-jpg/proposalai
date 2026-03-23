@@ -42,7 +42,7 @@ export default function ProblemGrid() {
         {/* Header row */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-6">
           <AnimateOnScroll>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-dark">
+            <h2 className="font-display text-4xl md:text-5xl font-light text-dark">
               You&apos;re Winning, But You Can&apos;t Scale
             </h2>
           </AnimateOnScroll>
@@ -72,7 +72,7 @@ export default function ProblemGrid() {
                 <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center mb-6 flex-shrink-0">
                   {problem.icon}
                 </div>
-                <h3 className="text-xl font-bold text-black mb-3">{problem.title}</h3>
+                <h3 className="text-xl font-light text-black mb-3">{problem.title}</h3>
                 <p className="text-black/80 text-md leading-relaxed flex-1">{problem.desc}</p>
               </div>
             </AnimateOnScroll>

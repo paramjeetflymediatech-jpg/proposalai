@@ -145,139 +145,20 @@ export default function ContactPage() {
           Right: image with video-tour badge (future state)
       ══════════════════════════════════════════════ */}
       <section className="pt-24 pb-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-            {/* Left */}
-            <AnimateOnScroll>
-              <h1 className="font-display text-4xl md:text-5xl font-bold text-dark leading-tight mb-6">
-                Get in Touch With{" "}
-                <span className="text-primary">ProposalAI</span>
-              </h1>
-              <p className="text-gray-500 text-lg leading-relaxed mb-10">
-                Accelerate your sales success with AI-powered proposal software —
-                close deals faster, impress clients, and boost your revenue today.
-              </p>
-
-              <div className="space-y-5">
-                {CONTACT_INFO.map((item, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white flex-shrink-0">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold text-dark">{item.label}</p>
-                      <p className="text-sm text-gray-500 whitespace-pre-line">{item.value}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </AnimateOnScroll>
-
-            {/* Right — placeholder image (swap for video when ready) */}
-            <AnimateOnScroll delay={150} className="w-full">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/15 aspect-[4/3] md:aspect-video lg:aspect-auto lg:h-[500px]">
-                {/* TODO: replace with actual image/video */}
-                <Image
-                  src="/about-us-hero.png"
-                  alt="ProposalAI Platform Tour"
-                  fill
-                  className="object-cover block"
-                />
-                <div className="absolute inset-0 bg-primary/10" />
-                {/* Play badge — video tour (future state) */}
-                <div className="absolute bottom-5 left-5 flex items-center gap-3 bg-white/95 backdrop-blur-sm rounded-full px-4 py-2.5 shadow-lg">
-                  <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-white text-sm flex-shrink-0">
-                    ▶
-                  </div>
-                  <div>
-                    <p className="font-bold text-dark text-xs leading-tight">Watch Platform Tour</p>
-                    <p className="text-xs text-gray-400">Video coming soon</p>
-                  </div>
-                </div>
-              </div>
-            </AnimateOnScroll>
-
-          </div>
-        </div>
       </section>
 
-      {/* ══════════════════════════════════════════════
-          SECTION 2 — ABOUT / VIDEO SECTION
-          Blue bg → white rounded card → title + image
-      ══════════════════════════════════════════════ */}
-      <section className="bg-primary py-2">
-        <div className="bg-white rounded-[2rem] mx-0 sm:mx-6 md:mx-10 my-6 px-6 sm:px-10 md:px-16 py-10 md:py-14 shadow-sm">
-          <AnimateOnScroll>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-dark text-center mb-5">
-              Why ProposalAI?
-            </h2>
-            <p className="text-gray-500 text-center text-base leading-relaxed max-w-2xl mx-auto mb-10">
-              We help sales teams win more deals with intelligent proposal
-              automation — from creation to tracking, all in one platform.
-            </p>
-          </AnimateOnScroll>
 
-          {/* Image placeholder — swap with <video> tag when asset is ready */}
-          <AnimateOnScroll delay={100}>
-            <div className="rounded-2xl overflow-hidden shadow-lg max-w-3xl mx-auto relative h-64 md:h-[400px]">
-              <Image
-                src="/platform-feature.jpg"
-                alt="ProposalAI in action"
-                fill
-                className="object-cover block"
-              />
-            </div>
-          </AnimateOnScroll>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════
-          SECTION 3 — FEATURES GRID  (3×2)
-      ══════════════════════════════════════════════ */}
-      <section className="bg-gray-50 py-20 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-8">
-          <AnimateOnScroll>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-dark text-center mb-4">
-              Everything You Need to Win
-            </h2>
-            <p className="text-gray-500 text-center text-base max-w-xl mx-auto mb-14">
-              Powerful tools built for modern sales teams — so you can focus
-              on closing, not formatting.
-            </p>
-          </AnimateOnScroll>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {FEATURES.map((f, i) => (
-              <AnimateOnScroll key={i} delay={i * 60}>
-                <div className="bg-white rounded-2xl border border-gray-100 p-7 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 transition-all duration-300">
-                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-xl mb-5">
-                    {f.icon}
-                  </div>
-                  <h3 className="font-display font-bold text-dark text-base mb-2">{f.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{f.desc}</p>
-                </div>
-              </AnimateOnScroll>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════
-          SECTION 4 — CONTACT FORM
-          Blue bg → white rounded card → 2-col layout
-          Left: info + side image   Right: form
-      ══════════════════════════════════════════════ */}
-      <section className="bg-primary py-2" id="contact-form">
+         <section className="bg-primary py-2" id="contact-form">
         <div className="bg-white rounded-[2rem] mx-0 sm:mx-6 md:mx-10 my-6 px-6 sm:px-10 md:px-16 py-10 md:py-14 shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
             {/* Left — contact info + side image */}
             <AnimateOnScroll className=" lg:top-32">
-              <span className="inline-block text-xs font-bold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full mb-6">
+              <span className="inline-block text-xs font-light uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full mb-6">
                 Let&apos;s Talk
               </span>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-dark leading-tight mb-4">
+              <h2 className="font-display text-3xl md:text-4xl font-light text-dark leading-tight mb-4">
                 Get in Touch With{" "}
                 <span className="text-primary">ProposalAI</span>
               </h2>
@@ -293,7 +174,7 @@ export default function ContactPage() {
                       {item.icon}
                     </div>
                     <div>
-                      <p className="text-sm font-bold text-dark">{item.label}</p>
+                      <p className="text-sm font-light text-dark">{item.label}</p>
                       <p className="text-sm text-gray-500 whitespace-pre-line">{item.value}</p>
                     </div>
                   </div>
@@ -319,7 +200,7 @@ export default function ContactPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h3 className="font-display text-3xl font-bold text-dark mb-3">Message Sent!</h3>
+                  <h3 className="font-display text-3xl font-light text-dark mb-3">Message Sent!</h3>
                   <p className="text-gray-500 text-lg">
                     We&apos;ll reach out within one business day. Check your inbox!
                   </p>
@@ -499,6 +380,74 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      {/* ══════════════════════════════════════════════
+          SECTION 2 — ABOUT / VIDEO SECTION
+          Blue bg → white rounded card → title + image
+      ══════════════════════════════════════════════ */}
+      <section className="bg-primary py-2">
+        <div className="bg-white rounded-[2rem] mx-0 sm:mx-6 md:mx-10 my-6 px-6 sm:px-10 md:px-16 py-10 md:py-14 shadow-sm">
+          <AnimateOnScroll>
+            <h2 className="font-display text-3xl md:text-4xl font-light text-dark text-center mb-5">
+              Why ProposalAI?
+            </h2>
+            <p className="text-gray-500 text-center text-base leading-relaxed max-w-2xl mx-auto mb-10">
+              We help sales teams win more deals with intelligent proposal
+              automation — from creation to tracking, all in one platform.
+            </p>
+          </AnimateOnScroll>
+
+          {/* Image placeholder — swap with <video> tag when asset is ready */}
+          <AnimateOnScroll delay={100}>
+            <div className="rounded-2xl overflow-hidden shadow-lg max-w-3xl mx-auto relative h-64 md:h-[400px]">
+              <Image
+                src="/platform-feature.jpg"
+                alt="ProposalAI in action"
+                fill
+                className="object-cover block"
+              />
+            </div>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════
+          SECTION 3 — FEATURES GRID  (3×2)
+      ══════════════════════════════════════════════ */}
+      <section className="bg-gray-50 py-20 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-8">
+          <AnimateOnScroll>
+            <h2 className="font-display text-3xl md:text-4xl font-light text-dark text-center mb-4">
+              Everything You Need to Win
+            </h2>
+            <p className="text-gray-500 text-center text-base max-w-xl mx-auto mb-14">
+              Powerful tools built for modern sales teams — so you can focus
+              on closing, not formatting.
+            </p>
+          </AnimateOnScroll>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {FEATURES.map((f, i) => (
+              <AnimateOnScroll key={i} delay={i * 60}>
+                <div className="bg-white rounded-2xl border border-gray-100 p-7 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-xl mb-5">
+                    {f.icon}
+                  </div>
+                  <h3 className="font-display font-light text-dark text-base mb-2">{f.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{f.desc}</p>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════
+          SECTION 4 — CONTACT FORM
+          Blue bg → white rounded card → 2-col layout
+          Left: info + side image   Right: form
+      ══════════════════════════════════════════════ */}
+    
     </>
   );
 }

@@ -101,16 +101,16 @@ export default function SaaSCaseStudyPage() {
                   </svg>
                   Back to Resources
                 </Link>
-                <span className="inline-block bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">
+                <span className="inline-block bg-primary/10 text-primary text-xs font-medium uppercase tracking-widest px-3 py-1.5 rounded-full">
                   Case Study · SaaS
                 </span>
               </div>
 
-              <h1 className="font-display text-4xl lg:text-5xl font-bold text-dark mb-5 leading-[1.05]">
+              <h1 className="font-display text-4xl lg:text-5xl font-medium text-dark mb-5 leading-[1.05]">
                 Revolutionizing Responses for a Leading SaaS Provider
               </h1>
               <p className="text-gray-600 text-base lg:text-lg leading-relaxed max-w-md">
-                <span className="font-bold text-dark">Client:</span> A rapidly expanding SaaS provider specializing in enterprise cloud solutions.
+                <span className="font-medium text-dark">Client:</span> A rapidly expanding SaaS provider specializing in enterprise cloud solutions.
               </p>
             </AnimateOnScroll>
           </div>
@@ -139,7 +139,7 @@ export default function SaaSCaseStudyPage() {
               </svg>
               Back
             </Link>
-            <span className="inline-block bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">
+            <span className="inline-block bg-primary/10 text-primary text-xs font-medium uppercase tracking-widest px-3 py-1.5 rounded-full">
               Case Study · SaaS
             </span>
           </div>
@@ -153,11 +153,11 @@ export default function SaaSCaseStudyPage() {
             />
           </div>
 
-          <h1 className="font-display text-3xl font-bold text-dark mb-4 leading-tight">
+          <h1 className="font-display text-3xl font-medium text-dark mb-4 leading-tight">
             Revolutionizing Responses for a Leading SaaS Provider
           </h1>
           <p className="text-gray-600 text-base">
-            <span className="font-bold text-dark">Client:</span> A rapidly expanding SaaS provider specializing in enterprise cloud solutions.
+            <span className="font-medium text-dark">Client:</span> A rapidly expanding SaaS provider specializing in enterprise cloud solutions.
           </p>
         </div>
       </section>
@@ -168,7 +168,7 @@ export default function SaaSCaseStudyPage() {
         {/* Challenge */}
         <AnimateOnScroll>
           <div className="bg-gray-50 rounded-2xl p-8 md:p-10">
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-primary mb-5">The Challenge</h2>
+            <h2 className="font-display text-2xl md:text-3xl font-medium text-primary mb-5">The Challenge</h2>
             <p className="text-gray-700 leading-relaxed">{CHALLENGE}</p>
           </div>
         </AnimateOnScroll>
@@ -176,7 +176,7 @@ export default function SaaSCaseStudyPage() {
         {/* Solution */}
         <AnimateOnScroll>
           <div className="bg-gray-50 rounded-2xl p-8 md:p-10">
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-primary mb-5">Solution:</h2>
+            <h2 className="font-display text-2xl md:text-3xl font-medium text-primary mb-5">Solution:</h2>
             <p className="text-gray-700 leading-relaxed mb-6">{SOLUTION_INTRO}</p>
             <ul className="space-y-3">
               {SOLUTION_POINTS.map((p, i) => (
@@ -192,7 +192,7 @@ export default function SaaSCaseStudyPage() {
         {/* Results */}
         <AnimateOnScroll>
           <div className="bg-gray-50 rounded-2xl p-8 md:p-10">
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-primary mb-5">Results</h2>
+            <h2 className="font-display text-2xl md:text-3xl font-medium text-primary mb-5">Results</h2>
             <p className="text-gray-700 leading-relaxed mb-6">{RESULTS_INTRO}</p>
             <ul className="space-y-3 mb-8">
               {RESULTS_POINTS.map((p, i) => (
@@ -203,10 +203,10 @@ export default function SaaSCaseStudyPage() {
               ))}
             </ul>
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-6 border-t border-gray-200">
-              <p className="font-bold text-dark text-base flex-1">{CTA_TEXT}</p>
+              <p className="font-medium text-dark text-base flex-1">{CTA_TEXT}</p>
               <Link
                 href="/contact"
-                className="inline-flex items-center bg-dark text-white text-xs font-bold uppercase tracking-widest px-6 py-3.5 rounded-full hover:bg-gray-800 transition-all duration-200 whitespace-nowrap"
+                className="inline-flex items-center bg-dark text-white text-xs font-medium uppercase tracking-widest px-6 py-3.5 rounded-full hover:bg-gray-800 transition-all duration-200 whitespace-nowrap"
               >
                 {CTA_BTN}
               </Link>

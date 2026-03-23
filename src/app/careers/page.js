@@ -20,10 +20,10 @@ export default function CareersPage() {
       <section className="pt-32 pb-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimateOnScroll>
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full mb-6">
+            <span className="inline-block text-xs font-light uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full mb-6">
               Careers
             </span>
-            <h1 className="font-display text-5xl md:text-6xl font-bold text-dark mb-6 leading-tight">
+            <h1 className="font-display text-5xl md:text-6xl font-light text-dark mb-6 leading-tight">
               Build the Future of
               <br />
               <span className="text-primary">Winning Business</span>

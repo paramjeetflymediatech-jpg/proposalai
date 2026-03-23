@@ -14,7 +14,7 @@ export default function TermsAndConditions() {
       <section className="bg-primary py-24 px-6 md:px-10">
         <div className="max-w-4xl mx-auto text-center">
           <AnimateOnScroll>
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+            <h1 className="font-display text-4xl md:text-5xl font-medium text-white mb-6 mt-10">
               Terms & Conditions
             </h1>
             <p className="text-white/80 text-lg">
@@ -37,7 +37,7 @@ export default function TermsAndConditions() {
           <div className="space-y-12">
             
             <AnimateOnScroll delay={150}>
-              <h2 className="text-2xl font-bold text-dark border-b border-gray-100 pb-4 mb-6">
+              <h2 className="text-2xl font-medium text-dark border-b border-gray-100 pb-4 mb-6">
                 1. Acceptance of Terms
               </h2>
               <p>
@@ -46,7 +46,7 @@ export default function TermsAndConditions() {
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={200}>
-              <h2 className="text-2xl font-bold text-dark border-b border-gray-100 pb-4 mb-6">
+              <h2 className="text-2xl font-medium text-dark border-b border-gray-100 pb-4 mb-6">
                 2. Use of Services
               </h2>
               <p>
@@ -60,7 +60,7 @@ export default function TermsAndConditions() {
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={250}>
-              <h2 className="text-2xl font-bold text-dark border-b border-gray-100 pb-4 mb-6">
+              <h2 className="text-2xl font-medium text-dark border-b border-gray-100 pb-4 mb-6">
                 3. Intellectual Property
               </h2>
               <p>
@@ -72,7 +72,7 @@ export default function TermsAndConditions() {
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={300}>
-              <h2 className="text-2xl font-bold text-dark border-b border-gray-100 pb-4 mb-6">
+              <h2 className="text-2xl font-medium text-dark border-b border-gray-100 pb-4 mb-6">
                 4. Limitation of Liability
               </h2>
               <p>
@@ -81,7 +81,7 @@ export default function TermsAndConditions() {
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={350}>
-              <h2 className="text-2xl font-bold text-dark border-b border-gray-100 pb-4 mb-6">
+              <h2 className="text-2xl font-medium text-dark border-b border-gray-100 pb-4 mb-6">
                 5. Termination
               </h2>
               <p>
@@ -90,7 +90,7 @@ export default function TermsAndConditions() {
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={400}>
-              <h2 className="text-2xl font-bold text-dark border-b border-gray-100 pb-4 mb-6">
+              <h2 className="text-2xl font-medium text-dark border-b border-gray-100 pb-4 mb-6">
                 6. Governing Law
               </h2>
               <p>
@@ -99,7 +99,7 @@ export default function TermsAndConditions() {
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={450}>
-              <h2 className="text-2xl font-bold text-dark border-b border-gray-100 pb-4 mb-6">
+              <h2 className="text-2xl font-medium text-dark border-b border-gray-100 pb-4 mb-6">
                 7. Contact Us
               </h2>
               <p>

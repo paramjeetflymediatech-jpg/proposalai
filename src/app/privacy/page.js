@@ -14,7 +14,7 @@ export default function PrivacyPolicy() {
       <section className="bg-primary py-24 px-6 md:px-10">
         <div className="max-w-4xl mx-auto text-center">
           <AnimateOnScroll>
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+            <h1 className="font-display text-4xl md:text-5xl font-medium text-white mb-6 mt-10">
               Privacy Policy
             </h1>
             <p className="text-white/80 text-lg">
@@ -37,7 +37,7 @@ export default function PrivacyPolicy() {
           <div className="space-y-12">
             
             <AnimateOnScroll delay={150}>
-              <h2 className="text-2xl font-bold text-dark border-b border-gray-100 pb-4 mb-6">
+              <h2 className="text-2xl font-medium text-dark border-b border-gray-100 pb-4 mb-6">
                 1. Information We Collect
               </h2>
               <p>
@@ -52,7 +52,7 @@ export default function PrivacyPolicy() {
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={200}>
-              <h2 className="text-2xl font-bold text-dark border-b border-gray-100 pb-4 mb-6">
+              <h2 className="text-2xl font-medium text-dark border-b border-gray-100 pb-4 mb-6">
                 2. How We Use Your Data
               </h2>
               <p>
@@ -67,7 +67,7 @@ export default function PrivacyPolicy() {
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={250}>
-              <h2 className="text-2xl font-bold text-dark border-b border-gray-100 pb-4 mb-6">
+              <h2 className="text-2xl font-medium text-dark border-b border-gray-100 pb-4 mb-6">
                 3. Data Security & Storage
               </h2>
               <p>
@@ -79,7 +79,7 @@ export default function PrivacyPolicy() {
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={300}>
-              <h2 className="text-2xl font-bold text-dark border-b border-gray-100 pb-4 mb-6">
+              <h2 className="text-2xl font-medium text-dark border-b border-gray-100 pb-4 mb-6">
                 4. Third-Party Services
               </h2>
               <p>
@@ -88,7 +88,7 @@ export default function PrivacyPolicy() {
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={350}>
-              <h2 className="text-2xl font-bold text-dark border-b border-gray-100 pb-4 mb-6">
+              <h2 className="text-2xl font-medium text-dark border-b border-gray-100 pb-4 mb-6">
                 5. Your Rights
               </h2>
               <p>
@@ -97,7 +97,7 @@ export default function PrivacyPolicy() {
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={400}>
-              <h2 className="text-2xl font-bold text-dark border-b border-gray-100 pb-4 mb-6">
+              <h2 className="text-2xl font-medium text-dark border-b border-gray-100 pb-4 mb-6">
                 6. Updates to This Policy
               </h2>
               <p>

@@ -122,7 +122,7 @@ export default function FeatureSections() {
       {/* Intro Header */}
       <div className="pt-24 pb-12 text-center px-4">
         <AnimateOnScroll>
-          <h2 className="font-display text-4xl sm:text-4xl md:text-5xl font-bold text-[#0A0A0A] leading-tight max-w-4xl mx-auto">
+          <h2 className="font-display text-4xl sm:text-4xl md:text-5xl font-medium text-[#0A0A0A] leading-tight max-w-4xl mx-auto">
             Respond Smarter,{" "}
             <span className="text-[#00B4D8]">Not Just Faster.</span>
           </h2>
@@ -133,7 +133,7 @@ export default function FeatureSections() {
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 relative">
           
           {/* Left Column: Scrolling Content */}
-          <div className="flex-1 space-y-[40vh] lg:space-y-[60vh] pb-[40vh] lg:pb-[60vh]">
+          <div className="flex-1 space-y-[40vh] lg:space-y-[60vh] pb-[40vh] lg:pb-[20vh]">
             {FEATURES.map((feat, i) => (
               <div 
                 key={i} 
@@ -141,10 +141,10 @@ export default function FeatureSections() {
                 className="flex flex-col justify-center min-h-[40vh] lg:min-h-[50vh]"
               >
                 <div className="max-w-xl">
-                  <span className="block text-sm font-bold tracking-wider uppercase mb-4" style={{ color: feat.preTextColor }}>
+                  <span className="block text-sm font-medium tracking-wider uppercase mb-4" style={{ color: feat.preTextColor }}>
                     {feat.preText}
                   </span>
-                  <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#0A0A0A] leading-tight mb-6">
+                  <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-medium text-[#0A0A0A] leading-tight mb-6">
                     {feat.highlight.split(" ").map((word, wi, arr) => (
                       <span 
                         key={wi} 
