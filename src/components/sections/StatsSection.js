@@ -23,6 +23,7 @@ const STATS = [
   },
   {
     value: 0,
+    start: 100,
     suffix: "",
     label: "Wasted Cycles",
     desc: "Instantly disqualify bad fits. Focus 100% of your expert capacity on the deals you could win.",
@@ -49,7 +50,7 @@ export default function StatsSection() {
 
               {/* Large counter — "+0" style matching reference */}
               <p className="font-display text-4xl md:text-5xl font-bold text-white mb-2 leading-none">
-                +<Counter end={stat.value} prefix="" suffix={stat.suffix} duration={2000} />
+                +<Counter start={stat.start} end={stat.value} prefix="" suffix={stat.suffix} duration={2000} />
               </p>
 
               {/* Label */}
