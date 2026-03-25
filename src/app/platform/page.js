@@ -127,8 +127,8 @@ export default function PlatformPage() {
           {/* 2×2 GIF cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-16 md:mb-24">
             {PLATFORM_CARDS.map((card, i) => (
-              <AnimateOnScroll key={i} delay={i * 100}>
-                <div className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 text-center flex flex-col items-center hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+              <AnimateOnScroll key={i} delay={i * 100} className="h-full">
+                <div className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 text-center flex flex-col items-center hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 h-full">
                   <div className="w-24 h-24 md:w-28 md:h-28 relative mb-5 md:mb-6">
                     <Image src={card.gif} alt={card.title} fill unoptimized className="object-contain" />
                   </div>

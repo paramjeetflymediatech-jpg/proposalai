@@ -11,6 +11,8 @@ export default function Logo({ height = 36, className = "", light = false }) {
         sizes="(max-width: 768px) 120px, 160px"
         style={{ width: "auto", height: `${height}px` }}
         priority
+        unoptimized
+        quality={100}
       />
     </div>
   );

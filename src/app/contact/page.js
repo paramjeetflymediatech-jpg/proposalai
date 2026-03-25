@@ -58,46 +58,6 @@ const FEATURES = [
   },
 ];
 
-const CONTACT_INFO = [
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-    ),
-    label: "Our Office",
-    value: "123 Business Park, Ludhiana\nPunjab 141001, India",
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-      </svg>
-    ),
-    label: "Phone",
-    value: "+91 99999 99999",
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
-    label: "Email",
-    value: "info@proposalai.com",
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-    label: "Business Hours",
-    value: "Monday–Friday, 9 AM – 6 PM IST",
-  },
-];
-
 /* ─── Page ──────────────────────────────────────────── */
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -151,35 +111,23 @@ export default function ContactPage() {
 
          <section className="bg-primary py-2" id="contact-form">
         <div className="bg-white rounded-[2rem] mx-0 sm:mx-6 md:mx-10 my-6 px-6 sm:px-10 md:px-16 py-10 md:py-14 shadow-sm">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
             {/* Left — contact info + side image */}
             <AnimateOnScroll className=" lg:top-32">
               <span className="inline-block text-xs font-light uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full mb-6">
                 Let&apos;s Talk
               </span>
-              <h2 className="font-display text-3xl md:text-4xl font-light text-dark leading-tight mb-4">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-light text-dark leading-tight mb-6">
                 Get in Touch With{" "}
                 <span className="text-primary">ProposalAI</span>
               </h2>
-              <p className="text-gray-500 text-base leading-relaxed mb-10">
+              <p className="text-gray-500 text-xl leading-relaxed mb-10">
                 Fill in the form and our team will reach out within one business
                 day. We&apos;re here to help you win more deals.
               </p>
 
-              <div className="space-y-5 mb-10">
-                {CONTACT_INFO.map((item, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    <div className="w-10  rounded-xl bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <p className="text-sm font-light text-dark">{item.label}</p>
-                      <p className="text-sm text-gray-500 whitespace-pre-line">{item.value}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+             
 
               {/* <div className="rounded-2xl overflow-hidden shadow-md relative h-64 md:h-72">
                 <Image

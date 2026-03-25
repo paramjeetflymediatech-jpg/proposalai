@@ -10,6 +10,7 @@ const CATEGORIES = [
   { label: "Case Studies", activeCls: "bg-[#00B4D8] border-[#00B4D8] text-white" },
   { label: "Blog",         activeCls: "bg-[#00B4D8] border-[#00B4D8] text-white" },
   { label: "Insights",     activeCls: "bg-[#00B4D8] border-[#00B4D8] text-white" },
+  { label: "News",         activeCls: "bg-[#00B4D8] border-[#00B4D8] text-white" },
 ];
 
 
@@ -22,6 +23,7 @@ const POSTS = [
   { category: "Blog",         tag: "Productivity",  title: "The Search Trap: Why Old Proposal Libraries Are Failing Your Team",                 excerpt: "Are your proposal experts stuck acting as librarians? Find out why searchable databases aren't enough anymore.",                               date: "March 1, 2026",  readTime: "6 min read", href: "/blog/search-trap" },
   { category: "Insights",     tag: "Trends",    title: "2026 State of Proposal Management Report",                         excerpt: "Our annual survey of 500+ proposal professionals reveals how AI is reshaping the industry and what winning teams do differently.",                date: "January 20, 2026", readTime: "12 min read", href: "/insights/proposal-management-report" },
   { category: "Insights",     tag: "Strategy",  title: "The Human-AI Balance: When to Let AI Lead vs. Take Over",          excerpt: "Not everything should be automated. This guide helps proposal teams understand where AI adds the most value.",                                   date: "January 8, 2026",  readTime: "8 min read",  href: "/insights/human-ai-balance" },
+  { category: "News",         tag: "Release",   title: "ProposalAI v2.0: Introducing Advanced Knowledge Graphing",        excerpt: "We're excited to announce the launch of our most significant update yet, featuring real-time knowledge synthesis and enhanced security protocols.", date: "March 20, 2026",   readTime: "4 min read",  href: "/news/v2-launch" },
 ];
 
 export default function ResourcePage() {
@@ -34,8 +36,8 @@ export default function ResourcePage() {
       <section className="bg-white overflow-hidden" style={{ minHeight: "calc(100vh - 80px)" }}>
         <div className="flex h-full" style={{ minHeight: "calc(100vh - 80px)" }}>
 
-          {/* Left — content: full width on mobile, half on desktop */}
-          <div className="w-full md:w-1/2 flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-24 md:py-16">
+          {/* Left — content: width adjusted for larger images */}
+          <div className="w-full md:w-[40%] flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-24 md:py-16">
             <AnimateOnScroll>
               <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-dark mb-6 leading-[1.05]">
                 Master the Art<br />and Science{" "}
@@ -51,13 +53,13 @@ export default function ResourcePage() {
           </div>
 
           {/* Right — image: hidden on mobile, visible on md+ */}
-          <div className="hidden md:flex w-1/2 flex-col" style={{ paddingTop: "180px", paddingBottom: "80px" }}>
-            <div className="flex-1 overflow-hidden relative" style={{ borderRadius: "40rem 0 0 40rem" }}>
+          <div className="hidden md:flex w-[60%] flex-col" style={{ paddingTop: "150px", paddingBottom: "50px" }}>
+            <div className="flex-1 overflow-hidden relative" style={{ borderRadius: "30rem 0 0 30rem" }}>
               <Image 
                 src="/resources-hero-section.jpg" 
                 alt="Resource hero" 
                 fill 
-                className="object-cover object-top" 
+                className="object-cover" 
               />
             </div>
           </div>
@@ -71,7 +73,7 @@ export default function ResourcePage() {
           <div className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10">
             <AnimateOnScroll className="text-center mb-8 md:mb-10">
               <h2 className="font-display text-2xl md:text-4xl font-light text-dark mb-3">All Resources</h2>
-              <p className="text-gray-500 text-sm md:text-base">Browse case studies, blogs, and insights from the ProposalAI community.</p>
+              <p className="text-gray-500 text-sm md:text-base">Browse case studies, blogs, insights, and news from the ProposalAI community.</p>
               <div className="flex items-center justify-center gap-2 md:gap-3 mt-5 md:mt-6 flex-wrap">
                 {CATEGORIES.map((cat) => {
                   const isActive = activeCategory === cat.label;
@@ -140,7 +142,7 @@ export default function ResourcePage() {
 
             {/* Right — image: hidden on mobile */}
             <div className="hidden md:flex flex-1 justify-end">
-              <div className="w-full max-w-lg overflow-hidden rounded-xl relative aspect-square">
+              <div className="w-full max-w-3xl overflow-hidden rounded-xl relative aspect-[16/10]">
                 <Image
                   src="/resources-hero-section.jpg"
                   alt="Winning proposals team"

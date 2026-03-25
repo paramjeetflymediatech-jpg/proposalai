@@ -9,9 +9,9 @@ import Logo from "../ui/Logo";
 
 const SOLUTION_MENU = {
   useCases: [
-    { label: "RFP Responses",          desc: "Win more bids faster.",    href: "/solution/rfp-responses" },
-    { label: "RFP Evaluations",        desc: "Score bids consistently.", href: "/solution/grant-writing" },
-    { label: "Security Questionnaires",desc: "Answer SQs in minutes.",   href: "/solution/security" },
+    { label: "RFP",          desc: "Win more bids faster.",    href: "/solution/rfp-responses" },
+    { label: "GrantWriting",        desc: "Score bids consistently.", href: "/solution/grant-writing" },
+    { label: "Questionnaires",desc: "Answer SQs in minutes.",   href: "/solution/security" },
   ],
   industries: ["Technology", "Re-Insurance Brokers", "Consulting Firms"],
   features: [

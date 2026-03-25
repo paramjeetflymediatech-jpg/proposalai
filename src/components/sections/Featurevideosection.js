@@ -29,7 +29,7 @@ const STEPS = [
   },
   {
     step: "05",
-    image: null,
+    image: "/step5.png",
     title: "Final Export",
     desc: "Once validated, export your precision-crafted proposal in the required format, ready for final submission with total confidence.",
   },
@@ -121,10 +121,10 @@ export default function FeatureVideoSection() {
           </div>
 
           {/* RIGHT — sticky panel (hidden entirely on step 5) */}
-          {!isFinalStep && (
+          {true && (
             <div className="sticky top-24 self-start">
               <div className="relative w-full max-w-[440px] mx-auto aspect-[3/4]">
-                {STEPS.slice(0, 4).map((s, i) => (
+                {STEPS.map((s, i) => (
                   <div
                     key={i}
                     className={`absolute inset-0 transition-all duration-700 ease-in-out ${
@@ -137,7 +137,7 @@ export default function FeatureVideoSection() {
                       src={s.image}
                       alt={s.title}
                       fill
-                      className="object-contain"
+                      className={`object-contain ${s.step === "05" ? "mix-blend-multiply" : ""}`}
                       priority={i === 0}
                     />
                   </div>
