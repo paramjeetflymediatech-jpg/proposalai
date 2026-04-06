@@ -59,9 +59,9 @@ export default function FeatureSections() {
     // 0: Active (Large, Center/Top-Right)
     // 1: Next (Medium, Bottom-Left)
     // -1: Previous (Small, Bottom-Right)
-    
+
     const diff = videoIndex - activeIndex;
-    
+
     if (diff === 0) {
       // ACTIVE (Large, Center)
       return {
@@ -81,7 +81,7 @@ export default function FeatureSections() {
         width: 240,
         height: 240,
         top: "85%", // Positioned below Active
-        left: "100px", 
+        left: "100px",
         opacity: 0.7,
         zIndex: 20,
         scale: 0.9,
@@ -118,25 +118,24 @@ export default function FeatureSections() {
   };
 
   return (
-    <section className="bg-[#E8FDF5] relative">
+    <section className=" relative">
       {/* Intro Header */}
       <div className="pt-24 pb-12 text-center px-4">
         <AnimateOnScroll>
           <h2 className="font-display text-4xl sm:text-4xl md:text-5xl font-medium text-[#0A0A0A] leading-tight max-w-4xl mx-auto">
-            Respond Smarter,{" "}
-            <span className="text-[#00B4D8]">Not Just Faster.</span>
+            Respond Smarter, Not Just Faster.
           </h2>
         </AnimateOnScroll>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 relative">
-          
+
           {/* Left Column: Scrolling Content */}
           <div className="flex-1 space-y-[40vh] lg:space-y-[60vh] pb-[40vh] lg:pb-[20vh]">
             {FEATURES.map((feat, i) => (
-              <div 
-                key={i} 
+              <div
+                key={i}
                 ref={sectionRefs[i]}
                 className="flex flex-col justify-center min-h-[40vh] lg:min-h-[50vh]"
               >
@@ -144,16 +143,8 @@ export default function FeatureSections() {
                   <span className="block text-sm font-medium tracking-wider uppercase mb-4" style={{ color: feat.preTextColor }}>
                     {feat.preText}
                   </span>
-                  <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-medium text-[#0A0A0A] leading-tight mb-6">
-                    {feat.highlight.split(" ").map((word, wi, arr) => (
-                      <span 
-                        key={wi} 
-                        className={wi >= arr.length - feat.highlightCount ? "text-[#00B4D8]" : ""}
-                        style={wi >= arr.length - feat.highlightCount && feat.highlightColor !== "#00B4D8" ? { color: feat.highlightColor } : {}}
-                      >
-                        {word}{" "}
-                      </span>
-                    ))}
+                  <h3 className="font-display text-3xl sm:text-4xl md:text-3xl font-medium text-[#0A0A0A] leading-tight mb-6">
+                    {feat.highlight}
                   </h3>
                   <p className="text-gray-600 text-lg leading-relaxed">
                     {feat.body}
@@ -178,7 +169,7 @@ export default function FeatureSections() {
           {/* Right Column: Sticky Visuals with Previews */}
           <div className="hidden lg:block flex-1 sticky top-[10vh] h-[80vh] flex items-start justify-center">
             <div className="relative w-full h-full max-w-[550px]" style={{ minHeight: 760 }}>
-              
+
               {/* Video Spots */}
               {FEATURES.map((feat, i) => {
                 const style = getVideoStyles(i);

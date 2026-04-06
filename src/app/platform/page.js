@@ -74,15 +74,15 @@ export default function PlatformPage() {
         {/* Content Side */}
         <div className="relative w-full lg:w-1/2 px-6 sm:px-10 lg:pl-16 lg:pr-0 z-10 flex flex-col justify-center text-left lg:text-left items-start">
           <AnimateOnScroll>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-light text-dark leading-[1.08] mb-6 max-w-sm sm:max-w-md lg:max-w-lg">
-              The Smarter Way{" "}<span className="text-primary">to Write Winning Proposals</span>
+            <h1 className="text-2xl md:text-3xl font-semibold text-gray-900">
+              The Smarter Way to Write Winning Proposals
             </h1>
             <p className="text-gray-600 text-base sm:text-lg max-w-md mb-10 leading-relaxed">
-              Transform your collective knowledge into a competitive advantage. Respond faster, ensure accuracy, and close more deals. 
+              Transform your collective knowledge into a competitive advantage. Respond faster, ensure accuracy, and close more deals.
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <Link href="/contact" className="w-full sm:w-auto inline-flex items-center justify-between sm:justify-start gap-2.5 bg-primary text-white text-base font-semibold pl-6 pr-1.5 py-1.5 rounded-full shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all duration-200 group">
-                Request a Personalized Demo 
+                Request a Personalized Demo
                 <span className="w-9 h-9 rounded-full bg-white flex items-center justify-center flex-shrink-0 group-hover:translate-x-1 transition-transform">
                   <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -93,18 +93,19 @@ export default function PlatformPage() {
           </AnimateOnScroll>
         </div>
 
+
         {/* Image Side */}
-        <div 
+        <div
           className="relative w-full lg:w-1/2 mt-12 lg:mt-0 h-[300px] sm:h-[450px] lg:h-[600px] flex items-end justify-end pointer-events-none"
           style={{ mixBlendMode: "multiply" }}
         >
           <div className="relative w-full h-full max-w-2xl">
-            <Image 
-              src="/platfrom-home.png" 
-              alt="Platform hero" 
-              fill 
-              className="object-contain object-bottom lg:object-right-bottom" 
-              priority 
+            <Image
+              src="/platfrom-home.png"
+              alt="Platform hero"
+              fill
+              className="object-contain object-bottom lg:object-right-bottom"
+              priority
             />
           </div>
         </div>
@@ -120,7 +121,7 @@ export default function PlatformPage() {
             <p className="text-white/70 text-sm font-semibold uppercase tracking-widest mb-3">The Platform</p>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-white mb-5">The Intelligent Engine Behind Every Win</h2>
             <p className="text-white/70 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-             Centralize your knowledge, automate your workflow, and empower your experts with a platform built for the complexity of modern bids
+              Centralize your knowledge, automate your workflow, and empower your experts with a platform built for the complexity of modern bids
             </p>
           </AnimateOnScroll>
 
@@ -143,21 +144,20 @@ export default function PlatformPage() {
       </section>
 
       {/* ── 5. FAQ ───────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-24" style={{ background: "#F5F0E8" }}>
+      <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-12 lg:gap-20 items-start">
-            {/* Left — sticky */}
-            <div className="lg:sticky lg:top-28">
-              <AnimateOnScroll>
-                <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-light text-dark leading-tight mb-8">
-                  Frequently Asked Questions
-                </h2>
-                <Link href="/contact" className="inline-flex items-center bg-primary text-white text-sm font-semibold px-6 py-3 rounded-full shadow-md shadow-primary/25 hover:bg-primary/90 transition-all duration-200">
-                  Request a Personalized Demo
-                </Link>
-              </AnimateOnScroll>
-            </div>
-            {/* Right — accordion (client component) */}
+          <div className="text-center mb-12 md:mb-16">
+            <AnimateOnScroll>
+              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-light text-dark leading-tight mb-8">
+                Frequently Asked Questions
+              </h2>
+              <Link href="/contact" className="inline-flex items-center bg-primary text-white text-sm font-semibold px-8 py-3.5 rounded-full shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all duration-200">
+                Request a Personalized Demo
+              </Link>
+            </AnimateOnScroll>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
             <AnimateOnScroll delay={100}>
               <FaqAccordion />
             </AnimateOnScroll>
@@ -166,7 +166,7 @@ export default function PlatformPage() {
       </section>
 
       {/* ── 6. Capabilities — heading+subheading left, image right ─── */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
@@ -177,7 +177,7 @@ export default function PlatformPage() {
                 <span className="text-primary">  Start Winning</span>
               </h2>
               <p className="text-gray-500 text-base md:text-lg leading-relaxed mb-8">
-                 See how ProposalAI transforms your existing documents into your most powerful competitive advantage.
+                See how ProposalAI transforms your existing documents into your most powerful competitive advantage.
 
               </p>
               <Link

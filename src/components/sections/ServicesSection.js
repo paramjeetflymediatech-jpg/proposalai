@@ -42,8 +42,8 @@ export default function ProblemGrid() {
         {/* Header row */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-6">
           <AnimateOnScroll>
-            <h2 className="font-display text-4xl md:text-5xl font-medium text-dark">
-              You&apos;re Winning, But You Can&apos;t Scale
+            <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">
+              You're Winning, But You Can't Scale
             </h2>
           </AnimateOnScroll>
           <AnimateOnScroll delay={200}>

@@ -44,14 +44,14 @@ export default function SliderSection() {
   const slide = SLIDES[current];
 
   return (
-    <section className="py-20 bg-[#E8FDF5]">
+    <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <AnimateOnScroll>
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-12">
             <div>
-              <h2 className="font-display text-4xl md:text-5xl font-medium text-dark mb-4">
+              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">
                 Why Teams Switch to ProposalAI
               </h2>
               <p className="text-gray-500 text-lg max-w-xl">
@@ -138,11 +138,10 @@ export default function SliderSection() {
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
-                className={`rounded-full transition-all duration-300 ${
-                  i === current
+                className={`rounded-full transition-all duration-300 ${i === current
                     ? "w-8 h-2 bg-white"
                     : "w-2 h-2 bg-white/30 hover:bg-white/50"
-                }`}
+                  }`}
               />
             ))}
           </div>

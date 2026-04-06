@@ -9,30 +9,30 @@ import Logo from "../ui/Logo";
 
 const SOLUTION_MENU = {
   useCases: [
-    { label: "RFP",          desc: "Win more bids faster.",    href: "/solution/rfp-responses" },
-    { label: "GrantWriting",        desc: "Score bids consistently.", href: "/solution/grant-writing" },
-    { label: "Questionnaires",desc: "Answer SQs in minutes.",   href: "/solution/security" },
+    { label: "RFP", desc: "Win more bids faster.", href: "/solution/rfp-responses" },
+    { label: "GrantWriting", desc: "Score bids consistently.", href: "/solution/grant-writing" },
+    { label: "Questionnaires", desc: "Answer SQs in minutes.", href: "/solution/security" },
   ],
   industries: ["Technology", "Re-Insurance Brokers", "Consulting Firms"],
   features: [
-    "AI Content Library", "Smart Templates",    "Collaboration Hub",
-    "Analytics Dashboard","Compliance Tracking","Integration Suite",
-    "Auto-Formatting",    "Version Control",    "E-Signature", "Export Tools",
+    "AI Content Library", "Smart Templates", "Collaboration Hub",
+    "Analytics Dashboard", "Compliance Tracking", "Integration Suite",
+    "Auto-Formatting", "Version Control", "E-Signature", "Export Tools",
   ],
 };
 
 const COMPANY_MENU = [
   { label: "About Us", href: "/about" },
-  { label: "Careers",  href: "/careers" },
-  { label: "Press",    href: "/press" },
-  { label: "Contact",  href: "/contact" },
+  { label: "Careers", href: "/careers" },
+  { label: "Press", href: "/press" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [scrolled, setScrolled]           = useState(false);
-  const [openMenu, setOpenMenu]           = useState(null);
-  const [mobileOpen, setMobileOpen]       = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [openMenu, setOpenMenu] = useState(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState(null);
 
 
@@ -54,13 +54,13 @@ export default function Navbar() {
   const isPlatformPage = pathname === "/platform";
 
   if (scrolled) {
-    headerBg     = "#ffffff";
+    headerBg = "#ffffff";
     headerShadow = "0 4px 20px -5px rgba(0,0,0,0.10)";
   } else if (isPlatformPage) {
-    headerBg     = "#E8E0D0";
+    headerBg = "#E8E0D0";
     headerShadow = "none";
   } else {
-    headerBg     = "#ffffff";
+    headerBg = "#ffffff";
     headerShadow = "none";
   }
 
@@ -88,7 +88,7 @@ export default function Navbar() {
             {/* Desktop nav — only show on lg+ */}
             <nav className="hidden lg:flex items-center gap-0">
               {[
-                { label: "Home",     href: "/" },
+                { label: "Home", href: "/" },
                 { label: "Platform", href: "/platform" },
               ].map((l) => (
                 <Link
@@ -106,9 +106,8 @@ export default function Navbar() {
                 <button
                   onClick={() => toggleMenu("solution")}
                   style={{ color: openMenu === "solution" ? undefined : linkColor }}
-                  className={`flex items-center gap-1 px-5 py-2 text-base font-medium transition-colors ${
-                    openMenu === "solution" ? "text-primary" : "hover:opacity-70"
-                  }`}
+                  className={`flex items-center gap-1 px-5 py-2 text-base font-medium transition-colors ${openMenu === "solution" ? "text-primary" : "hover:opacity-70"
+                    }`}
                 >
                   Solution
                   <svg
@@ -133,9 +132,8 @@ export default function Navbar() {
                 <button
                   onClick={() => toggleMenu("company")}
                   style={{ color: openMenu === "company" ? undefined : linkColor }}
-                  className={`flex items-center gap-1 px-5 py-2 text-base font-medium transition-colors ${
-                    openMenu === "company" ? "text-primary" : "hover:opacity-70"
-                  }`}
+                  className={`flex items-center gap-1 px-5 py-2 text-base font-medium transition-colors ${openMenu === "company" ? "text-primary" : "hover:opacity-70"
+                    }`}
                 >
                   Company
                   <svg
@@ -300,14 +298,14 @@ export default function Navbar() {
 
           <nav className="flex flex-col gap-2">
             {[
-              { label: "Home",     href: "/" },
+              { label: "Home", href: "/" },
               { label: "Platform", href: "/platform" },
               { label: "Resource", href: "/resource" },
             ].map((l) => (
               <Link
                 key={l.label}
                 href={l.href}
-                className="px-4 py-4 text-xl font-bold text-gray-900 border-b border-gray-50 flex items-center justify-between"
+                className="px-4 py-4 text-xl font-normal text-gray-900 border-b border-gray-50 flex items-center justify-between"
                 onClick={() => setMobileOpen(false)}
               >
                 {l.label}
@@ -321,7 +319,7 @@ export default function Navbar() {
             <div className="border-b border-gray-50">
               <button
                 onClick={() => setMobileDropdown(mobileDropdown === "solution" ? null : "solution")}
-                className="w-full px-4 py-4 text-xl font-bold text-gray-900 flex items-center justify-between"
+                className="w-full px-4 py-4 text-xl font-normal text-gray-900 flex items-center justify-between"
               >
                 Solution
                 <svg className={`w-5 h-5 transition-transform ${mobileDropdown === "solution" ? "rotate-90 text-primary" : "opacity-30"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -332,7 +330,7 @@ export default function Navbar() {
                 <div className="bg-gray-50/50 rounded-2xl p-4 mb-4">
                   {SOLUTION_MENU.useCases.map((item) => (
                     <Link key={item.label} href={item.href} className="flex flex-col gap-1 p-2" onClick={() => setMobileOpen(false)}>
-                      <span className="text-base font-bold text-gray-900">{item.label}</span>
+                      <span className="text-base font-normal text-gray-900">{item.label}</span>
                       <span className="text-xs text-gray-500">{item.desc}</span>
                     </Link>
                   ))}
@@ -344,7 +342,7 @@ export default function Navbar() {
             <div className="border-b border-gray-50">
               <button
                 onClick={() => setMobileDropdown(mobileDropdown === "company" ? null : "company")}
-                className="w-full px-4 py-4 text-xl font-bold text-gray-900 flex items-center justify-between"
+                className="w-full px-4 py-4 text-xl font-normal text-gray-900 flex items-center justify-between"
               >
                 Company
                 <svg className={`w-5 h-5 transition-transform ${mobileDropdown === "company" ? "rotate-90 text-primary" : "opacity-30"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -354,7 +352,7 @@ export default function Navbar() {
               {mobileDropdown === "company" && (
                 <div className="bg-gray-50/50 rounded-2xl p-4 mb-4">
                   {COMPANY_MENU.map((item) => (
-                    <Link key={item.label} href={item.href} className="block text-base font-bold text-gray-900 p-2" onClick={() => setMobileOpen(false)}>
+                    <Link key={item.label} href={item.href} className="block text-base font-normal text-gray-900 p-2" onClick={() => setMobileOpen(false)}>
                       {item.label}
                     </Link>
                   ))}

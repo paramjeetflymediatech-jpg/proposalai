@@ -99,30 +99,20 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* ══════════════════════════════════════════════
-          SECTION 1 — HERO
-          Left: heading + contact info cards
-          Right: image with video-tour badge (future state)
-      ══════════════════════════════════════════════ */}
-      <section className="pt-24 pb-16 bg-gray-50">
-
-      </section>
-
-
-         <section className="bg-primary py-2" id="contact-form">
-        <div className="bg-white rounded-[2rem] mx-0 sm:mx-6 md:mx-10 my-6 px-6 sm:px-10 md:px-16 py-10 md:py-14 shadow-sm">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+         <section className="bg-primary py-2 mt-20" id="contact-form">
+        <div className="bg-white rounded-[2rem] mx-4 sm:mx-6 md:mx-10 my-4 sm:my-6 px-5 sm:px-10 md:px-16 py-8 sm:py-10 md:py-14 shadow-sm border border-gray-100">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
             {/* Left — contact info + side image */}
-            <AnimateOnScroll className=" lg:top-32">
-              <span className="inline-block text-xs font-light uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full mb-6">
+            <AnimateOnScroll className="text-center lg:text-left">
+              <span className="inline-block text-xs font-medium uppercase tracking-widest text-primary bg-primary/10 px-3 py-1.5 rounded-full mb-6 mx-auto lg:mx-0">
                 Let&apos;s Talk
               </span>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-light text-dark leading-tight mb-6">
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-dark leading-[1.1] mb-6">
                 Get in Touch With{" "}
                 <span className="text-primary">ProposalAI</span>
               </h2>
-              <p className="text-gray-500 text-xl leading-relaxed mb-10">
+              <p className="text-gray-500 text-lg md:text-xl leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0">
                 Fill in the form and our team will reach out within one business
                 day. We&apos;re here to help you win more deals.
               </p>
@@ -202,8 +192,8 @@ export default function ContactPage() {
                       <label className="block text-sm font-semibold text-dark mb-2">
                         Phone number
                       </label>
-                      <div className="flex gap-2">
-                        <span className="flex items-center px-3 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-dark whitespace-nowrap">
+                      <div className="flex items-center gap-2">
+                        <span className="flex items-center justify-center h-[50px] px-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-dark whitespace-nowrap shrink-0">
                           🇮🇳 +91
                         </span>
                         <input
@@ -211,7 +201,7 @@ export default function ContactPage() {
                           value={form.phone}
                           onChange={(e) => setForm({ ...form, phone: e.target.value })}
                           placeholder="98765 43210"
-                          className="flex-1 px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 text-dark placeholder-gray-400 transition-all"
+                          className="w-full h-[50px] px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 text-dark placeholder-gray-400 transition-all"
                         />
                       </div>
                     </div>
@@ -334,12 +324,12 @@ export default function ContactPage() {
           Blue bg → white rounded card → title + image
       ══════════════════════════════════════════════ */}
       <section className="bg-primary py-2">
-        <div className="bg-white rounded-[2rem] mx-0 sm:mx-6 md:mx-10 my-6 px-6 sm:px-10 md:px-16 py-10 md:py-14 shadow-sm">
-          <AnimateOnScroll>
-            <h2 className="font-display text-3xl md:text-4xl font-light text-dark text-center mb-5">
+        <div className="bg-white rounded-[2rem] mx-4 sm:mx-6 md:mx-10 my-4 sm:my-6 px-5 sm:px-10 md:px-16 py-8 sm:py-10 md:py-14 shadow-sm border border-gray-100">
+          <AnimateOnScroll className="text-center">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-light text-dark mb-5 leading-tight">
               Why ProposalAI?
             </h2>
-            <p className="text-gray-500 text-center text-base leading-relaxed max-w-2xl mx-auto mb-10">
+            <p className="text-gray-500 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
               We help sales teams win more deals with intelligent proposal
               automation — from creation to tracking, all in one platform.
             </p>
@@ -347,7 +337,7 @@ export default function ContactPage() {
 
           {/* Image placeholder — swap with <video> tag when asset is ready */}
           <AnimateOnScroll delay={100}>
-            <div className="rounded-2xl overflow-hidden shadow-lg max-w-3xl mx-auto relative h-64 md:h-[400px]">
+            <div className="rounded-2xl overflow-hidden shadow-xl max-w-3xl mx-auto relative h-56 sm:h-72 md:h-[400px] border border-gray-100">
               <Image
                 src="/platform-feature.jpg"
                 alt="ProposalAI in action"
@@ -362,7 +352,7 @@ export default function ContactPage() {
       {/* ══════════════════════════════════════════════
           SECTION 3 — FEATURES GRID  (3×2)
       ══════════════════════════════════════════════ */}
-      <section className="bg-gray-50 py-20 border-b border-gray-100">
+      <section className="bg-gray-50 py-12 sm:py-20 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-8">
           <AnimateOnScroll>
             <h2 className="font-display text-3xl md:text-4xl font-light text-dark text-center mb-4">

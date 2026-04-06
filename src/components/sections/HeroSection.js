@@ -1,22 +1,19 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function HeroSection() {
-  const videoRef = useRef(null);
-
-  const [isVideoFinished, setIsVideoFinished] = useState(false);
-
-  const handleTimeUpdate = () => {
-    if (videoRef.current && videoRef.current.currentTime >= 4) {
-      videoRef.current.pause();
-      setIsVideoFinished(true);
-    }
-  };
+  // const videoRef = useRef(null);
+  // const [isVideoFinished, setIsVideoFinished] = useState(false);
+  // const handleTimeUpdate = () => {
+  //   if (videoRef.current && videoRef.current.currentTime >= 4) {
+  //     videoRef.current.pause();
+  //     setIsVideoFinished(true);
+  //   }
+  // };
   return (
     <section className="relative min-h-[90vh] lg:min-h-screen flex items-center overflow-hidden bg-white pt-24 lg:pt-16">
-      
+
       {/* ── Floater Animation ────────────────────────── */}
       <style jsx>{`
         @keyframes float {
@@ -30,41 +27,27 @@ export default function HeroSection() {
       `}</style>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-12 lg:py-20 lg:grid lg:grid-cols-2 lg:items-center gap-12 lg:gap-8 flex flex-col">
-        
+
         {/* ── Title & Subtitle ──────────────────────── */}
         <div className="w-full text-center lg:text-left lg:col-start-1 lg:row-start-1">
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-medium text-dark leading-[1.1] mb-6">
-            Human-Led, AI-Driven{" "}<br className="hidden sm:block" />
-            Proposals That{" "}
-            <span className="text-primary italic">
-              Win More
-            </span>
+          <h1 className="text-2xl sm:text-4xl lg:text-[2.5rem] font-medium text-gray-900  mb-5">
+            Human-Led, AI-Driven<br />
+            Proposals That Win More
           </h1>
 
-          <h2 className="text-gray-500 text-lg md:text-xl font-medium mb-10 mx-auto lg:mx-0 max-w-lg leading-relaxed">
+          <p className="text-gray-400 text-[15px] font-light mb-10 mx-auto lg:mx-0 max-w-sm leading-[1.8] tracking-wide">
             Transform your manual efforts into a strategic advantage. Craft personalized, winning bids in a fraction of the time.
-          </h2>
+          </p>
         </div>
 
         {/* ── Right Side Animated Media ────────────────── */}
         <div className="w-full flex justify-center lg:justify-end lg:col-start-2 lg:row-span-2 order-2 lg:order-none">
-          <div 
+          <div
             className="relative w-full max-w-[600px] h-[550px] aspect-video rounded-2xl overflow-hidden border-4 border-white shadow-2xl"
             style={{ boxShadow: '0 0 60px rgba(255, 255, 255, 1)' }}
           >
-            {isVideoFinished ? (
-              <div className="relative w-full h-full animate-float">
-                <Image
-                  src="/paoploago-1-4.png"
-                  alt="ProposalAI Logo"
-                  fill
-                  className="object-contain"
-                  priority
-                />
-                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-4/5 h-4 bg-dark/5 blur-xl rounded-[100%] scale-x-75 animate-pulse" />
-              </div>
-            ) : (
-              <video
+            {/* Video commented out — showing image only */}
+            {/* <video
                 ref={videoRef}
                 src="/videos/Untitled video.mp4"
                 autoPlay
@@ -72,8 +55,17 @@ export default function HeroSection() {
                 playsInline
                 onTimeUpdate={handleTimeUpdate}
                 className="w-full h-full object-cover"
+              /> */}
+            <div className="relative w-full h-full animate-float">
+              <Image
+                src="/paoploago-1-4.png"
+                alt="ProposalAI Logo"
+                fill
+                className="object-contain"
+                priority
               />
-            )}
+              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-4/5 h-4 bg-dark/5 blur-xl rounded-[100%] scale-x-75 animate-pulse" />
+            </div>
           </div>
         </div>
 
