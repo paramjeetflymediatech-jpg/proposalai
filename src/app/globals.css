@@ -5,8 +5,8 @@
 @tailwind utilities;
 
 :root {
-  --font-syne: 'Poppins', 'Syne', system-ui, sans-serif;
-  --font-dm-sans: 'Poppins', 'DM Sans', system-ui, sans-serif;
+  --font-syne: var(--font-poppins), 'Syne', system-ui, sans-serif;
+  --font-dm-sans: var(--font-poppins), 'DM Sans', system-ui, sans-serif;
 }
 
 * {
@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  font-family: 'Poppins', var(--font-dm-sans);
+  font-family: var(--font-poppins), var(--font-dm-sans), sans-serif;
   color: #1a1a1a;
   background: #fff;
   -webkit-font-smoothing: antialiased;

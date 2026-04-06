@@ -34,10 +34,10 @@ const FEATURES = [
 
 export default function FeatureSections() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const sectionRefs = [useRef(null), useRef(null), useRef(null)];
+  const sectionRefs = useRef([]);
 
   useEffect(() => {
-    const observers = sectionRefs.map((ref, index) => {
+    const observers = sectionRefs.current.map((el, index) => {
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
@@ -46,12 +46,12 @@ export default function FeatureSections() {
         },
         { threshold: 0.6 }
       );
-      if (ref.current) observer.observe(ref.current);
+      if (el) observer.observe(el);
       return observer;
     });
 
     return () => observers.forEach((obs) => obs.disconnect());
-  }, [sectionRefs]);
+  }, []);
 
   // Map each video index to its current position/style based on activeIndex
   const getVideoStyles = (videoIndex) => {
@@ -136,7 +136,7 @@ export default function FeatureSections() {
             {FEATURES.map((feat, i) => (
               <div
                 key={i}
-                ref={sectionRefs[i]}
+                ref={(el) => (sectionRefs.current[i] = el)}
                 className="flex flex-col justify-center min-h-[40vh] lg:min-h-[50vh]"
               >
                 <div className="max-w-xl">

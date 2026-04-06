@@ -35,7 +35,7 @@ export default function HeroSection() {
             Proposals That Win More
           </h1>
 
-          <p className="text-gray-400 text-[15px] font-light mb-10 mx-auto lg:mx-0 max-w-sm leading-[1.8] tracking-wide">
+          <p className="text-gray-400 text-[15px] font-light mx-auto lg:mx-0 max-w-sm leading-[1.8] tracking-wide">
             Transform your manual efforts into a strategic advantage. Craft personalized, winning bids in a fraction of the time.
           </p>
         </div>

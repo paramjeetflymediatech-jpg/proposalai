@@ -14,7 +14,7 @@ const PROBLEMS = [
   },
   {
     title: "The Information Scavenger Hunt",
-    desc: "Your organization's brilliance is locked in silos — hidden in emails, old PDFs, or the minds of busy Subject Matter Experts. You waste hours reinventing the wheel because you can't find the perfect answer you wrote six months ago.",
+    desc: "Your organization&apos;s brilliance is locked in silos — hidden in emails, old PDFs, or the minds of busy Subject Matter Experts. You waste hours reinventing the wheel because you can&apos;t find the perfect answer you wrote six months ago.",
     icon: (
       <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -43,7 +43,7 @@ export default function ProblemGrid() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-6">
           <AnimateOnScroll>
             <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">
-              You're Winning, But You Can't Scale
+              You&apos;re Winning, But You Can&apos;t Scale
             </h2>
           </AnimateOnScroll>
           <AnimateOnScroll delay={200}>
