@@ -62,49 +62,55 @@ export default function PlatformPage() {
     <>
       {/* ── 1. Hero ─────────────────────────────────────────────────── */}
       <section
-        className="relative flex flex-col lg:flex-row items-center overflow-hidden"
+        className="relative flex flex-col lg:flex-row items-center overflow-hidden bg-white"
         style={{
-          background: "#E8E0D0",
           minHeight: "auto",
-          paddingTop: "100px",
-          paddingBottom: "60px",
+          paddingTop: "120px",
+          paddingBottom: "80px",
           isolation: "isolate",
         }}
       >
+        {/* Subtle background element */}
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-[#1A9CDA]/5 skew-x-[-12deg] translate-x-1/4 -z-10" />
+
         {/* Content Side */}
-        <div className="relative w-full lg:w-1/2 px-6 sm:px-10 lg:pl-16 lg:pr-0 z-10 flex flex-col justify-center text-left lg:text-left items-start">
+        <div className="relative w-full lg:w-1/2 px-6 sm:px-10 lg:pl-16 lg:pr-0 z-10 flex flex-col justify-center text-left items-start">
           <AnimateOnScroll>
-            <h1 className="text-2xl md:text-3xl font-semibold text-gray-900">
-              The Smarter Way to Write Winning Proposals
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              The Intelligent Platform
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-dark leading-[1.1] mb-6">
+              The Smarter Way to <br />
+              <span className="text-primary font-medium">Write Winning Proposals</span>
             </h1>
-            <p className="text-gray-600 text-base sm:text-lg max-w-md mb-10 leading-relaxed">
-              Transform your collective knowledge into a competitive advantage. Respond faster, ensure accuracy, and close more deals.
+            <p className="text-gray-600 text-lg sm:text-xl max-w-lg mb-10 leading-relaxed">
+              Transform your collective knowledge into a competitive advantage. Respond faster, ensure accuracy, and close more deals with AI built for precision.
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-4">
-              <Link href="/contact" className="w-full sm:w-auto inline-flex items-center justify-between sm:justify-start gap-2.5 bg-primary text-white text-base font-semibold pl-6 pr-1.5 py-1.5 rounded-full shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all duration-200 group">
+              <Link href="/contact" className="w-full sm:w-auto inline-flex items-center justify-between sm:justify-start gap-3 bg-dark text-white text-base font-semibold px-8 py-4 rounded-full shadow-xl hover:bg-gray-800 transition-all duration-300 group">
                 Request a Personalized Demo
-                <span className="w-9 h-9 rounded-full bg-white flex items-center justify-center flex-shrink-0 group-hover:translate-x-1 transition-transform">
-                  <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </span>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
               </Link>
             </div>
           </AnimateOnScroll>
         </div>
 
-
         {/* Image Side */}
         <div
-          className="relative w-full lg:w-1/2 mt-12 lg:mt-0 h-[300px] sm:h-[450px] lg:h-[600px] flex items-end justify-end pointer-events-none"
-          style={{ mixBlendMode: "multiply" }}
+          className="relative w-full lg:w-1/2 mt-12 lg:mt-0 h-[400px] sm:h-[500px] lg:h-[700px] flex items-center justify-center pointer-events-none px-6 sm:px-10"
         >
-          <div className="relative w-full h-full max-w-2xl">
+          <div className="relative w-full h-full max-w-3xl animate-float">
             <Image
               src="/platfrom-home.png"
               alt="Platform hero"
               fill
-              className="object-contain object-bottom lg:object-right-bottom"
+              className="object-contain drop-shadow-2xl"
               priority
             />
           </div>

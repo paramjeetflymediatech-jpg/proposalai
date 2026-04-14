@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import AnimateOnScroll from "../ui/AnimateOnScroll";
 
 const STEPS = [
   {
@@ -39,8 +40,6 @@ export default function FeatureVideoSection() {
   const [activeStep, setActiveStep] = useState(0);
   const rowRefs = useRef([]);
 
-  const isFinalStep = activeStep === STEPS.length - 1;
-
   useEffect(() => {
     const observers = rowRefs.current.map((el, i) => {
       if (!el) return null;
@@ -55,62 +54,61 @@ export default function FeatureVideoSection() {
   }, []);
 
   return (
-    <section className="bg-[#EDEAE4]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+    <section className="bg-white border-y border-gray-50">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-24 lg:py-32">
 
         {/* Heading */}
-        <div className="text-center mb-16 md:mb-20">
-          <span className="inline-block text-primary text-xs font-light uppercase tracking-widest mb-3 bg-primary/10 px-3 py-1 rounded-full">
-            How It Works
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-dark max-w-2xl mx-auto leading-tight mt-3">
-            From RFP to Winning Proposal —{" "}
-            <span className="text-primary">Automatically</span>
-          </h2>
+        <div className="text-center mb-20">
+          <AnimateOnScroll>
+            <span className="inline-block text-primary text-xs font-bold uppercase tracking-widest mb-4 bg-primary/5 px-4 py-1.5 rounded-full">
+              The Workflow
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-light text-dark max-w-3xl mx-auto leading-tight">
+              From RFP to Winning Proposal — <br />
+              <span className="text-primary italic">Entirely Automated</span>
+            </h2>
+          </AnimateOnScroll>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
           {/* LEFT — scrolling steps */}
-          <div>
+          <div className="space-y-4">
             {STEPS.map((s, i) => (
               <div
                 key={i}
                 ref={(el) => (rowRefs.current[i] = el)}
-                className="min-h-[55vh] flex flex-col justify-center py-6"
+                className="min-h-[50vh] flex flex-col justify-center py-10"
               >
-                <div className="flex items-start gap-5">
+                <div className="flex items-start gap-8">
                   {/* Number + connector */}
                   <div className="flex flex-col items-center flex-shrink-0 pt-1">
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center font-light text-sm
-                                    transition-all duration-500 ${
+                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-medium text-lg
+                                    transition-all duration-500 transform ${
                       activeStep === i
-                        ? "bg-primary text-white scale-110 shadow-lg shadow-primary/30"
-                        : "bg-white text-gray-400 border border-gray-200"
+                        ? "bg-dark text-white scale-110 shadow-xl"
+                        : "bg-gray-50 text-gray-300 border border-gray-100"
                     }`}>
                       {s.step}
                     </div>
                     {i < STEPS.length - 1 && (
-                      <div className={`w-0.5 h-28 mt-3 rounded-full transition-all duration-700 ${
-                        activeStep > i ? "bg-primary" : "bg-gray-200"
+                      <div className={`w-[2px] h-32 mt-4 rounded-full transition-all duration-700 ${
+                        activeStep > i ? "bg-primary" : "bg-gray-100"
                       }`} />
                     )}
                   </div>
 
                   {/* Text */}
-                  <div className={`transition-all duration-500 ${
-                    activeStep === i ? "opacity-100" : "opacity-35"
+                  <div className={`transition-all duration-700 ${
+                    activeStep === i ? "opacity-100 translate-x-0" : "opacity-30 -translate-x-2"
                   }`}>
-                    <span className="text-primary text-xs font-semibold uppercase tracking-widest mb-2 block">
-                      Step {s.step}
-                    </span>
-                    <h3 className={`font-display font-light leading-tight mb-3 transition-all duration-300 ${
-                      activeStep === i ? "text-2xl md:text-3xl text-dark" : "text-xl text-gray-500"
+                    <h3 className={`font-display font-medium leading-tight mb-4 transition-all duration-500 ${
+                      activeStep === i ? "text-3xl text-dark" : "text-2xl text-gray-400"
                     }`}>
                       {s.title}
                     </h3>
-                    <p className={`leading-relaxed text-base transition-all duration-300 ${
-                      activeStep === i ? "text-gray-600" : "text-gray-400 line-clamp-2"
+                    <p className={`leading-relaxed text-lg transition-all duration-500 ${
+                      activeStep === i ? "text-gray-600 font-normal" : "text-gray-400"
                     }`}>
                       {s.desc}
                     </p>
@@ -120,52 +118,48 @@ export default function FeatureVideoSection() {
             ))}
           </div>
 
-          {/* RIGHT — sticky panel (hidden entirely on step 5) */}
-          {true && (
-            <div className="sticky top-24 self-start">
-              <div className="relative w-full max-w-[440px] mx-auto aspect-[3/4]">
+          {/* RIGHT — sticky panel */}
+          <div className="sticky top-32 self-start hidden lg:block">
+            <div className="relative w-full max-w-[500px] mx-auto aspect-square glass-effect rounded-[40px] shadow-2xl p-8 overflow-hidden group">
+              {/* Animated accent gradient in background */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-primary/10 opacity-50 group-hover:scale-110 transition-transform duration-1000" />
+              
+              <div className="relative w-full h-full">
                 {STEPS.map((s, i) => (
                   <div
                     key={i}
-                    className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                    className={`absolute inset-0 transition-all duration-1000 cubic-bezier(0.16, 1, 0.3, 1) ${
                       activeStep === i
-                        ? "opacity-100 scale-100"
-                        : "opacity-0 scale-[0.97]"
+                        ? "opacity-100 scale-100 rotate-0"
+                        : "opacity-0 scale-95 rotate-1"
                     }`}
                   >
                     <Image
                       src={s.image}
                       alt={s.title}
                       fill
-                      className={`object-contain ${s.step === "05" ? "mix-blend-multiply" : ""}`}
+                      className="object-contain drop-shadow-2xl"
                       priority={i === 0}
                     />
                   </div>
                 ))}
               </div>
 
-              {/* Dots */}
-              <div className="flex items-center justify-center gap-2 mt-5">
+              {/* Step indicator */}
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center justify-center gap-2">
                 {STEPS.map((_, i) => (
-                  <button
+                  <div
                     key={i}
-                    onClick={() => {
-                      setActiveStep(i);
-                      rowRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "center" });
-                    }}
-                    className={`rounded-full transition-all duration-300 ${
+                    className={`rounded-full transition-all duration-500 ${
                       activeStep === i
-                        ? "bg-primary w-7 h-2"
-                        : "bg-primary/25 w-2 h-2 hover:bg-primary/50"
+                        ? "bg-dark w-8 h-1.5"
+                        : "bg-dark/10 w-1.5 h-1.5"
                     }`}
                   />
                 ))}
               </div>
-              <p className="text-center text-xs text-gray-400 mt-2 font-medium tracking-wide">
-                Step {STEPS[activeStep].step} of {STEPS.length}
-              </p>
             </div>
-          )}
+          </div>
 
         </div>
       </div>

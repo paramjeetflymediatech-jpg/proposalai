@@ -23,8 +23,6 @@ const SOLUTION_MENU = {
 
 const COMPANY_MENU = [
   { label: "About Us", href: "/about" },
-  { label: "Careers", href: "/careers" },
-  { label: "Press", href: "/press" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -57,7 +55,7 @@ export default function Navbar() {
     headerBg = "#ffffff";
     headerShadow = "0 4px 20px -5px rgba(0,0,0,0.10)";
   } else if (isPlatformPage) {
-    headerBg = "#E8E0D0";
+    headerBg = "#ffffffff";
     headerShadow = "none";
   } else {
     headerBg = "#ffffff";
