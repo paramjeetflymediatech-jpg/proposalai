@@ -1,5 +1,4 @@
 import HeroSection from "../components/sections/HeroSection";
-import StatsSection from "../components/sections/StatsSection";
 import FeatureSections from "../components/sections/FeatureSections";
 import ServicesSection from "../components/sections/ServicesSection";
 
@@ -13,7 +12,6 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <StatsSection />
       <FeatureSections />
       <ServicesSection />
       <SliderSection />
