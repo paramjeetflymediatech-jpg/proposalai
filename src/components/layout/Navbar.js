@@ -285,14 +285,19 @@ export default function Navbar() {
       {/* Mobile full-screen menu */}
       {mobileOpen && (
         <div className="fixed inset-0 z-50 bg-white flex flex-col pt-20 px-6 pb-8 overflow-y-auto">
-          <button
-            className="absolute top-6 right-6 p-2 rounded-full bg-gray-50 text-gray-900 border border-gray-100"
-            onClick={() => setMobileOpen(false)}
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+          <div className="absolute top-0 left-0 right-0 h-[72px] px-6 flex items-center justify-between border-b border-gray-50 bg-white">
+            <Link href="/" onClick={() => setMobileOpen(false)}>
+              <Logo height={28} />
+            </Link>
+            <button
+              className="p-2 rounded-full bg-gray-50 text-gray-900 border border-gray-100 hover:bg-gray-100 transition-colors"
+              onClick={() => setMobileOpen(false)}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
 
           <nav className="flex flex-col gap-2">
             {[

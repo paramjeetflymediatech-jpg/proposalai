@@ -107,7 +107,7 @@ export default function PlatformPage() {
         >
           <div className="relative w-full h-full max-w-3xl animate-float">
             <Image
-              src="/platfrom-home.png"
+              src="/platfrom-home1.png"
               alt="Platform hero"
               fill
               className="object-contain drop-shadow-2xl"

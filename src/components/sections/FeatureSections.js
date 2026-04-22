@@ -10,7 +10,7 @@ const FEATURES = [
     highlightColor: "#00B4D8",
     highlightCount: 3,
     body: "Generic pitches get ignored. ProposalAI automates the digging, finding the critical market trends and client details that make your response stand out. Write proposals backed by real research, not just templates.",
-    video: "/videos/video1.mp4",
+    image: "/features/Human Loop1.png",
   },
   {
     preText: "Knowledge Library",
@@ -19,7 +19,7 @@ const FEATURES = [
     highlightColor: "#10b981",
     highlightCount: 2,
     body: "Stop digging through shared drives. We turn your documents into a smart knowledge base that reads and organizes your content. Ask a question, and our platform instantly pulls the right insights from your past wins.",
-    video: "/videos/video2.mp4",
+    image: "/features/Corporate DNA1.png",
   },
   {
     preText: "AI Response Generation",
@@ -28,7 +28,7 @@ const FEATURES = [
     highlightColor: "#00B4D8",
     highlightCount: 4,
     body: "Generate a strong first draft in minutes, not days, so your experts can focus on strategy. Every AI recommendation includes confidence scoring and sources.",
-    video: "/videos/video3.mp4",
+    image: "/features/Intelligence1.png",
   },
 ];
 
@@ -53,14 +53,14 @@ export default function FeatureSections() {
     return () => observers.forEach((obs) => obs.disconnect());
   }, []);
 
-  // Map each video index to its current position/style based on activeIndex
-  const getVideoStyles = (videoIndex) => {
+  // Map each image index to its current position/style based on activeIndex
+  const getImageStyles = (imageIndex) => {
     // Spot mapping:
     // 0: Active (Large, Center/Top-Right)
     // 1: Next (Medium, Bottom-Left)
     // -1: Previous (Small, Bottom-Right)
 
-    const diff = videoIndex - activeIndex;
+    const diff = imageIndex - activeIndex;
 
     if (diff === 0) {
       // ACTIVE (Large, Center)
@@ -120,7 +120,7 @@ export default function FeatureSections() {
   return (
     <section className=" relative">
       {/* Intro Header */}
-      <div className="pt-24 pb-12 text-center px-4">
+      <div className="pb-12 text-center px-4 pt-12">
         <AnimateOnScroll>
           <h2 className="font-display text-4xl sm:text-4xl md:text-5xl font-medium text-[#0A0A0A] leading-tight max-w-4xl mx-auto">
             Respond Smarter, Not Just Faster.
@@ -129,7 +129,7 @@ export default function FeatureSections() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 relative">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 relative ">
 
           {/* Left Column: Scrolling Content */}
           <div className="flex-1 space-y-[40vh] lg:space-y-[60vh] pb-[40vh] lg:pb-[20vh]">
@@ -137,13 +137,13 @@ export default function FeatureSections() {
               <div
                 key={i}
                 ref={(el) => (sectionRefs.current[i] = el)}
-                className="flex flex-col justify-center min-h-[40vh] lg:min-h-[50vh]"
+                className="flex flex-col justify-center min-h-[40vh] lg:min-h-[50vh] "
               >
                 <div className="max-w-xl">
                   <span className="block text-sm font-medium tracking-wider uppercase mb-4" style={{ color: feat.preTextColor }}>
                     {feat.preText}
                   </span>
-                  <h3 className="font-display text-3xl sm:text-4xl md:text-3xl font-medium text-[#0A0A0A] leading-tight mb-6">
+                  <h3 className="font-display text-3xl sm:text-4xl md:text-3xl font-semibold text-[#0A0A0A] leading-tight mb-6">
                     {feat.highlight}
                   </h3>
                   <p className="text-gray-600 text-lg leading-relaxed">
@@ -151,14 +151,11 @@ export default function FeatureSections() {
                   </p>
                 </div>
 
-                {/* Mobile-only visual (simplified single video) */}
+                {/* Mobile-only visual (simplified single image) */}
                 <div className="mt-10 lg:hidden rounded-[2rem] overflow-hidden shadow-xl border-4 border-white aspect-square">
-                  <video
-                    src={feat.video}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
+                  <img
+                    src={feat.image}
+                    alt={feat.preText}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -170,9 +167,9 @@ export default function FeatureSections() {
           <div className="hidden lg:block flex-1 sticky top-[10vh] h-[80vh] flex items-start justify-center">
             <div className="relative w-full h-full max-w-[550px]" style={{ minHeight: 760 }}>
 
-              {/* Video Spots */}
+              {/* Image Spots */}
               {FEATURES.map((feat, i) => {
-                const style = getVideoStyles(i);
+                const style = getImageStyles(i);
                 return (
                   <div
                     key={i}
@@ -189,12 +186,9 @@ export default function FeatureSections() {
                       visibility: style.visibility,
                     }}
                   >
-                    <video
-                      src={feat.video}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
+                    <img
+                      src={feat.image}
+                      alt={feat.preText}
                       className="w-full h-full object-cover"
                     />
                   </div>

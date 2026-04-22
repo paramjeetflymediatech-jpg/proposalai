@@ -1,68 +1,49 @@
 "use client";
 import Counter from "../ui/Counter";
 
-// Counter data from client doc — exact copy
+// Stat data from the improved mockup
 const STATS = [
   {
-    value: 25,
+    value: 75,
+    prefix: "+",
     suffix: "%",
-    label: "More Bids",
-    desc: "Win more projects by reducing cycle times and responding to opportunities faster.",
+    label: "Faster Delivery",
   },
   {
-    value: 80,
-    suffix: "%",
-    label: "Faster Drafting Time",
-    desc: "Generate high quality, brand aligned and compliant responses in minutes rather than days.",
+    value: 12,
+    prefix: "+",
+    suffix: "k+",
+    label: "Bids Optimized",
   },
   {
-    value: 50,
-    suffix: "%",
-    label: "Time Reclaimed",
-    desc: "Spend half the time searching and double the time strategizing.",
-  },
-  {
-    value: 0,
-    start: 100,
-    suffix: "",
-    label: "Wasted Cycles",
-    desc: "Instantly disqualify bad fits. Focus 100% of your expert capacity on the deals you could win.",
-  },
-  {
-    value: 100,
-    suffix: "%",
-    label: "RFP Compliance",
-    desc: "Automatically map every response to the required structure to ensure total alignment and accuracy.",
+    value: 5,
+    prefix: "+",
+    suffix: "/5",
+    label: "Success Rate",
   },
 ];
 
 export default function StatsSection() {
   return (
-    /* Blue background section — rounded top corners matching reference */
-    <section
-      className="bg-primary py-14"
-      style={{ borderRadius: "40px 40px 0 0", marginTop: "-2px" }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-y-12 sm:gap-8 gap-x-8 text-center">
+    <section className="bg-white py-16 lg:py-14 border-b border-gray-50">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="grid grid-cols-3 gap-2 md:gap-0 md:divide-x divide-gray-100">
           {STATS.map((stat, i) => (
-            <div key={i} className="flex flex-col items-center">
-
-              {/* Large counter — "+0" style matching reference */}
-              <p className="font-display text-4xl md:text-5xl font-bold text-white mb-2 leading-none">
-                +<Counter start={stat.start} end={stat.value} prefix="" suffix={stat.suffix} duration={2000} />
+            <div 
+              key={i} 
+              className={`flex flex-col items-center text-center px-2 md:px-12`}
+            >
+              <p className="text-[1.5rem] sm:text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] text-[#0A0A0A] leading-none mb-2 sm:mb-4 flex items-baseline">
+                <Counter 
+                  end={stat.value} 
+                  prefix={stat.prefix}
+                  suffix={stat.suffix} 
+                  duration={2500} 
+                />
               </p>
-
-              {/* Label */}
-              <p className="text-white font-semibold text-xl mb-3">
+              <p className="text-[#6B7280] text-[10px] sm:text-xs md:text-lg lg:text-xl font-medium tracking-tight uppercase sm:normal-case">
                 {stat.label}
               </p>
-
-              {/* Description */}
-              <p className="text-white/70 text-md leading-relaxed max-w-[280px]">
-                {stat.desc}
-              </p>
-
             </div>
           ))}
         </div>

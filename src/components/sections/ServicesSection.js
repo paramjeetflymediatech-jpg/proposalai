@@ -36,7 +36,7 @@ const PROBLEMS = [
 
 export default function ProblemGrid() {
   return (
-    <section className="py-24 bg-white rounded-t-[32px]">
+    <section className="bg-white rounded-t-[32px]">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-8">
 
         {/* Header row */}
