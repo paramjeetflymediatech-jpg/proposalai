@@ -86,7 +86,7 @@ export default function HomePage() {
               <AnimateOnScroll delay={400} className="order-1 lg:order-2">
                 <div className="relative w-full aspect-video sm:aspect-[4/3] rounded-[20px] md:rounded-[30px] overflow-hidden shadow-2xl border-4 md:border-8 border-gray-50">
                   <Image
-                    src="/platform-feature.jpg"
+                    src="/logo/footer.jpg"
                     alt="ProposalAI Platform"
                     fill
                     className="object-cover"

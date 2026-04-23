@@ -5,9 +5,31 @@ import { useEffect, useState } from "react";
 
 export default function HeroSection() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [step, setStep] = useState(0);
 
   useEffect(() => {
     setIsLoaded(true);
+
+    let sequenceTimer;
+    const startSequence = () => {
+      // Piece 1
+      setTimeout(() => setStep(1), 1000);
+      // Piece 2
+      setTimeout(() => setStep(2), 2000);
+      // Piece 3
+      setTimeout(() => setStep(3), 3000);
+
+      // Restart after 5 seconds of showing all pieces
+      sequenceTimer = setTimeout(() => {
+        setStep(0);
+        startSequence();
+      }, 6000); // 3s (to get to all 3) + 5s (pause)
+    };
+
+    startSequence();
+    return () => {
+      clearTimeout(sequenceTimer);
+    };
   }, []);
 
   return (
@@ -18,16 +40,6 @@ export default function HeroSection() {
       <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-blue-50/50 blur-[100px] rounded-full -z-10" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 flex flex-col items-center">
-
-        {/* ── Top Badge ───────────────────────────────────── */}
-        {/* <div className={`mb-8 transform transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFF5F2] border border-[#FFE4DC] shadow-sm">
-            <span className="text-lg">✨</span>
-            <span className="text-[13px] font-bold tracking-wider uppercase text-[#8B4D3B]">
-              Next-Gen Proposal Engineering
-            </span>
-          </div>
-        </div> */}
 
         <div className="w-full lg:grid lg:grid-cols-12 lg:items-center gap-12 xl:gap-20 flex flex-col">
 
@@ -61,19 +73,45 @@ export default function HeroSection() {
 
           {/* ── Right Column: Interactive Visuals ────────── */}
           <div className="lg:col-span-6 relative perspective-1000 order-2">
-            <div className={`relative w-full aspect-[1.1/1] transition-all duration-1000 delay-200 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-              
-              {/* Main Media Core */}
-              <div className="w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl border-2 border-white/50 relative">
-                <Image
-                  src="/hero-modern-office1.png"
-                  alt="AI Proposal Platform Interface"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent pointer-events-none" />
-                <div className="absolute inset-0 bg-black/5 mix-blend-overlay pointer-events-none" />
+            <div className={`relative w-full aspect-square transition-all duration-1000 delay-200 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+
+              {/* Animation Container */}
+              <div className="relative w-full h-full">
+
+                {/* Individual Pieces */}
+                {/* 3.png - Top Left */}
+                <div className={`absolute top-[8%] left-[8%] w-[45%] h-[45%] transition-all duration-1000 ease-out 
+                  ${step >= 1 && step < 4 ? 'opacity-100 translate-x-0 translate-y-0 scale-100' : 'opacity-0 -translate-x-10 -translate-y-10 scale-90'}`}>
+                  <Image src="/logo/3.png" alt="Piece 3" fill className="object-contain" />
+                </div>
+
+                {/* 2.png - Top Right */}
+                <div className={`absolute top-[8%] right-[8%] w-[45%] h-[45%] transition-all duration-1000 ease-out delay-300
+                  ${step >= 2 && step < 4 ? 'opacity-100 translate-x-0 translate-y-0 scale-100' : 'opacity-0 translate-x-10 -translate-y-10 scale-90'}`}>
+                  <Image src="/logo/2.png" alt="Piece 2" fill className="object-contain" />
+                </div>
+
+                {/* 1.png - Bottom */}
+                <div className={`absolute bottom-[8%] left-[27.5%] w-[45%] h-[45%] transition-all duration-1000 ease-out delay-600
+                  ${step >= 3 && step < 4 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-90'}`}>
+                  <Image src="/logo/1.png" alt="Piece 1" fill className="object-contain" />
+                </div>
+
+                {/* Full Image */}
+                <div className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out
+                  ${step === 4 ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-95 rotate-3 pointer-events-none'}`}>
+                  <div className={`relative w-full h-full bg-black/5 rounded-[3rem] overflow-hidden backdrop-blur-sm border border-white/20 shadow-2xl ${step === 4 ? 'animate-float' : ''}`}>
+                    <Image src="/logo/full.png" alt="Full Proposal Platform" fill className="object-contain p-4" priority />
+
+                    {/* Glowing effect for the full image */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent animate-pulse" />
+                  </div>
+                </div>
+
+                {/* Decorative floating elements when full is shown */}
+                <div className={`absolute -top-4 -right-4 w-24 h-24 bg-primary/10 blur-2xl rounded-full transition-opacity duration-1000 ${step === 4 ? 'opacity-100' : 'opacity-0'}`} />
+                <div className={`absolute -bottom-8 -left-8 w-32 h-32 bg-blue-400/10 blur-3xl rounded-full transition-opacity duration-1000 ${step === 4 ? 'opacity-100' : 'opacity-0'}`} />
+
               </div>
             </div>
           </div>
