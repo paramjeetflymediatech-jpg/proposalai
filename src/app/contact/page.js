@@ -339,7 +339,7 @@ export default function ContactPage() {
           <AnimateOnScroll delay={100}>
             <div className="rounded-2xl overflow-hidden shadow-xl max-w-3xl mx-auto relative h-56 sm:h-72 md:h-[400px] border border-gray-100">
               <Image
-                src="/platform-feature.jpg"
+                src="/logo/6.jpg"
                 alt="ProposalAI in action"
                 fill
                 className="object-cover block"
