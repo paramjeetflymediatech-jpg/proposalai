@@ -111,7 +111,7 @@ export default function PlatformPage() {
                 src="/platfrom-home1.png"
                 alt="Platform hero"
                 fill
-                className="object-contain drop-shadow-2xl"
+                className=" drop-shadow-2xl rounded-2xl"
                 priority
               />
             </div>
@@ -207,7 +207,7 @@ export default function PlatformPage() {
             <AnimateOnScroll delay={150}>
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/platform-feature.jpg"
+                  src="/logo/6.jpg"
                   alt="ProposalAI in action"
                   fill
                   className="object-cover"

@@ -120,7 +120,7 @@ export default function ResourcePage() {
           </div>
           <div className="flex-1 relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="/resources-hero-section.jpg"
+              src="/logo/4.jpg"
               alt="Resource hero"
               fill
               className="object-cover"
@@ -238,7 +238,7 @@ export default function ResourcePage() {
             <div className="hidden md:flex flex-1 justify-end">
               <div className="w-full max-w-3xl overflow-hidden rounded-xl relative aspect-[16/10]">
                 <Image
-                  src="/resources-hero-section.jpg"
+                  src="/logo/5.jpg"
                   alt="Winning proposals team"
                   fill
                   className="object-cover"
