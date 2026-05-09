@@ -40,7 +40,7 @@ const PAGE_DATA = {
       subtitle: "Join the teams cutting RFP turnaround time from weeks to days.",
       btn: "Book a Demo",
     },
-    video: "/videos/business.mp4",
+    video: "/videos/proposalai1.mp4",
   },
 
   "security": {
@@ -78,7 +78,7 @@ const PAGE_DATA = {
       subtitle: "Book a demo to see how much time you can cut in answering questionnaires annually.",
       btn: "Book a Personalized Demo",
     },
-    video: "/videos/business.mp4",
+    video: "/videos/proposalai.mp4",
   },
 
   "grant-writing": {
