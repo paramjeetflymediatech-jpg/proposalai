@@ -78,7 +78,7 @@ const PAGE_DATA = {
       subtitle: "Book a demo to see how much time you can cut in answering questionnaires annually.",
       btn: "Book a Personalized Demo",
     },
-    video: "/videos/proposalai.mp4",
+    video: "/videos/proposalai2.mp4",
   },
 
   "grant-writing": {
