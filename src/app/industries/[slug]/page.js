@@ -105,26 +105,25 @@ export default function IndustryDetailPage({ params }) {
       </section>
 
       <section className="py-8 px-12 mt-[20px] flex flex-col border border-gray bg-gray-200 mx-auto max-w-[1290px] min-width-[1290px]  rounded-[20px] gap-6">
-        <h1 className="text-4xl font-bold text-[#3EC2F3] max-w-[789px]">Your Challenge</h1>
-        <p className="font-normal text-base  ">Creating detailed, tailored proposals for complex enterprise RFPs, and meticulously completing lengthy security questionnaires or due diligence requests, takes too much time away from product development and sales. Quickly finding specific technical details, security controls, or past solution descriptions is a constant struggle.</p>
-        <h1 className="text-4xl font-bold text-[#3EC2F3]">Our Solution
+        <h1 className="text-4xl font-bold text-[#3EC2F3] max-w-[789px]">{hero.titleHighlight}</h1>
+        <p className="font-normal text-base  ">{hero.subtitle}</p>
+        <h1 className="text-4xl font-bold text-[#3EC2F3]">{hero.listHeadinfg}
         </h1>
         <ul className="flex flex-col gap-4 text-base font-normal  list-disc pl-6">
-          <li>Upload all your past proposals, technical documents, security documentation, compliance reports, and marketing collateral to create a unified knowledge base.</li>
-          <li>Upload all your past proposals, technical documents, security documentation, compliance reports, and marketing collateral to create a unified knowledge base.</li>
-          <li>Upload all your past proposals, technical documents, security documentation, compliance reports, and marketing collateral to create a unified knowledge base.</li>
-          <li>Upload all your past proposals, technical documents, security documentation, compliance reports, and marketing collateral to create a unified knowledge base.</li>
+          {hero.list?.map((f, j) => (
+            <li key={j}>{f}</li>
+          ))}
+         
         </ul>
       </section>
       <section className="py-8 px-12 mt-[20px] flex flex-col   mx-auto max-w-[1290px] min-width-[1290px]  rounded-[20px] gap-6">
         
-        <h1 className="text-3xl font-bold text-[#3EC2F3]">Impact
+        <h1 className="text-3xl font-bold text-[#3EC2F3]">{hero.list2Headinfg}
         </h1>
         <ul className="flex flex-col gap-4 text-base font-normal  list-disc pl-6">
-          <li>Upload all your past proposals, technical documents, security documentation, compliance reports, and marketing collateral to create a unified knowledge base.</li>
-          <li>Upload all your past proposals, technical documents, security documentation, compliance reports, and marketing collateral to create a unified knowledge base.</li>
-          <li>Upload all your past proposals, technical documents, security documentation, compliance reports, and marketing collateral to create a unified knowledge base.</li>
-          <li>Upload all your past proposals, technical documents, security documentation, compliance reports, and marketing collateral to create a unified knowledge base.</li>
+          {hero.list2?.map((f, j) => (
+            <li key={j}>{f}</li>
+          ))}
         </ul>
       </section>
     </>

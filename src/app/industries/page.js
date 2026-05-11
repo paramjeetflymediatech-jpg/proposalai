@@ -11,12 +11,60 @@ export const metadata = {
 
 
 const INDUSTRIES = [
-  { name: "Technology & SaaS",      icon: "💻" },
-  { name: "Re-Insurance Brokers",   icon: "🏛️" },
-  { name: "Consulting Firms",       icon: "📊" },
-  { name: "Healthcare",             icon: "🏥" },
-  { name: "Financial Services",     icon: "💰" },
-  { name: "Government Contracting", icon: "🏛️" },
+  {
+    tag: "Technology",
+    title: "Technology & SaaS",
+    desc: "Scale your RFP and security questionnaire responses with AI built for complex tech stacks.",
+    features: ["Technical RFP automation", "Security questionnaire library", "Feature roadmap alignment"],
+    image: "/industry/top-sas.png",
+    color: "from-blue-500 to-indigo-600",
+    href: "/industries/technology",
+  },
+  {
+    tag: "Insurance",
+    title: "Re-Insurance Brokers",
+    desc: "Master complexity and accelerate placements with tailored proposal solutions.",
+    features: ["Market intelligence synthesis", "Placement data analysis", "Compliant proposal drafting"],
+    image: "/content/re.png",
+    color: "from-cyan-500 to-blue-600",
+    href: "/industries/re-insurance-brokers",
+  },
+  {
+    tag: "Consulting",
+    title: "Consulting Firms",
+    desc: "Craft insightful proposals that convey value and capture wins for your firm.",
+    features: ["Methodology integration", "Case study matching", "Value proposition crafting"],
+    image: "/consult/b.png",
+    color: "from-emerald-500 to-teal-600",
+    href: "/industries/management-firms",
+  },
+  {
+    tag: "Healthcare",
+    title: "Healthcare",
+    desc: "Streamline medical RFPs and compliance documentation with secure AI solutions.",
+    features: ["Regulatory compliance checks", "Medical terminology support", "Secure data handling"],
+    image: "/step1.png",
+    color: "from-red-500 to-rose-600",
+    href: "/contact",
+  },
+  {
+    tag: "Finance",
+    title: "Financial Services",
+    desc: "Accelerate due diligence and investment proposals with accuracy and speed.",
+    features: ["Due diligence automation", "Financial data integration", "Audit-ready responses"],
+    image: "/step2.png",
+    color: "from-amber-500 to-orange-600",
+    href: "/contact",
+  },
+  {
+    tag: "Government",
+    title: "Government Contracting",
+    desc: "Win more public sector contracts with rigorous compliance and high-quality drafts.",
+    features: ["Strict format compliance", "Cross-departmental collaboration", "Historical bid analysis"],
+    image: "/step3.png",
+    color: "from-gray-700 to-slate-900",
+    href: "/contact",
+  },
 ];
 
 export default function IndustriesPage() {
@@ -67,7 +115,7 @@ export default function IndustriesPage() {
                   </h2>
                   <p className="text-gray-600 text-lg leading-relaxed mb-8">{uc.desc}</p>
                   <ul className="space-y-3 mb-8">
-                    {uc.features.map((f, j) => (
+                    {uc.features?.map((f, j) => (
                       <li key={j} className="flex items-center gap-3 text-gray-700">
                         <span className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                           <svg className="w-3 h-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
