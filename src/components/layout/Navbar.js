@@ -13,7 +13,11 @@ const SOLUTION_MENU = {
     { label: "GrantWriting", desc: "Score bids consistently.", href: "/solution/grant-writing" },
     { label: "Questionnaires", desc: "Answer SQs in minutes.", href: "/solution/security" },
   ],
-  industries: ["Technology", "Re-Insurance Brokers", "Consulting Firms"],
+  industries: [
+    { label: "Technology", href: "/industries/technology" },
+    { label: "Re-Insurance Brokers", href: "/industries/re-insurance-brokers" },
+    { label: "Consulting Firms", href: "/industries/management-firms" },
+  ],
   features: [
     "AI Content Library", "Smart Templates", "Collaboration Hub",
     "Analytics Dashboard", "Compliance Tracking", "Integration Suite",
@@ -215,8 +219,8 @@ export default function Navbar() {
                 <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Industries</h4>
                 <ul className="space-y-2">
                   {SOLUTION_MENU.industries.map((ind) => (
-                    <li key={ind}>
-                      <Link href="#" className="text-sm text-gray-300 hover:text-white transition-colors" onClick={() => setOpenMenu(null)}>{ind}</Link>
+                    <li key={ind.key}>
+                      <Link href={ind.href} className="text-sm text-gray-300 hover:text-white transition-colors" onClick={() => setOpenMenu(null)}>{ind.label}</Link>
                     </li>
                   ))}
                 </ul>
