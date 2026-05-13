@@ -1,7 +1,7 @@
 import HeroSection from "../components/sections/HeroSection";
 import FeatureSections from "../components/sections/FeatureSections";
 import ServicesSection from "../components/sections/ServicesSection";
-
+import StatsSection from "../components/sections/StatsSection";
 import SliderSection from "@/components/sections/SliderSection";
 import FeaturedSection from "@/components/sections/Featuredsection";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
@@ -12,6 +12,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <StatsSection />
       <FeatureSections />
       <ServicesSection />
       <SliderSection />

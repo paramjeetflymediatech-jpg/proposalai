@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-export default function Counter({ start = 0, end, duration = 2000, prefix = "+", suffix = "" }) {
+export default function Counter({ start = 0, end, duration = 2000, prefix = "", suffix = "" }) {
   const [count, setCount] = useState(start);
   const ref = useRef(null);
   const started = useRef(false);
